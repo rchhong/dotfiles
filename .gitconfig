@@ -1,0 +1,5 @@
+[user]
+	email = ryanchhong@gmail.com
+	name = Ryan Chhong
+[alias]
+	tree = log --all --decorate --oneline --graph
