@@ -3,7 +3,8 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/ryan/.oh-my-zsh
-export PATH=/home/ryan/flutter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ryan/miniconda3/bin:
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=/home/ryan/flutter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ryan/miniconda3/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/tools:$ANDROID_HOME/emulator
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
