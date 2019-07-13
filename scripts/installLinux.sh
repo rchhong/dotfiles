@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Install zsh
 apt install zsh
 # Set zsh as defaut shell
