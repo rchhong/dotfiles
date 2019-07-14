@@ -1,6 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+source progressBar.sh 
 
 DOTFILES=$HOME/.dotfiles
+
+
+echo -e "Creating symlinks"
 
 #Symbolic Link all config files
 toSymlink=(
@@ -12,10 +17,14 @@ toSymlink=(
 	.vimrc
 	.zshrc
 )
+let n=1
+let total=8
 for i in "${toSymlink[@]}"; do
+	progressBar $n $total "Symlinking $i"
 	ln -sf $DOTFILES/link/$i ~/$i
+	((n++))
 done
 
 #Symbolic link ./.config
-
+progressBar $n $total "Symlinking .config"
 ln -sf $DOTFILES/link/.config/* ~/.config/
