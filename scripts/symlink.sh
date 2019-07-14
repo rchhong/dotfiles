@@ -17,7 +17,7 @@ toSymlink=(
 	.vimrc
 	.zshrc
 )
-let n=1
+let n=0
 let total=8
 for i in "${toSymlink[@]}"; do
 	progressBar $n $total "Symlinking $i"
@@ -28,3 +28,4 @@ done
 #Symbolic link ./.config
 progressBar $n $total "Symlinking .config"
 ln -sf $DOTFILES/link/.config/* ~/.config/
+progressBar $total $total "Done!"
