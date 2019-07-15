@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source progressBar.sh 
+source $DOTFILES/scripts/Shared/progressBar.sh 
 
 DOTFILES=$HOME/.dotfiles
 
@@ -18,7 +18,7 @@ toSymlinkFiles=(
 	.zshrc
 )
 let n=0
-let total=10
+let total=${toSymlinkFiles[@]}+${toSymlinkDirectories[@]} 
 for i in "${toSymlinkFiles[@]}"; do
 	progressBar $n $total "Symlinking $i"
 	ln -sf $DOTFILES/link/$i ~/$i
