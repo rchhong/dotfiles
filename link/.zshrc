@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=/home/ryan/flutter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ryan/miniconda3/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/tools:$ANDROID_HOME/emulator
+export PATH=/$HOME/flutter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/$HOME/miniconda3/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/tools:$ANDROID_HOME/emulator
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -93,22 +93,23 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias oldvim="\\vim"
 alias vim='nvim'
 alias vi='nvim'
-alias lock='/home/ryan/lock.sh'
-alias colors='/home/ryan/color.sh'
-alias spicetify='/home/ryan/spicetify/spicetify'
+alias lock='/$HOME/lock.sh'
+alias colors='/$HOME/color.sh'
+alias spicetify='/$HOME/spicetify/spicetify'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ryan/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/ryan/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ryan/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/ryan/miniconda3/bin:$PATH"
+        export PATH="/$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup

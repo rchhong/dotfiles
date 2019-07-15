@@ -2,7 +2,14 @@
 This repository contains my various configuration files
 
 ## Prerequesites
-Prior to using the install script, it is recommended to install vanilla GNOME to remove the Ubuntu branding 
+
+Prior to using the install script, it is required to install git.
+
+```
+sudo apt-get install git
+```
+
+In addition, it is recommended to install vanilla GNOME to remove the Ubuntu branding 
 
 ```
 sudo apt install gnome-session

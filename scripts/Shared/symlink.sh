@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $DOTFILES/scripts/Shared/progressBar.sh 
+source progressBar.sh 
 
 DOTFILES=$HOME/.dotfiles
 
