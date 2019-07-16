@@ -34,8 +34,7 @@ conda install -c conda-forge jupyterlab
 pip install jupyterthemes
 jt -t monokai
 
-# pandas, numpy, and others stuff
+# pandas
 conda install pandas
-pip install -U matplotlib
 
 
