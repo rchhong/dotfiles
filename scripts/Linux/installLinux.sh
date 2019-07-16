@@ -1,6 +1,7 @@
 #!/bin/bash
-
 source $DOTFILES/scripts/Shared/progressBar.sh 
+
+DOTFILES=$HOME/.dotfiles
 
 read -p "Has GNOME been separately installed (Y/N)? " -n 1 -r
 echo

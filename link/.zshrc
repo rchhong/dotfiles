@@ -98,7 +98,7 @@ alias vim='nvim'
 alias vi='nvim'
 alias lock='/$HOME/lock.sh'
 alias colors='/$HOME/color.sh'
-alias spicetify='/$HOME/spicetify/spicetify'
+alias fixrefind="sudo refind-mkdefault"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
