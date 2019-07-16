@@ -62,3 +62,10 @@ The following are installed
 * React Native CLI
 * pandas
 * Jupyter Notebook + Theming Engine
+* nodemon
+* express
+* async
+* pug
+* handlebars
+* sass
+* mup

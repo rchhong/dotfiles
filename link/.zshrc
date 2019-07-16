@@ -60,7 +60,12 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  command-not-found
   git
+  meteor
+  npm
+  pip
+  sudo
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -99,6 +104,8 @@ alias vi='nvim'
 alias lock='/$HOME/lock.sh'
 alias colors='/$HOME/color.sh'
 alias fixrefind="sudo refind-mkdefault"
+alias sz="source ~/.zshrc"
+alias dlaudio="youtube-dl --extract-audio --audio-format mp3 -o '~/Music/%(artist)s - %(title)s.%(ext)s'"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
