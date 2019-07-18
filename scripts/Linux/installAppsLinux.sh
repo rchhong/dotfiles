@@ -28,10 +28,6 @@ echo "Remember to set up VS Code Settings Sync and fix powerline font\n"
 wget -O ~/Downloads/temp/teamviewer.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 sudo apt install ~/Downloads/temp/teamviewer.deb
 
-# Install Tomahawk
-wget -O ~/Downloads/temp/harmony.deb https://github.com/vincelwt/harmony/releases/download/v0.9.1/harmony-0.9.1-x64.deb
-sudo apt install ~/Downloads/temp/harmony.deb
-
 # Install vlc
 sudo apt install vlc
 
@@ -54,3 +50,6 @@ EOL
 sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
 wget -O ~/Downloads/temp/androidstudio.tar.gz https://dl.google.com/dl/android/studio/ide-zips/3.4.2.0/android-studio-ide-183.5692245-linux.tar.gz
 sudo tar -xzf ~/Downloads/temp/androidstudio.tar.gz -C /opt
+
+# Clean up
+rm -r temp

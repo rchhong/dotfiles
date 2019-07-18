@@ -1,0 +1,13 @@
+//META{"name":"Rem","description":"Generated Automatically using akashrug.github.io/theme/ Theme base made by DevilBro","author":"themer, DevilBro","version":"1.0.4"}*//
+
+@import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css);
+
+:root {
+	--transparencycolor: 0,0,0;		/* default: 0,0,0 */
+	--transparencyalpha: 0.2;		/* default: 0.15 */
+	--messagetransparency: 0.5;		/* default: 0.5 */
+	--memberlistransparency: 0.2;		/* default: 0 (additional darkness for member list can be changed in case a bright background makes the list hard to read)*/
+	--accentcolor: rgb(235,149,196); 		/* default: 190,78,180 discord: 114,137,218 bd-blue: 58,113,193*/
+	--background: url("https://i.imgur.com/xDFJ3Db.jpg"); /* replace the link in url() with your own direct image link to change the background */
+	--backdrop: rgba(0,0,0,0.4);	/* default: rgba(0,0,0,0.4) can also be changed to an image like --background */
+}

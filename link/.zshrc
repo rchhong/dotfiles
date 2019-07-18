@@ -106,6 +106,7 @@ alias colors='/$HOME/color.sh'
 alias fixrefind="sudo refind-mkdefault"
 alias sz="source ~/.zshrc"
 alias dlaudio="youtube-dl --extract-audio --audio-format mp3 -o '~/Music/%(artist)s - %(title)s.%(ext)s'"
+alias dlvideo="youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' -o '~/Videos/%(artist)s - %(title)s.%(ext)s'"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
