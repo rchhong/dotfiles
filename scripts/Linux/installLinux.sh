@@ -9,7 +9,6 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
 	[[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
 fi
-echo "$ZSH_VERSION"
 
 echo "Installing terminal modifications for Linux"
 # Install zsh
@@ -23,6 +22,8 @@ progressBar 2 3 "Installing Powerline Patched Fonts"
 sudo apt install fonts-powerline
 echo "Remember to change the color theme to solarized dark\n"
 progressBar 3 3 "Done!"
+
+./installMiscLinux.sh
 
 
 

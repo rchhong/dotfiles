@@ -43,7 +43,6 @@ The following GUI Apps are installed
 * Spotify
 * Discord
 * VS Code
-* Harmony
 * VLC Media Player
 * Google Chrome
 * Gnome Tweaks
