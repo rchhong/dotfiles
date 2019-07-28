@@ -44,20 +44,22 @@ done
 progressBar $n $total "Installing Vundle for vim"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ((n++))
+
 # Install plugged for nvim
 progressBar $n $total "Installing plugged for nvim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ((n++))
+
 # Install nvim plugins
 progressBar $n $total "Installing nvim plugins"
 nvim +PlugInstall +qall
 ((n++))
+
 # Install vim plugins
 progressBar $n $total "Installing vim plugins"
 oldvim +PluginInstall +qall
 ((n++))
-
 
 # Install youtube-dl
 progressBar $n $total "Installing youtube-dl"

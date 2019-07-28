@@ -60,7 +60,7 @@ The following are installed
 * React CLI
 * React Native CLI
 * pandas
-* Jupyter Notebook + Theming Engine
+* Jupyter Lab
 * nodemon
 * express
 * async
@@ -68,3 +68,4 @@ The following are installed
 * handlebars
 * sass
 * mup
+* electron

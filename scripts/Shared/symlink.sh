@@ -27,7 +27,6 @@ done
 
 #Symbolic link ./.config
 toSymlinkDirectories=(
-	.config
 	.themes
 	.icons
 )

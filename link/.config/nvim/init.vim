@@ -6,18 +6,20 @@ set number
 set wildmenu
 set lazyredraw
 set showmatch
-set mouse=r
+set mouse=a
+set laststatus=2
 set showtabline=2
 set wildmode=longest:full,full
+
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 nmap <F6> :NERDTreeToggle<CR>
 
 set foldenable
-set foldmethod=indent
+set foldmethod=syntax
 set foldnestmax=10
 set foldlevelstart=10
-nnoremap <F1> za
+nnoremap <space> za
 
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
