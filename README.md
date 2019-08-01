@@ -38,6 +38,7 @@ The Following terminal apps are installed
 * Onedrive CLI
 * refind
 * youtube-dl
+* htop
 
 The following GUI Apps are installed
 * Spotify

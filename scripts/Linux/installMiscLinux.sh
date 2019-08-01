@@ -19,6 +19,7 @@ toDownload=(
 	numix-icon-theme-circle
 	vim
 	neovim
+	htop
 )
 
 other=(
