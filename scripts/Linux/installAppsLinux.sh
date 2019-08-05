@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-source $DOTFILES/scripts/Shared/progressBar.sh
+source $DOTFILES/scripts/Shared/progressBar.sh 
 
 echo "Installing Applications"
 mkdir ~/Downloads/temp
