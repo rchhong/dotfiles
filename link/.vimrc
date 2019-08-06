@@ -78,4 +78,23 @@ nnoremap <space> za
 let mapleader=","
 nnoremap <leader><space> :noh<CR>
 " }}}
+" AutoGroups {{{
+augroup configgroup
+    autocmd!
+    autocmd BufWritePre *.py,*.java,*.cpp,*.h,*.c :call <SID>StripTrailingWhitespaces()
+    autocmd BufEnter *.py setlocal foldmethod=indent
+    autocmd BufEnter Makefile setlocal noexpandtab
+    autocmd BufEnter *md setlocal ft=markdown
+augroup END
+" }}}
+" Functions {{{
+function! <SID>StripTrailingWhitespaces()
+    " save last search & cursor position
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    let @/=_s
+    call cursor(l, c)
+endfunc
 " vim:foldmethod=marker:foldlevel=0
