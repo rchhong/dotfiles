@@ -2,13 +2,6 @@
 This repository contains my various configuration files
 
 ## Prerequesites
-
-Prior to using the install script, it is required to install git.
-
-```
-sudo apt-get install git
-```
-
 In addition, it is recommended to install vanilla GNOME to remove the Ubuntu branding 
 
 ```
@@ -18,6 +11,12 @@ sudo update-alternatives --config gdm3.css
 ```
 
 Select lightdm as the greeter.
+
+## Install
+Run the following command in normal mode
+```
+bash -c "$(wget https://raw.githubusercontent.com/infernalhydra/dotfiles/master/install.sh -O -)"
+```
 
 ## neofetch screenshot
 ![neofetch screenshot](./media/neofetch.png)
