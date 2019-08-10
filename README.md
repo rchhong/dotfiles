@@ -20,8 +20,10 @@ bash -c "$(wget https://raw.githubusercontent.com/infernalhydra/dotfiles/master/
 
 ## neofetch screenshot
 ![neofetch screenshot](./media/neofetch.png)
+
 ## Theme
 Canta theme with numix circle icons will be installed
+
 ## Apps
 The Following terminal apps are installed
 * curl
@@ -51,7 +53,6 @@ The following GUI Apps are installed
 * Teamviewer
 
 ## Programming
-
 The following are installed
 * OpenJDK 8 (Java 8)
 * TexLive Full Edition

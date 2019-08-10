@@ -4,7 +4,6 @@ DOTFILES=$HOME/.dotfiles
 source $DOTFILES/scripts/Shared/progressBar.sh 
 
 echo "Installing Applications"
-mkdir ~/Downloads/temp
 
 toInstall=(
     chrome
@@ -15,6 +14,8 @@ toInstall=(
     vlc
     postman
     androidstudio
+    spicetify-cli
+    betterdiscord-cli
 )
 
 let n=0
@@ -83,7 +84,22 @@ wget -O ~/Downloads/temp/androidstudio.tar.gz https://dl.google.com/dl/android/s
 sudo tar -xzf ~/Downloads/temp/androidstudio.tar.gz -C /opt
 ((n++))
 
+#Install spicetify-cli
+progressBar $n $total "Installing Spicetify CLI"
+wget -O ~/Downloads/temp/spicetify.tar.gz https://github.com/khanhas/spicetify-cli/releases/download/v0.9.2/spicetify-0.9.2-linux-amd64.tar.gz
+mkdir ~/spicetify
+tar xzf ~/Downloads/temp/spicetify.tar.gz -C ~/spicetify
+sudo ln -s ~/spicetify/spicetify /usr/bin/spicetify
+sudo chmod 777 /usr/share/spotify -R
+echo "Remember to set up spicetify later"
+((n++))
 
+#Install betterdiscord-cli
+progressBar $n $total "Installing BetterDiscord CLI"
+wget -O ~/Downloads/temp/betterdiscordctl https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
+sudo chmod +x ~/Downloads/temp/betterdiscordctl
+mv ~/Downloads/temp/betterdiscordctl /usr/local/bin
+echo "Remember to set up better discord later"
 progressBar $total $total "Done!"
 echo ""
 

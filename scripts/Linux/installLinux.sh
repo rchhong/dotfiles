@@ -2,7 +2,7 @@
 
 DOTFILES=$HOME/.dotfiles
 source $DOTFILES/scripts/Shared/progressBar.sh 
-
+x
 read -p "Has GNOME been separately installed (Y/N)? " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
@@ -22,6 +22,8 @@ progressBar 2 3 "Installing Powerline Patched Fonts"
 sudo apt install fonts-powerline
 echo "Remember to change the color theme to solarized dark\n"
 progressBar 3 3 "Done!"
+
+mkdir ~/Downloads/temp
 
 ./installMiscLinux.sh
 
