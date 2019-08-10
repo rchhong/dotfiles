@@ -40,6 +40,8 @@ The Following terminal apps are installed
 * refind
 * youtube-dl
 * htop
+* betterdiscord-cli
+* spicetify-cli
 
 The following GUI Apps are installed
 * Spotify
