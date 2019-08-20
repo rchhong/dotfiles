@@ -24,6 +24,8 @@ set backspace=indent,eol,start
 set clipboard^=unnamed,unnamedplus
 set mouse=a
 set nocompatible
+set spell spelllang=en_us
+inoremap jk <ESC>
 "}}}
 " Spaces & Tabs {{{
 set tabstop=4
@@ -77,6 +79,9 @@ nnoremap <space> za
 " Leader Shortcuts {{{
 let mapleader=","
 nnoremap <leader><space> :noh<CR>
+nnoremap <leader>f 1z=
+nnoremap <leader>s :set spell!<CR>
+nnoremap <leader>q :tabclose<CR>
 " }}}
 " AutoGroups {{{
 augroup configgroup

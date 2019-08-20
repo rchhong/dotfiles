@@ -29,6 +29,7 @@ toInstallNPM=(
 toInstallConda=(
     jupyterlab
     pandas
+    seaborn
 )
 
 toInstallOther=(
