@@ -61,6 +61,8 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   command-not-found
+  dircycle
+  extract
   git
   meteor
   npm
