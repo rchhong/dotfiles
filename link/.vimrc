@@ -7,8 +7,8 @@ filetype plugin indent on
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'erichdongubler/vim-sublime-monokai'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 " }}}
 " Colors {{{
 syntax on
@@ -49,6 +49,9 @@ set wildmode=longest:full,full
 set showcmd
 set showmatch
 set fillchars+=vert:┃
+set noshowmode
+set splitbelow
+set splitright
 " }}}
 " Searching {{{
 set ignorecase

@@ -1,10 +1,10 @@
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
-Plug 'erichdongubler/vim-sublime-monokai'
-Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle'}
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 call plug#end()
 " }}}
 " Colors {{{
@@ -45,6 +45,9 @@ set wildmode=longest:full,full
 set showcmd
 set showmatch
 set fillchars+=vert:┃
+set noshowmode
+set splitbelow
+set splitright
 " }}}
 " Searching {{{
 set ignorecase
