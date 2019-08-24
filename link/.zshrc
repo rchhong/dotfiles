@@ -61,7 +61,7 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   command-not-found
-  dircycle
+  dirhistory
   extract
   git
   meteor
@@ -108,7 +108,6 @@ alias colors='/$HOME/color.sh'
 alias fixrefind="sudo refind-mkdefault"
 alias dlaudio="youtube-dl --add-metadata --embed-thumbnail --extract-audio --audio-format mp3 -o '~/Music/%(artist)s - %(title)s.%(ext)s'"
 alias dlvideo="youtube-dl --sub-lang en --add-metadata --write-sub -o '~/Videos/%(artist)s - %(title)s.%(ext)s'"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
