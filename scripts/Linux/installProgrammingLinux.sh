@@ -11,6 +11,7 @@ toInstallApt=(
     python3-pip
     nodejs
     npm
+    r-base
 )
 
 
