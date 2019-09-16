@@ -79,6 +79,7 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>q :tabclose<CR>
+nnoremap <leader>w :w<CR>
 " }}}
 " AutoGroups {{{
 augroup configgroup
