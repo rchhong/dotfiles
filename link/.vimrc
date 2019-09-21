@@ -39,7 +39,7 @@ filetype plugin on
 set autoindent
 " }}}
 " UI {{{
-set number
+set number relativenumber
 set wildmenu
 set lazyredraw
 set showmatch
@@ -94,6 +94,8 @@ augroup configgroup
     autocmd BufEnter *.py setlocal foldmethod=indent
     autocmd BufEnter Makefile setlocal noexpandtab
     autocmd BufEnter *md setlocal ft=markdown
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
 augroup END
 " }}}
 " Functions {{{

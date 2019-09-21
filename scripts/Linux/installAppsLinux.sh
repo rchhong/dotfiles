@@ -103,4 +103,5 @@ echo "Remember to set up better discord later"
 progressBar $total $total "Done!"
 echo ""
 
+
 ./installProgrammingLinux.sh
