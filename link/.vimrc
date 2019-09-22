@@ -10,15 +10,16 @@ Plugin 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'lifepillar/vim-solarized8'
 " }}}
 " Colors {{{
 syntax on
+set termguicolors
+set background=dark
+colorscheme solarized8
 " set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" colorscheme sublimemonokai
-" colorscheme solarized
-set termguicolors
 " }}}
 " Misc {{{
 set backspace=indent,eol,start
@@ -109,4 +110,19 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunc
+"}}}
+" Auto Completion {{{
+set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
+set dictionary+=/usr/share/dict/words
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+let g:SuperTabDefaultCompletionType = "context"
+" }}}
 " vim:foldmethod=marker:foldlevel=0
