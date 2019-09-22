@@ -5,21 +5,25 @@ Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'ervandew/supertab'
+Plug 'lifepillar/vim-solarized8'
 call plug#end()
 " }}}
 " Colors {{{
 syntax on
+set termguicolors
+set background=dark
+colorscheme solarized8
 " set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" 
 " }}}
 " Misc {{{
 set backspace=indent,eol,start
 set clipboard^=unnamed,unnamedplus
 set mouse=a
 set spell spelllang=en_us
-inoremap jk <ESC>
+inoremap jk <ESC> 
 "}}}
 " Spaces & Tabs {{{
 set tabstop=4
@@ -88,8 +92,8 @@ augroup configgroup
     autocmd BufEnter *.py setlocal foldmethod=indent
     autocmd BufEnter Makefile setlocal noexpandtab
     autocmd BufEnter *md setlocal ft=markdown
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
 augroup END
 " }}}
 " Functions {{{
@@ -102,5 +106,19 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunc
+" }}}
+" Auto Completion {{{
+set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
+set dictionary+=/usr/share/dict/words
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+let g:SuperTabDefaultCompletionType = "context"
 " }}}
 " vim:foldmethod=marker:foldlevel=0
