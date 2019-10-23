@@ -6,10 +6,13 @@ Plugin 'VundleVim/Vundle.vim'
 call vundle#end()
 filetype plugin indent on
 Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
+Plugin 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle'}
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'ervandew/supertab'
+Plugin 'wellle/targets.vim'
+Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'lifepillar/vim-solarized8'
 " }}}
 " Colors {{{
@@ -28,6 +31,8 @@ set mouse=a
 set nocompatible
 set spell spelllang=en_us
 inoremap jk <ESC>
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
 "}}}
 " Spaces & Tabs {{{
 set tabstop=4

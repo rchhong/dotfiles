@@ -6,6 +6,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'ervandew/supertab'
+Plug 'wellle/targets.vim'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'lifepillar/vim-solarized8'
 call plug#end()
 " }}}
@@ -23,7 +25,9 @@ set backspace=indent,eol,start
 set clipboard^=unnamed,unnamedplus
 set mouse=a
 set spell spelllang=en_us
-inoremap jk <ESC> 
+inoremap jk <ESC>
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
 "}}}
 " Spaces & Tabs {{{
 set tabstop=4
@@ -84,6 +88,9 @@ nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>q :tabclose<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>t :vsp<CR><C-w><CR>:terminal<CR>
+nnoremap <leader>x :x<CR>
+nnoremap <leader>c :!
 " }}}
 " AutoGroups {{{
 augroup configgroup
@@ -120,5 +127,12 @@ inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 let g:SuperTabDefaultCompletionType = "context"
+" }}}
+" Terminal {{{
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <M-[> <Esc>
+  tnoremap <C-v><Esc> <Esc>
+endif
 " }}}
 " vim:foldmethod=marker:foldlevel=0
