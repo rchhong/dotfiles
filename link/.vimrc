@@ -3,8 +3,6 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-call vundle#end()
-filetype plugin indent on
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle'}
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -14,6 +12,7 @@ Plugin 'ervandew/supertab'
 Plugin 'wellle/targets.vim'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'lifepillar/vim-solarized8'
+call vundle#end()
 " }}}
 " Colors {{{
 syntax on
@@ -43,6 +42,7 @@ set modelines=1
 filetype indent on
 filetype plugin on
 set autoindent
+set smartindent
 " }}}
 " UI {{{
 set number relativenumber
@@ -93,6 +93,7 @@ nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>q :tabclose<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>t :call Terminal()<LF>
 " }}}
 " AutoGroups {{{
 augroup configgroup
@@ -115,6 +116,12 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunc
+
+function Terminal()
+    tabnew
+    terminal
+    startinsert
+endfunction
 "}}}
 " Auto Completion {{{
 set omnifunc=syntaxcomplete#Complete
@@ -125,9 +132,14 @@ inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+inoremap <expr> <PageUp>   pumvisible() ? "	 \<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 let g:SuperTabDefaultCompletionType = "context"
+" }}}
+" Terminal {{{
+tnoremap <Esc> <C-\><C-n>
+tnoremap <M-[> <Esc>
+tnoremap <C-v><Esc> <Esc>
 " }}}
 " vim:foldmethod=marker:foldlevel=0
