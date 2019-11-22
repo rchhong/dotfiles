@@ -5,13 +5,14 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle'}
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'ervandew/supertab'
 Plugin 'wellle/targets.vim'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'lifepillar/vim-solarized8'
+Plugin 'scrooloose/nerdcommenter' 
 call vundle#end()
 " }}}
 " Colors {{{
@@ -32,6 +33,7 @@ set spell spelllang=en_us
 inoremap jk <ESC>
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
+let g:lightline = {'colorscheme': 'solarized'}
 "}}}
 " Spaces & Tabs {{{
 set tabstop=4
@@ -70,14 +72,13 @@ let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 nmap <F6> :NERDTreeToggle<CR>
 " }}}
-" CtrlP {{{
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 'et'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+" fzf {{{
+nnoremap <C-p> :FZF<CR>
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+autocmd TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+autocmd FileType fzf tunmap <buffer> <Esc>
 " }}}
 " Folding {{{
 set foldenable
@@ -138,8 +139,13 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvis
 let g:SuperTabDefaultCompletionType = "context"
 " }}}
 " Terminal {{{
-tnoremap <Esc> <C-\><C-n>
-tnoremap <M-[> <Esc>
+" tnoremap <Esc> <C-\><C-n>
+" tnoremap <M-[> <Esc>
 tnoremap <C-v><Esc> <Esc>
+" }}}
+" NERDCommenter {{{
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
 " }}}
 " vim:foldmethod=marker:foldlevel=0
