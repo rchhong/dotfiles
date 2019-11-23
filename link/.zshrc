@@ -123,13 +123,11 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-if ! type "$ag" > /dev/null; then
-  # install foobar here
-    export FZF_DEFAULT_COMMAND='ag -l --hidden -g ""'
+if type "ag" > /dev/null; then
+    export FZF_DEFAULT_COMMAND='ag -l --hidden'
 fi
 
-if ! type "$rg" > /dev/null; then
-    # install foobar here
+if type "rg" > /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden --vimgrep'
 fi
 
