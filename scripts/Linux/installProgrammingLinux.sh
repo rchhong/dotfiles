@@ -12,6 +12,7 @@ toInstallApt=(
     nodejs
     npm
     r-base
+    silversearcher-ag
 )
 
 

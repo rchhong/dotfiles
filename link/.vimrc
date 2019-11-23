@@ -6,6 +6,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle'}
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'ervandew/supertab'
@@ -73,7 +74,8 @@ let NERDTreeQuitOnOpen=1
 nmap <F6> :NERDTreeToggle<CR>
 " }}}
 " fzf {{{
-nnoremap <C-p> :FZF<CR>
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+nnoremap <C-p> :Files <C-R>=expand('%:h')<CR><CR>
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
@@ -94,7 +96,9 @@ nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>q :tabclose<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>t :call Terminal()<LF>
+nnoremap <leader>t :call Terminal()<CR>
+nnoremap <leader>a :Ag<CR>
+nnoremap <leader>r :Rg<CR>
 " }}}
 " AutoGroups {{{
 augroup configgroup
@@ -139,8 +143,6 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvis
 let g:SuperTabDefaultCompletionType = "context"
 " }}}
 " Terminal {{{
-" tnoremap <Esc> <C-\><C-n>
-" tnoremap <M-[> <Esc>
 tnoremap <C-v><Esc> <Esc>
 " }}}
 " NERDCommenter {{{

@@ -74,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -123,4 +123,16 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+if ! type "$ag" > /dev/null; then
+  # install foobar here
+    export FZF_DEFAULT_COMMAND='ag -l --hidden -g ""'
+fi
 
+if ! type "$rg" > /dev/null; then
+    # install foobar here
+    export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden --vimgrep'
+fi
+
+# FZF Double Star Completion
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/zsh/vendor-completions/_fzf
