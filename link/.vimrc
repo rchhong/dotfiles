@@ -7,8 +7,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle'}
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
+Plugin 'machakann/vim-sandwich'
 Plugin 'ervandew/supertab'
 Plugin 'wellle/targets.vim'
 Plugin 'michaeljsmith/vim-indent-object'
@@ -79,7 +78,6 @@ nnoremap <C-p> :Files <C-R>=expand('%:h')<CR><CR>
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-autocmd TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 autocmd FileType fzf tunmap <buffer> <Esc>
 " }}}
 " Folding {{{
@@ -144,6 +142,7 @@ let g:SuperTabDefaultCompletionType = "context"
 " }}}
 " Terminal {{{
 tnoremap <C-v><Esc> <Esc>
+autocmd TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 " }}}
 " NERDCommenter {{{
 let g:NERDTrimTrailingWhitespace = 1

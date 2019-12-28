@@ -3,3 +3,7 @@
 	name = Ryan Chhong
 [alias]
 	tree = log --all --decorate --oneline --graph
+[color]
+	ui = true
+[push]
+	default = simple
