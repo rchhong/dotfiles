@@ -1,6 +1,8 @@
 # dotfiles
 This repository contains my various configuration files
 
+WIP - Swapping Distros is hard
+
 ## Prerequesites
 In addition, it is recommended to install vanilla GNOME to remove the Ubuntu branding 
 
