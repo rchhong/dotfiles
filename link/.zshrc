@@ -168,3 +168,6 @@ _gen_fzf_default_opts() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
 
+export HISTSIZE=2000
+export HISTFILESIZE=2000
+
