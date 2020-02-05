@@ -133,8 +133,8 @@ fi
 
 
 # FZF Double Star Completion
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/zsh/vendor-completions/_fzf
+# source /usr/share/doc/fzf/examples/key-bindings.zsh
+# source /usr/share/zsh/vendor-completions/_fzf
 
 _gen_fzf_default_opts() {
   local base03="234"
