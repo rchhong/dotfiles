@@ -165,5 +165,6 @@ _gen_fzf_default_opts() {
   #  --color fg:-1,bg:-1,hl:$blue,fg+:$base02,bg+:$base2,hl+:$blue
   #  --color info:$yellow,prompt:$yellow,pointer:$base03,marker:$base03,spinner:$yellow
   #"
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
-_gen_fzf_default_opts
+
