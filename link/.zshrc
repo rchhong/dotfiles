@@ -131,9 +131,10 @@ if type "rg" > /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --ignore-case --no-heading --hidden -g "!.git"'
 fi
 
+
 # FZF Double Star Completion
-# source /usr/share/doc/fzf/examples/key-bindings.zsh
-# source /usr/share/zsh/vendor-completions/_fzf
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/zsh/vendor-completions/_fzf
 
 _gen_fzf_default_opts() {
   local base03="234"
@@ -165,8 +166,12 @@ _gen_fzf_default_opts() {
   #  --color fg:-1,bg:-1,hl:$blue,fg+:$base02,bg+:$base2,hl+:$blue
   #  --color info:$yellow,prompt:$yellow,pointer:$base03,marker:$base03,spinner:$yellow
   #"
+
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
+
+_gen_fzf_default_opts
+
 
 export HISTSIZE=2000
 export HISTFILESIZE=2000
