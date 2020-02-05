@@ -23,7 +23,7 @@ sudo apt install fonts-powerline
 echo "Remember to change the color theme to solarized dark\n"
 progressBar 3 3 "Done!"
 
-mkdir ~/Downloads/temp
+mkdir home/ryanc/Downloads/temp
 
 ./installMiscLinux.sh
 

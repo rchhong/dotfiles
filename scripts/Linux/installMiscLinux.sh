@@ -20,6 +20,8 @@ toDownload=(
 	vim
 	neovim
 	htop
+        onedrive
+        fzf
 )
 
 other=(
@@ -30,7 +32,6 @@ other=(
 	youtube-dl
 	canta
 	refind
-	onedrive
 )
 
 let n=0
@@ -80,15 +81,6 @@ sudo apt-add-repository ppa:rodsmith/refind
 sudo apt install refind
 ((n++))
 
-# Install Onedrive
-progressBar $n $total "Installing OneDrive CLI"
-sudo apt install libcurl4-openssl-dev libsqlite3-dev
-sudo snap install --classic dmd && sudo snap install --classic dub
-git clone https://github.com/skilion/onedrive.git ~/onedrive
-make -C ~/onedrive
-sudo make -C ~/onedrive install
-echo "Remember to setup OneDrive CLI Later\n"
-((n++))
 
 progressBar $total $total "Done!"
 echo ""

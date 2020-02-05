@@ -34,6 +34,7 @@ inoremap jk <ESC>
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
 let g:lightline = {'colorscheme': 'solarized'}
+set pastetoggle=<F3>
 "}}}
 " Spaces & Tabs {{{
 set tabstop=4
@@ -66,6 +67,7 @@ set splitright
 set ignorecase
 set incsearch
 set hlsearch
+set smartcase
 " }}}
 " NERDTree Config {{{
 let NERDTreeShowHidden=1
