@@ -170,10 +170,12 @@ augroup configgroup
     autocmd!
     " Removes all extraneous whitespace upon closing file
     autocmd BufWritePre *.py,*.java,*.cpp,*.h,*.c :call <SID>StripTrailingWhitespaces()
-    " Groups splits by tab in pyhthon
+    " Groups splits by tab in python
     autocmd BufEnter *.py setlocal foldmethod=indent
     " Changes tab back to actual tab (makefiles break otherwise)
     autocmd BufEnter Makefile setlocal noexpandtab
+    " Assembly Syntax
+    autocmd BufEnter *.asm,*.s setlocal ft=masm 
     " Relative numbers in command mode, Absolute in insert
     autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
     autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
