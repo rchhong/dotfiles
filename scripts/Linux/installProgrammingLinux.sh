@@ -9,7 +9,6 @@ toInstallApt=(
     openjdk-8-jdk
     texlive-full
     python3-pip
-    nodejs
     npm
     r-base
     silversearcher-ag
@@ -57,6 +56,16 @@ sudo service mongod start
 progressBar $n $total "Installing Meteor"
 curl https://install.meteor.com/ | sh
 ((n++))
+
+# Installing nvm
+progressBar $n $total "Installing nvm"
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+((n++))
+
+# Yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
 
 # Install Miniconda
 progressBar $n $total "Installing Miniconda"
