@@ -1,7 +1,15 @@
 # dotfiles
 This repository contains my various configuration files
 
-## Prerequesites
+## Mac OS
+
+Run the following two commands before running the install script
+```
+sudo softwareupdate -i -a
+xcode-select --install
+```
+
+## Prerequesites (Ubuntu)
 In addition, it is recommended to install vanilla GNOME to remove the Ubuntu branding 
 
 ```
