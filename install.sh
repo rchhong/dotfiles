@@ -5,7 +5,6 @@ DOTFILES=$HOME/.dotfiles
 
 if [ "$(uname)" == "Darwin" ]; then
     echo "Configuring MacOS"
-    xcode-select --install
     git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
     $DOTFILES/scripts/installOSX.sh
 elif [ "$(uname)" == "Linux" ]; then
