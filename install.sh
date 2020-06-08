@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES = $HOME/.dotfiles
+DOTFILES=$HOME/.dotfiles
 
 
 if [ "$(uname)" == "Darwin" ]; then
