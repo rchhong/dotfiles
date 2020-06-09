@@ -71,11 +71,12 @@ plugins=(
   dirhistory
   extract
   git
-  meteor
   npm
   pip
   sudo
   zsh-nvm
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -139,46 +140,7 @@ if type "rg" > /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --ignore-case --no-heading --hidden -g "!.git"'
 fi
 
-
-# FZF Double Star Completion
-# source /usr/share/doc/fzf/examples/key-bindings.zsh
-# source /usr/share/zsh/vendor-completions/_fzf
-
-_gen_fzf_default_opts() {
-  local base03="234"
-  local base02="235"
-  local base01="240"
-  local base00="241"
-  local base0="244"
-  local base1="245"
-  local base2="254"
-  local base3="230"
-  local yellow="136"
-  local orange="166"
-  local red="160"
-  local magenta="125"
-  local violet="61"
-  local blue="33"
-  local cyan="37"
-  local green="64"
-
-  # Comment and uncomment below for the light theme.
-
-  # Solarized Dark color scheme for fzf
-  export FZF_DEFAULT_OPTS="
-    --color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue
-    --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow
-  "
-  ## Solarized Light color scheme for fzf
-  #export FZF_DEFAULT_OPTS="
-  #  --color fg:-1,bg:-1,hl:$blue,fg+:$base02,bg+:$base2,hl+:$blue
-  #  --color info:$yellow,prompt:$yellow,pointer:$base03,marker:$base03,spinner:$yellow
-  #"
-
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-}
-
-_gen_fzf_default_opts
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
 export HISTSIZE=2000
@@ -189,3 +151,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

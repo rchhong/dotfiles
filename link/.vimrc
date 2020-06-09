@@ -1,13 +1,16 @@
 " Vundle {{{
 filetype off
+" Auto install Vundle
+let vundle_present=1
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+if !filereadable(vundle_readme)
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  let vundle_present=0
+endif
 set rtp+=~/.vim/bundle/Vundle.vim
-# Auto Install 
-let vundlePresent=1
-" if empty(globpath('~/.vim/autoload/plug.vim'))
-  " silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    " \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  " autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-" endif
 call vundle#begin()
 " Plugin Manager
 Plugin 'VundleVim/Vundle.vim'
@@ -27,10 +30,15 @@ Plugin 'wellle/targets.vim'
 " Allow indention level as context target
 Plugin 'michaeljsmith/vim-indent-object'
 " Solarized theme
-Plugin 'lifepillar/vim-solarized8'
+Plugin 'tomasr/molokai'
 " Makes commenting/uncommenting easier
 Plugin 'scrooloose/nerdcommenter' 
 call vundle#end()
+if vundle_present == 0
+  echo "Installing Bundles, please ignore key map error messages"
+  echo ""
+  :PluginInstall
+endif
 " }}}
 " Colors {{{
 " Syntax highlighting
@@ -40,7 +48,7 @@ set termguicolors
 " Dark background
 set background=dark
 " Solarized color scheme
-colorscheme solarized8
+colorscheme molokai
 " set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"

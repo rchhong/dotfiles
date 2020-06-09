@@ -20,8 +20,16 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~
 print_stage "INSTALLING PROGRAMS AND TERMINAL TOOLS"
 brew bundle --file brewfile
 brew bundle --file caskfile
+brew bundle --file masfile
 
+# fzf file completion
+$(brew --prefix)/opt/fzf/install
 
-# Vundle stuff here
 # nvm
 git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+
+# zsh autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+# zsh syntax highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
