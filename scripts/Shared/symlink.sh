@@ -1,11 +1,9 @@
 #!/bin/bash
 
-source $DOTFILES/scripts/Shared/progressBar.sh 
-
 DOTFILES=$HOME/.dotfiles
+source $DOTFILES/scripts/Shared/helpers.sh 
 
-
-echo -e "Creating symlinks"
+print_stage "SYMLINKKING FILES"
 
 #Symbolic Link all config files
 toSymlinkFiles=(

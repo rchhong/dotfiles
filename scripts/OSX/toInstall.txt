@@ -1,0 +1,4 @@
+spicetify-cli
+discord-cli
+nvm
+andaconda
