@@ -4,3 +4,5 @@ export PATH=/usr/local/opt/ruby/bin:/$HOME/flutter/bin:/usr/local/sbin:/usr/loca
 export MANPATH="/usr/local/man:$MANPATH"
 
 export NVM_LAZY_LOAD=true
+
+ZSH_THEME="powerlevel10k/powerlevel10k"

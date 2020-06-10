@@ -9,18 +9,17 @@ alias ~='cd ~'
 alias reload='source ~/.zshrc'
 
 # When nothing works
-alias fkit='rm -rf node_modules/ && rm package-lock.json && yarn install'
-
+alias fkit='rm -rf node_modules/ && yarn install'
 # Change vim to nvim
 alias oldvim="\\vim"
 alias vim='nvim'
 alias vi='nvim'
-
 # Access common config files
 alias ohmyzsh="~/.oh-my-zsh"
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias zshconfig="cd ~/.zsh"
+alias dotfiles="cd ~/.dotfiles"
 
 # DL Youtube
 alias dlaudio="youtube-dl --add-metadata --embed-thumbnail --extract-audio --audio-format mp3 -o '~/Music/%(artist)s - %(title)s.%(ext)s'"
@@ -30,3 +29,4 @@ alias dlvideo="youtube-dl --sub-lang en --add-metadata --write-sub -o '~/Videos/
 # R only works when its capitalized 
 alias r="R"
 alias y='yarn'
+alias x="exit"
