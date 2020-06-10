@@ -22,6 +22,12 @@ brew bundle --file brewfile
 brew bundle --file caskfile
 brew bundle --file masfile
 
+print_stage "INSTALLING CONDA PACKAGES"
+conda install jupyterlab
+conda install pandas
+conda config --set auto_activate_base false
+
+print_stage "INSTALLING ZSH PLUGINS"
 # fzf file completion
 $(brew --prefix)/opt/fzf/install
 
