@@ -5,8 +5,10 @@ function acp() {
 }
 
 function mkcd() {
+  if [[ $1 ]] ; then
     mkdir -p $1
     cd $1
+  fi
 }
 
 function zcmd() {

@@ -14,6 +14,7 @@ alias fkit='rm -rf node_modules/ && yarn install'
 alias oldvim="\\vim"
 alias vim='nvim'
 alias vi='nvim'
+
 # Access common config files
 alias ohmyzsh="~/.oh-my-zsh"
 alias zshrc="vim ~/.zshrc"
@@ -28,5 +29,7 @@ alias dlvideo="youtube-dl --sub-lang en --add-metadata --write-sub -o '~/Videos/
 # Aliases for lazy people like me
 # R only works when its capitalized 
 alias r="R"
-alias y='yarn'
+alias y="yarn"
 alias x="exit"
+alias c="clear"
+alias h='history|grep'
