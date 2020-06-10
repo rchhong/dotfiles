@@ -7,41 +7,44 @@ print_stage "SYMLINKKING FILES"
 
 #Symbolic Link all config files
 toSymlinkFiles=(
-	color.sh
-	lock.png
-	lock.sh
 	.bashrc
 	.gitconfig
 	.vimrc
 	.zshrc
 )
+
+toSymlinkDirectories=(
+	.config
+)
+
 let n=0
-let total=${toSymlinkFiles[@]}+${toSymlinkDirectories[@]} 
+let total=${#toSymlinkFiles[@]}+${#toSymlinkDirectories[@]}
+
 for i in "${toSymlinkFiles[@]}"; do
-	progressBar $n $total "Symlinking $i"
+	progress_bar $n $total "Symlinking $i"
 	ln -sf $DOTFILES/link/$i ~/$i
 	((n++))
 done
 
+progress_bar $n $total "Symlinking .zsh"
+ln -sf $DOTFILES/link/.zsh ~/.zsh
+((n++))
+
 #Symbolic link ./.config
-toSymlinkDirectories=(
-	.themes
-	.config
-)
 
 #Make directories
 for i in "${toSymlinkDirectories[@]}"; do
-	progressBar $n $total "Symlinking $i"
+	progress_bar $n $total "Symlinking $i"
     path="*/*";
-    isThemeOrIcon=false;
+    onlyOneWildcard=false;
     if [[ "$i" = ".themes" ]] || [[ "$i" = ".icons" ]]
     then
         path="*";
-        isThemeOrIcon=true;
+        onlyOneWildcard=true;
     fi
     for j in $DOTFILES/link/$i/$path; do
         relPath="$(echo $j | awk -F "/" '{ printf "%s/%s/%s", $6, $7, $8 }')"
-        if $isThemeOrIcon ; then
+        if $onlyOneWildcard ; then
             relPath="$(echo $j | awk -F "/" '{ printf "%s/%s", $6, $7}')"
         fi
         echo $j
@@ -52,4 +55,5 @@ for i in "${toSymlinkDirectories[@]}"; do
 	((n++))
 done
 
-progressBar $total $total "Done!"
+progress_bar $total $total "Done!"
+print_success "FINISHED SYMLINKING"
