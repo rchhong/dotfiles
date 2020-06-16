@@ -2,8 +2,6 @@
 DOTFILES=$HOME/.dotfiles
 source $DOTFILES/scripts/Shared/helpers.sh
 
-# TODO: Add MacOS Install
-
 # Ask for sudo
 sudo -v
 
@@ -32,7 +30,7 @@ print_stage "INSTALLING ZSH PLUGINS"
 $(brew --prefix)/opt/fzf/install
 
 # nvm
-git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+git clone https://github.com/lukechilds/zsh-nvm $ZSH_CUSTOM/plugins/zsh-nvm
 
 # zsh autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
