@@ -37,6 +37,8 @@ Plugin 'tomasr/molokai'
 Plugin 'scrooloose/nerdcommenter'
 " Autocomplete pairs
 Plugin 'jiangmiao/auto-pairs'
+" File Browser that's less buggy
+Plugin 'preservim/nerdtree'
 call vundle#end()
 
 if vundle_present == 0
@@ -66,22 +68,22 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Monokai colors
 " TODO: Make customizable by putting these values in a separate file
 if has('nvim')
-    let g:terminal_color_0  = '#232526'
-    let g:terminal_color_1  = '#EF5939'
-    let g:terminal_color_2  = '#FD971F'
-    let g:terminal_color_3  = '#E6DB74'
-    let g:terminal_color_4  = '#70F0F0'
-    let g:terminal_color_5  = '#BCA3A3'
-    let g:terminal_color_6  = '#960050'
-    let g:terminal_color_7  = '#465457'
-    let g:terminal_color_8  = '#808080'
-    let g:terminal_color_9  = '#F92672'
-    let g:terminal_color_10  = '#A6E22E'
-    let g:terminal_color_11  = '#C4BE89'
-    let g:terminal_color_12  = '#66D9EF'
-    let g:terminal_color_13  = '#AE81FF'
-    let g:terminal_color_14  = '#7070F0'
-    let g:terminal_color_15  = '#F8F8F0'
+    let g:terminal_color_0  = '#1A1A1A'
+    let g:terminal_color_1  = '#F4005F'
+    let g:terminal_color_2  = '#98E024'
+    let g:terminal_color_3  = '#FA8419'
+    let g:terminal_color_4  = '#9D65FF'
+    let g:terminal_color_5  = '#F4005F'
+    let g:terminal_color_6  = '#58D1EB'
+    let g:terminal_color_7  = '#C4C5B5'
+    let g:terminal_color_8  = '#625E4C'
+    let g:terminal_color_9  = '#F4005F'
+    let g:terminal_color_10  = '#98E024'
+    let g:terminal_color_11  = '#E0D561'
+    let g:terminal_color_12  = '#9D65FF'
+    let g:terminal_color_13  = '#F4005F'
+    let g:terminal_color_14  = '#58D1EB'
+    let g:terminal_color_15  = '#F6F6EF'
 endif
 " }}}
 " Misc {{{
@@ -193,7 +195,42 @@ set incsearch
 set hlsearch
 " }}}
 " netrw {{{
-" I'll come back to this
+
+" Disabled (too buggy)
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+" }}}
+" NERDTree {{{
+
+" Show hidden files
+let NERDTreeShowHidden=1	
+
+" Close NERDTree when opening file	
+let NERDTreeQuitOnOpen=1	
+
+" Toggles NERDTree	
+nmap <F6> :call SmartToggleNERDTree()<CR>
+
+" Opens NERDTree if no files specified, unless using session
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
+
+" Open NERDTree if directory specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+" Automatically delete buffer of deleted files
+let NERDTreeAutoDeleteBuffer = 1
+
+" UI Tweaks
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" Quit on opening file
+let NERDTreeQuitOnOpen = 1
+
+" Close if only NERDTREE Left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
 " fzf {{{
 
@@ -233,64 +270,6 @@ set foldlevelstart=10
 " Use space to open folds
 nnoremap <space> za
 " }}}
-" Leader Shortcuts {{{
-
-let mapleader=","
-
-" Disable search highlight
-nnoremap <leader><space> :noh<CR>
-
-" Pick first result fix spelling
-nnoremap <leader>f 1z=
-
-" Toggle spelling
-nnoremap <leader>s :set spell!<CR>
-
-" Close current tab
-nnoremap <leader>q :tabclose<CR>
-
-" Write current buffer
-nnoremap <leader>w :w<CR>
-
-" Open terminal in other window
-nnoremap <leader>t :call Terminal()<CR>
-
-" Calls the Silver Surfer (UT Server doesn't have RigGrep
-nnoremap <leader>a :Ag<CR>
-
-" Calls RigGrep
-nnoremap <leader>r :Rg<CR>
-
-" Close Current Buffer
-nnoremap <leader>x :bd<CR>
-
-" Force Close Current Buffer
-nnoremap <leader>f :bd!<CR>
-
-" Custom function to open buffer
-" nnoremap <leader>b :call ChangeBuffer()<CR>
-" }}}
-" AutoGroups {{{
-augroup configgroup
-    autocmd!
-    
-    " Removes all extraneous whitespace upon closing file
-    autocmd BufWritePre *.py,*.java,*.cpp,*.h,*.c :call <SID>StripTrailingWhitespaces()
-    
-    " Groups splits by tab in python
-    autocmd BufEnter *.py setlocal foldmethod=indent
-    
-    " Changes tab back to actual tab (makefiles break otherwise)
-    autocmd BufEnter Makefile setlocal noexpandtab
-    
-    " Assembly Syntax
-    autocmd BufEnter *.asm,*.s setlocal ft=masm 
-    
-    " Relative numbers in command mode, Absolute in insert
-    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
-    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
-augroup END
-" }}}
 " Functions {{{
 " Removes all extraneous whitespace
 function! <SID>StripTrailingWhitespaces()
@@ -317,6 +296,16 @@ function ChangeBuffer()
     call inputrestore()
     execute bufferNumber . "b"
 endfunction
+
+function SmartToggleNERDTree()
+    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+        echom "NERD Tree Closed"
+        execute ":NERDTreeClose"
+    else
+        echom "NERD Tree Open"
+        execute ":NERDTreeFind"
+    endif
+endfunc
 "}}}
 " Auto Completion {{{
 
@@ -379,7 +368,7 @@ let g:NERDCompactSexyComs = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " Show buffer numbers
-" let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Molokai Theme
 let g:airline_theme='molokai'
@@ -418,5 +407,74 @@ let g:airline#extensions#tabline#buffers_label = 'b'
 
 " Disable file paths in the tab
 let g:airline#extensions#tabline#fnamemod = ':t' 
+" }}}
+" Sessions {{{
+" Move where sessions are stored
+let g:sessions_dir = "~/.vim/sessions"
+" }}}
+" Leader Shortcuts {{{
+
+let mapleader=","
+
+" Disable search highlight
+nnoremap <leader><space> :noh<CR>
+
+" Pick first result fix spelling
+nnoremap <leader>f 1z=
+
+" Toggle spelling
+nnoremap <leader>s :set spell!<CR>
+
+" Close current tab
+" nnoremap <leader>q :tabclose<CR>
+
+" Write current buffer
+nnoremap <leader>w :w<CR>
+
+" Open terminal in other window
+nnoremap <leader>t :call Terminal()<CR>
+
+" Calls the Silver Surfer (UT Server doesn't have RigGrep
+nnoremap <leader>a :Ag<CR>
+
+" Calls RigGrep
+nnoremap <leader>r :Rg<CR>
+
+" Close Current Buffer
+nnoremap <leader>x :bd<CR>
+
+" Force Close Current Buffer
+" nnoremap <leader>f :bd!<CR>
+
+" Custom function to open buffer
+" nnoremap <leader>b :call ChangeBuffer()<CR>
+
+" Make sessions
+exec 'nnoremap <Leader>ss :mks! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+
+" Load Sessions
+exec 'nnoremap <Leader>sl :so ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+
+"}}}
+" AutoGroups {{{
+augroup configgroup
+    autocmd!
+    
+    " Removes all extraneous whitespace upon closing file
+    autocmd BufWritePre *.py,*.java,*.cpp,*.h,*.c :call <SID>StripTrailingWhitespaces()
+    
+    " Groups splits by tab in python
+    autocmd BufEnter *.py setlocal foldmethod=indent
+    
+    " Changes tab back to actual tab (makefiles break otherwise)
+    autocmd BufEnter Makefile setlocal noexpandtab
+    
+    " Assembly Syntax
+    autocmd BufEnter *.asm,*.s setlocal ft=masm 
+    
+    " Relative numbers in command mode, Absolute in insert
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
+augroup END
 " }}}
 " vim:foldmethod=marker:foldlevel=0

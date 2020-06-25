@@ -3,6 +3,7 @@
 	name = Ryan Chhong
 [alias]
 	tree = log --all --decorate --oneline --graph
+	compact = !git reflog expire --expire=0 --all && git repack -ad && git prune && git gc
 [color]
 	ui = true
 [push]
