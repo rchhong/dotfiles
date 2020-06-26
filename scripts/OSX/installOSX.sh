@@ -19,6 +19,7 @@ print_stage "INSTALLING PROGRAMS AND TERMINAL TOOLS"
 brew bundle --file brewfile
 brew bundle --file caskfile
 brew bundle --file masfile
+code --install-extension Shan.code-settings-sync
 
 print_stage "INSTALLING CONDA PACKAGES"
 conda install jupyterlab
