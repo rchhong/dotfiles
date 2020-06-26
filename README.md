@@ -8,8 +8,9 @@ bash -c "$(curl -s https://raw.githubusercontent.com/infernalhydra/dotfiles/mast
 ```
 
 ## Links
+
 [Ubuntu](./scripts/Ubuntu/README.md)  
+![neofetch screenshot](/media/ubuntu.png)
 [Arch]() - Coming Soon!  
 [OSX](./scripts/OSX/README.md)  
-
-
+![neofetch screenshot](/media/macos.png)
