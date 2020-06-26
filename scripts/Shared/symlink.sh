@@ -11,6 +11,7 @@ toSymlinkFiles=(
 	.gitconfig
 	.vimrc
 	.zshrc
+    .gitignore_global
 )
 
 toSymlinkDirectories=(

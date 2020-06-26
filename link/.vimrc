@@ -39,6 +39,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
 " File Browser that's less buggy
 Plugin 'preservim/nerdtree'
+" See Undo History
+Plugin 'mbbill/undotree'
 call vundle#end()
 
 if vundle_present == 0
@@ -188,10 +190,10 @@ set ignorecase
 " Unless we use caps in search
 set smartcase
 
-" Enables incremental search (move highlight as we add characters) 
+" Enables incremental search (move highlight as we add characters)
 set incsearch
 
-" Highlights 
+" Highlights
 set hlsearch
 " }}}
 " netrw {{{
@@ -203,12 +205,12 @@ let g:loaded_netrwPlugin = 1
 " NERDTree {{{
 
 " Show hidden files
-let NERDTreeShowHidden=1	
+let NERDTreeShowHidden=1
 
-" Close NERDTree when opening file	
-let NERDTreeQuitOnOpen=1	
+" Close NERDTree when opening file
+let NERDTreeQuitOnOpen=1
 
-" Toggles NERDTree	
+" Toggles NERDTree
 nmap <F6> :call SmartToggleNERDTree()<CR>
 
 " Opens NERDTree if no files specified, unless using session
@@ -289,7 +291,7 @@ function Terminal()
     startinsert
 endfunction
 
-" Swap buffer shortcut 
+" Swap buffer shortcut
 function ChangeBuffer()
     call inputsave()
     let bufferNumber = input("Buffer #: ")
@@ -305,6 +307,12 @@ function SmartToggleNERDTree()
         echom "NERD Tree Open"
         execute ":NERDTreeFind"
     endif
+endfunc
+
+function TwoSpaces()
+    setlocal tabstop=2
+    setlocal softtabstop=2
+    setlocal shiftwidth=2
 endfunc
 "}}}
 " Auto Completion {{{
@@ -389,24 +397,24 @@ let g:airline#extensions#virtualenv#enabled = 0
 " Skip separators for sections that are empty
 let g:airline_skip_empty_sections = 1
 
-" Disables the buffer name that displays on the right of the tabline 
+" Disables the buffer name that displays on the right of the tabline
 let g:airline#extensions#tabline#show_splits = 0
 
 " Disable tab numbers
 let g:airline#extensions#tabline#show_tab_nr = 0
 
-" Don't show tab numbers on the right 
+" Don't show tab numbers on the right
 let g:airline#extensions#tabline#show_tab_count = 0
 
-" Remove 'X' at the end of the tabline 
-let g:airline#extensions#tabline#show_close_button = 0  
+" Remove 'X' at the end of the tabline
+let g:airline#extensions#tabline#show_close_button = 0
 
 " Replace 'tabs' and 'buffers' with shorthand
 let g:airline#extensions#tabline#tabs_label = 't'
 let g:airline#extensions#tabline#buffers_label = 'b'
 
 " Disable file paths in the tab
-let g:airline#extensions#tabline#fnamemod = ':t' 
+let g:airline#extensions#tabline#fnamemod = ':t'
 " }}}
 " Sessions {{{
 " Move where sessions are stored
@@ -415,7 +423,7 @@ let g:sessions_dir = "~/.vim/sessions"
 " Leader Shortcuts {{{
 
 let mapleader=","
-
+"asdf
 " Disable search highlight
 nnoremap <leader><space> :noh<CR>
 
@@ -459,22 +467,54 @@ exec 'nnoremap <Leader>sl :so ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><
 " AutoGroups {{{
 augroup configgroup
     autocmd!
-    
+
+    " Automatically write to/load undo tree upon closing/opening files
+    " autocmd BufDelete :wundo<CR>
+    " autocmd BufAdd :rundo<CR>
+
     " Removes all extraneous whitespace upon closing file
-    autocmd BufWritePre *.py,*.java,*.cpp,*.h,*.c :call <SID>StripTrailingWhitespaces()
-    
+    let ftToIgnore = ['latex', 'plaintex', "markdown"]
+    autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | :call <SID>StripTrailingWhitespaces()
+
     " Groups splits by tab in python
     autocmd BufEnter *.py setlocal foldmethod=indent
-    
+
+    " 2 Spaces instead of 4 in some languages
+    autocmd BufEnter *.css,*.sass,*.js, *.ts,*.html,*.jsx,*.sh :call TwoSpaces()
+
     " Changes tab back to actual tab (makefiles break otherwise)
     autocmd BufEnter Makefile setlocal noexpandtab
-    
+
     " Assembly Syntax
-    autocmd BufEnter *.asm,*.s setlocal ft=masm 
-    
+    autocmd BufEnter *.asm,*.s setlocal ft=masm
+
     " Relative numbers in command mode, Absolute in insert
     autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
     autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
 augroup END
+" }}}
+" Backups, Buffers, UndoTrees {{{
+" Enable backups and move backup folder
+set backup
+set backupdir=~/.vim/backup//
+
+" Automatically make backup before overwriting current buffer
+set writebackup
+
+" Enable persistent undo and move persistent undo folder
+set undofile
+set undodir=~/.vim/undo//
+
+" See undo tree
+nnoremap <F5> :UndotreeToggle<CR>
+
+" Move swap file folder
+set directory=~/.vim/swp//
+
+" Make directories if they don't exist
+if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
+if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
+if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
+
 " }}}
 " vim:foldmethod=marker:foldlevel=0

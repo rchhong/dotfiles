@@ -10,10 +10,17 @@ alias reload='source ~/.zshrc'
 
 # When nothing works
 alias fkit='rm -rf node_modules/ && yarn install'
+
 # Change vim to nvim
 alias oldvim="\\vim"
 alias vim='nvim'
 alias vi='nvim'
+
+# vim directories
+alias vimdir='cd ~/.vim'
+alias vimswap='cd ~/.vim/swp'
+alias vimundo='cd ~/.vim/undo'
+alias vimbackup='cd ~/.vim/tmp'
 
 # Access common config files
 alias ohmyzsh="~/.oh-my-zsh"
@@ -27,9 +34,11 @@ alias dlaudio="youtube-dl --add-metadata --embed-thumbnail --extract-audio --aud
 alias dlvideo="youtube-dl --sub-lang en --add-metadata --write-sub -o '~/Videos/%(artist)s - %(title)s.%(ext)s'"
 
 # Aliases for lazy people like me
-# R only works when its capitalized 
+# R only works when its capitalized
 alias r="R"
 alias y="yarn"
 alias x="exit"
 alias c="clear"
 alias h='history|grep'
+
+
