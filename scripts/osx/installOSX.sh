@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 DOTFILES=$HOME/.dotfiles
-source $DOTFILES/scripts/Shared/helpers.sh
+source $DOTFILES/scripts/shared/helpers.sh
 
 # Ask for sudo
 sudo -v
@@ -13,7 +13,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 print_stage "INSTALLING PROGRAMS AND TERMINAL TOOLS"
 brew bundle --file brewfile

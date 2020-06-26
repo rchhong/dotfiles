@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-source $DOTFILES/scripts/Shared/helpers.sh 
+source $DOTFILES/scripts/shared/helpers.sh
 
 print_stage "SYMLINKKING FILES"
 
