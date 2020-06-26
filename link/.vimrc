@@ -480,7 +480,7 @@ augroup configgroup
     autocmd BufEnter *.py setlocal foldmethod=indent
 
     " 2 Spaces instead of 4 in some languages
-    autocmd BufEnter *.css,*.sass,*.js, *.ts,*.html,*.jsx,*.sh :call TwoSpaces()
+    autocmd BufEnter *.css,*.sass,*.js,*.ts,*.html,*.jsx,*.sh :call TwoSpaces()
 
     " Changes tab back to actual tab (makefiles break otherwise)
     autocmd BufEnter Makefile setlocal noexpandtab
