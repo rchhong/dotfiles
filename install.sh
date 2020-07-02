@@ -8,9 +8,14 @@ if [ "$(uname)" == "Darwin" ]; then
     git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
     $DOTFILES/scripts/OSX/installOSX.sh
 elif [ "$(uname)" == "Linux" ]; then
-    echo "Configuring Linux"
-    # Install git
-    sudo apt install git
-    git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
-    $DOTFILES/scripts/Linux/installLinux.sh
+    if [ -f "/etc/arch-release" ]; then
+        echo "Configuring Arch Linux"
+        git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
+    else
+        echo "Configuring Ubuntu"
+        # Install git
+        sudo apt install git
+        git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
+        $DOTFILES/scripts/Linux/installLinux.sh
+    fi
 fi

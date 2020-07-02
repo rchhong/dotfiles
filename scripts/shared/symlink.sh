@@ -11,7 +11,7 @@ toSymlinkFiles=(
 	.gitconfig
 	.vimrc
 	.zshrc
-    .gitignore_global
+	.gitignore_global
 )
 
 toSymlinkDirectories=(
@@ -45,12 +45,11 @@ for i in "${toSymlinkDirectories[@]}"; do
     fi
     for j in $DOTFILES/link/$i/$path; do
         relPath="$(echo $j | awk -F "/" '{ printf "%s/%s/%s", $6, $7, $8 }')"
-        if $onlyOneWildcard ; then
-            relPath="$(echo $j | awk -F "/" '{ printf "%s/%s", $6, $7}')"
-        fi
+        relPathBackOne="$(echo $j | awk -F "/" '{ printf "%s/%s", $6, $7}')"
         echo $j
         echo $HOME/$relPath
         [ -d "$HOME/$relPath" ] && sudo rm -r $HOME/$relPath
+        [ ! -d "$HOME/$relPath" ] && mkdir -p $HOME/$relPathBackOne
         sudo ln -sf $j $HOME/$relPath
     done
 	((n++))

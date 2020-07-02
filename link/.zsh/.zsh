@@ -1,0 +1,1 @@
+/home/ryanc/.dotfiles/link/.zsh

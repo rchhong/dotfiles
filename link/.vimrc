@@ -41,6 +41,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdtree'
 " See Undo History
 Plugin 'mbbill/undotree'
+" Language Pack
+Plugin 'sheerun/vim-polyglot'
 call vundle#end()
 
 if vundle_present == 0
