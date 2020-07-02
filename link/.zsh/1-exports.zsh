@@ -12,4 +12,6 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 export NVM_LAZY_LOAD=true
 
+export BROWSER=google-chrome-stable
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
