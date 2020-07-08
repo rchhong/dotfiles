@@ -2,7 +2,7 @@
 
 ![neofetch screenshot](/media/ubuntu.png)
 
-TODO: Refactor this whole thing, spagetti bash code
+TODO: Refactor this whole thing, spagetti bash code, not too sure if this one works anymore
 
 ## Prerequesites
 It is recommended to install vanilla GNOME to remove the Ubuntu branding 
@@ -14,6 +14,11 @@ sudo update-alternatives --config gdm3.css
 ```
 
 Select lightdm as the greeter.
+
+## Install
+Run the following command
+```
+bash -c "$(curl -s https://raw.githubusercontent.com/infernalhydra/dotfiles/master/install.sh)"
 
 ## Theme
 Canta theme with numix circle icons will be installed

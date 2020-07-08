@@ -3,18 +3,7 @@ DOTFILES=$HOME/.dotfiles
 source $DOTFILES/scripts/shared/helpers.sh
 
 toInstallPacman=(
-  vim
-  neovim
-  yarn
-  ripgrep
-  gdb
-  fzf
-  neofetch
   yay
-  sqlite
-  jdk11-openjdk
-  texlive-core
-  texlive-latexextra
 )
 
 toInstallNPM=(
@@ -37,6 +26,16 @@ toInstallYay=(
   spicetify
   betterdiscordctl-git
   betterdiscordctl-rauenzi-git
+  vim
+  neovim
+  yarn
+  ripgrep
+  gdb
+  fzf
+  neofetch
+  jdk11-openjdk
+  texlive-core
+  texlive-latexextra
 )
 
 
@@ -45,9 +44,9 @@ print_stage "INSTALLING PROGRAMS"
 let n=0
 let total=${#toInstallPacman[@]}+${#toInstallNPM[@]}+${#toInstallYay[@]}
 
-for i in "${toInstallApt[@]}"; do
+for i in "${toInstallPacman[@]}"; do
 	progressBar $n $total "Installing $i"
-	sudo pacman -Syu $i
+	pacman $i
 	((n++))
 done
 
@@ -59,6 +58,9 @@ for i in "${toInstallNPM[@]}"; do
 	npm install -g $i
 	((n++))
 done
+
+# Updating everything
+yay -Syu
 
 for i in "${toInstallYay[@]}"; do
 	progressBar $n $total "Installing $i"

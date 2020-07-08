@@ -150,6 +150,9 @@ set number relativenumber
 " Shows options when hitting tab on command mode
 set wildmenu
 
+" Ignore certain types of files
+set wildignore+=*.pyc,*.o,*.class,*.DS_Store,*/node_modules/*,*/.git/*,*/build/*
+
 " Optimize performance
 set lazyredraw
 
@@ -183,6 +186,7 @@ set splitright
 
 " Don't break line at word
 set linebreak
+
 " }}}
 " Searching {{{
 
@@ -235,6 +239,13 @@ let NERDTreeQuitOnOpen = 1
 
 " Close if only NERDTREE Left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Respect wildignore
+let NERDTreeRespectWildIgnore = 1
+
+" Ignore certain directories
+let NERDTreeIgnore = ['^.git$', '^node_modules$', '^build$']
+
 " }}}
 " fzf {{{
 
@@ -246,7 +257,7 @@ autocmd! FileType fzf set laststatus=0 noshowmode noruler
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Mirrors ctrl-P functionality
-nnoremap <C-p> :Files <C-R>=expand('%:h')<CR><CR>
+nnoremap <C-p> :GFiles <C-R>=expand('%:h')<CR><CR>
 nnoremap <C-b> :Buffers<CR>
 autocmd! FileType fzf
 
@@ -482,7 +493,7 @@ augroup configgroup
     autocmd BufEnter *.py setlocal foldmethod=indent
 
     " 2 Spaces instead of 4 in some languages
-    autocmd BufEnter *.css,*.sass,*.js,*.ts,*.html,*.jsx,*.sh :call TwoSpaces()
+    autocmd BufEnter *.css,*.sass,*.js,*.ts,*.html,*.jsx,*.sh,*.zsh :call TwoSpaces()
 
     " Changes tab back to actual tab (makefiles break otherwise)
     autocmd BufEnter Makefile setlocal noexpandtab

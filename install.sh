@@ -9,13 +9,13 @@ if [ "$(uname)" == "Darwin" ]; then
     $DOTFILES/scripts/OSX/installOSX.sh
 elif [ "$(uname)" == "Linux" ]; then
     if [ -f "/etc/arch-release" ]; then
-        echo "Configuring Arch Linux"
-        git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
+      echo "Configuring Arch Linux (Manjaro)"
+      git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
     else
-        echo "Configuring Ubuntu"
-        # Install git
-        sudo apt install git
-        git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
-        $DOTFILES/scripts/Linux/installLinux.sh
+      echo "Configuring Ubuntu"
+      # Install git
+      sudo apt install git
+      git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
+      $DOTFILES/scripts/Linux/installLinux.sh
     fi
 fi

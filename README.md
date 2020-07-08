@@ -11,6 +11,7 @@ bash -c "$(curl -s https://raw.githubusercontent.com/infernalhydra/dotfiles/mast
 
 [Ubuntu](./scripts/Ubuntu/README.md)  
 ![neofetch screenshot](/media/ubuntu.png)
-[Arch]() - Coming Soon!  
+[Arch Linux (Manjaro)](./scripts/Ubuntu/README.md)
+![neofetch screenshot](/media/manjaro.png)
 [OSX](./scripts/OSX/README.md)  
 ![neofetch screenshot](/media/macos.png)
