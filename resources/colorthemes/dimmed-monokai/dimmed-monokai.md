@@ -1,6 +1,6 @@
 # Dimmed Monokai
 
-![Dimmed Monokai](../media/DimmedMonokai.png)
+![Dimmed Monokai](../../../media/DimmedMonokai.png)
 
 ## Color Palette
 | Property | Color |

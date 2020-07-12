@@ -1,6 +1,6 @@
 # Monokai Soda
 
-![Monokai Soda](../media/MonokaiSoda.png)
+![Monokai Soda](../../../media/MonokaiSoda.png)
 
 
 ## Color Palette

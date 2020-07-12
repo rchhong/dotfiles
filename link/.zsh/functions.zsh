@@ -4,6 +4,11 @@ function acp() {
     git push
 }
 
+function ac() {
+    git add .
+    git commit -m $1
+}
+
 function mkcd() {
   if [[ $1 ]] ; then
     mkdir -p $1

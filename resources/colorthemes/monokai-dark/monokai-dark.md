@@ -1,6 +1,6 @@
 # Monokai Dark
 
-![Monokai Dark](../media/MonokaiDark.png)
+![Monokai Dark](../../../media/MonokaiDark.png)
 
 ## Color Palette
 
