@@ -286,6 +286,7 @@ set foldlevelstart=10
 nnoremap <space> za
 " }}}
 " Functions {{{
+
 " Removes all extraneous whitespace
 function! <SID>StripTrailingWhitespaces()
     " save last search & cursor position
@@ -304,14 +305,7 @@ function Terminal()
     startinsert
 endfunction
 
-" Swap buffer shortcut
-function ChangeBuffer()
-    call inputsave()
-    let bufferNumber = input("Buffer #: ")
-    call inputrestore()
-    execute bufferNumber . "b"
-endfunction
-
+" Correctly opens/closes NERDTree
 function SmartToggleNERDTree()
     if exists("g:NERDTree") && g:NERDTree.IsOpen()
         echom "NERD Tree Closed"
@@ -322,6 +316,7 @@ function SmartToggleNERDTree()
     endif
 endfunc
 
+" Change to two spaces depending on the language
 function TwoSpaces()
     setlocal tabstop=2
     setlocal softtabstop=2
@@ -365,12 +360,15 @@ inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Es
 let g:SuperTabDefaultCompletionType = "context"
 " }}}
 " Terminal {{{
+if has('nvim')
 
 " Swap between terminal and normal mode
 tnoremap <C-v><Esc> <Esc>
 
 " Makes escape work in terminal
 autocmd TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+
+endif
 " }}}
 " NERDCommenter {{{
 
@@ -452,8 +450,12 @@ nnoremap <leader>s :set spell!<CR>
 " Write current buffer
 nnoremap <leader>w :w<CR>
 
+if has('nvim')
+
 " Open terminal in other window
 nnoremap <leader>t :call Terminal()<CR>
+
+endif
 
 " Calls the Silver Surfer (UT Server doesn't have RigGrep
 nnoremap <leader>a :Ag<CR>

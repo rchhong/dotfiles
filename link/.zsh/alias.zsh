@@ -40,5 +40,5 @@ alias y="yarn"
 alias x="exit"
 alias c="clear"
 alias h='history|grep'
-
+alias n='npm'
 

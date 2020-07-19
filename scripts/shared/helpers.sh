@@ -31,7 +31,7 @@ function progress_bar {
 	let _left=40-$_done
 	_done=$(printf "%${_done}s")
 	_left=$(printf "%${_left}s")
-	print_info "\r${3} Progress : [${_done// /#}${_left// /-}] ${_progress}%%\n"
+	print_info "\r${3} Progress : [${_done// /#}${_left// /-}] ${_progress}%%"
 }
 
 export -f progress_bar
