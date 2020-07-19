@@ -4,8 +4,8 @@ This repository contains my various configuration files for both Mac OS and Linu
 ## Links
 
 [Ubuntu](./scripts/ubuntu/README.md)  
-![neofetch screenshot](/media/ubuntu.png)
+![neofetch screenshot](./media/ubuntu.png)
 [Arch Linux (Manjaro)](./scripts/arch/README.md)
-![neofetch screenshot](/media/manjaro.png)
+![neofetch screenshot](./media/manjaro.png)
 [OSX](./scripts/osx/README.md)  
-![neofetch screenshot](/media/macos.png)
+![neofetch screenshot](./media/macos.png)
