@@ -13,7 +13,7 @@ with open("./monokai-soda/monokai-soda.md", 'r') as input_file:
     # Skip to palette
     curr_line = input_file.readline();
     while("## Color Palette" not in curr_line):
-        curr_line = input_file.readline();
+        curr_line =      input_file.readline();
     input_file.readline();
     input_file.readline();
 

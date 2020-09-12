@@ -36,6 +36,7 @@ toInstallYay=(
   jdk11-openjdk
   texlive-core
   texlive-latexextra
+  jupyter
 )
 
 

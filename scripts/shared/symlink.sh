@@ -16,6 +16,7 @@ toSymlinkFiles=(
 
 toSymlinkDirectories=(
 	.config
+  .vim
 )
 
 let n=0
