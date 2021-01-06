@@ -42,3 +42,8 @@ alias c="clear"
 alias h='history|grep'
 alias n='npm'
 
+# For Manjaro Only
+alias tlmgr='TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
+
+# Very annoying, disabled
+alias sl="ls"

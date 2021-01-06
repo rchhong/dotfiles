@@ -200,5 +200,4 @@ endfunc
 " Make SuperTab work with autocompetion
 let g:SuperTabDefaultCompletionType = "context"
 " }}}
-
 " vim:foldmethod=marker:foldlevel=0
