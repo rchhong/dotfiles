@@ -122,7 +122,6 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 " }}}
 " Airline {{{
-
 " Show buffers instead of tabs if there's only 1 tab
 let g:airline#extensions#tabline#enabled = 1
 
@@ -199,5 +198,9 @@ endfunc
 
 " Make SuperTab work with autocompetion
 let g:SuperTabDefaultCompletionType = "context"
+
+" Use <C-n> completion
+" let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
 " }}}
 " vim:foldmethod=marker:foldlevel=0

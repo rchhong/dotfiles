@@ -3,11 +3,25 @@
 	name = Ryan Chhong
 [alias]
 	tree = log --all --decorate --oneline --graph
+    # Space saver
 	compact = !git reflog expire --expire=0 --all && git repack -ad && git prune && git gc
-	ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi"
+    # Get gitignores
+	gitignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi"
+    # Ignore files only locally
+    ignore = update-index --assume-unchanged
+    unignore = update-index --no-assume-unchanged
+    ignored = !git ls-files -v | grep "^[[:lower:]]"
+    # Undo last commit but keep changed files in stage
+    uncommit = reset --soft HEAD~1
+    # Remove file(s) from Git but not from disk
+    untrack = rm --cache --
 [color]
-	ui = true
+	ui = auto
 [push]
 	default = simple
+[pull]
+    rebase = merges
 [core]
     excludesfile = ~/.gitignore_global
+[credential "https://github.com"]
+	helper = !gh auth git-credential

@@ -1,3 +1,5 @@
+" Required for any vimrc
+set nocompatible
 " Plugins {{{
 source ~/.vim/plugins.vim
 " }}}
@@ -51,10 +53,7 @@ set clipboard^=unnamed,unnamedplus
 " Mouse support lol
 set mouse=a
 
-" Required for any vimrc
-set nocompatible
-
-" Spellcheck US Workds
+" Spellcheck US Words
 set spell spelllang=en_us
 
 " Remaps escape
@@ -69,6 +68,10 @@ set pastetoggle=<F3>
 
 " Reload vimrc
 command! Reload :so ~/.vimrc
+
+" Hide buffers
+set hidden
+
 "}}}
 " Spaces & Tabs {{{
 
@@ -203,7 +206,6 @@ function TwoSpaces()
 endfunc
 "}}}
 " Auto Completion {{{
-
 " Turns on auto completion
 set omnifunc=syntaxcomplete#Complete
 
@@ -214,12 +216,12 @@ set completeopt=longest,menuone
 set dictionary+=/usr/share/dict/words
 
 " Makes navigation of omnimenu more natural
-inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-inoremap <expr> <PageUp>   pumvisible() ? "	 \<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+" inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+" inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+" inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+" inoremap <expr> <PageUp>   pumvisible() ? "	 \<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 " Menu item always highlighted
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
@@ -229,11 +231,11 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvis
 
 " Open omni completion menu closing previous if open and opening new menu without changing the text
 inoremap <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
-            \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+           \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
 
 " Open user completion menu closing previous if open and opening new menu without changing the text
 inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
-            \ '<C-x><C-u><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+           \ '<C-x><C-u><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
 
 " }}}
 " {{{ Autoclose

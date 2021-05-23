@@ -1,8 +1,8 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-source $DOTFILES/scripts/Shared/progressBar.sh 
-x
+source $DOTFILES/scripts/Shared/progressBar.sh
+
 read -p "Has GNOME been separately installed (Y/N)? " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
