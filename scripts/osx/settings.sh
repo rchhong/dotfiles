@@ -117,10 +117,8 @@ defaults write com.apple.dock minimize-to-application -bool true
 
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
-for app in "cfprefsd" \
-	"Dock" \
-	"SystemUIServer" \
-	"Terminal" \; do
-	killall "${app}" &> /dev/null
-done
+# to_kill=("cfprefsd" "Dock" "SystemUIServer" "Terminal")
+# for app in ${to_kill[@]}; do
+	# killall "${app}" &> /dev/null
+# done
 print_success "DONE. Note that some of these changes require a logout/restart to take effect."

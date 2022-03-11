@@ -14,16 +14,18 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~
 
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/ryanchhong/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 print_stage "INSTALLING PROGRAMS AND TERMINAL TOOLS"
 brew bundle --file brewfile
 brew bundle --file caskfile
 brew bundle --file masfile
-code --install-extension Shan.code-settings-sync
 
 print_stage "INSTALLING CONDA PACKAGES"
-conda install jupyterlab
-conda install pandas
+# conda install jupyterlab
+# conda install pandas
+conda install -c conda-forge radian
 conda config --set auto_activate_base false
 
 print_stage "INSTALLING ZSH PLUGINS"
