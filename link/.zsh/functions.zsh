@@ -1,13 +1,13 @@
-function acp() {
-    git add .
-    git commit -m $1
-    git push
-}
+# function acp() {
+    # git add .
+    # git commit -m $1
+    # git push
+# }
 
-function ac() {
-    git add .
-    git commit -m $1
-}
+# function ac() {
+    # git add .
+    # git commit -m $1
+# }
 
 function mkcd() {
   if [[ $1 ]] ; then

@@ -42,8 +42,11 @@ alias c="clear"
 alias h='history|grep'
 alias n='npm'
 
-# For Manjaro Only
-alias tlmgr='TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
+alias tlmgr='/usr/local/texlive/*basic/bin/universal-darwin/tlmgr'
 
 # Very annoying, disabled
 alias sl="ls"
+
+# QMK
+alias lily58='cd ~/qmk_firmware/keyboards/lily58/keymaps/rchhong'
+alias kbd67lite='cd ~/qmk_firmware/keyboards/kbdfans/kbd67/hotswap/keymaps/rchhong'
