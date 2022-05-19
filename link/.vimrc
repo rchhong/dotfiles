@@ -2,6 +2,7 @@
 set nocompatible
 " Plugins {{{
 source ~/.vim/plugins.vim
+
 " }}}
 " Colors {{{
 
@@ -215,6 +216,7 @@ set completeopt=longest,menuone
 " Dictionary configuration
 set dictionary+=/usr/share/dict/words
 
+
 " Makes navigation of omnimenu more natural
 " inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -348,7 +350,7 @@ nnoremap <leader>w :w<CR>
 if has('nvim')
 
 " Open terminal in other window
-nnoremap <leader>t :call Terminal()<CR>
+" nnoremap <leader>t :call Terminal()<CR>
 
 endif
 

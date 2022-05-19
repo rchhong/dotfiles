@@ -59,7 +59,7 @@ let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 
 " Toggles NERDTree
-nmap <F6> :call SmartToggleNERDTree()<CR>
+nmap <F6> :call NERDTreeToggleAndRefresh()<CR>
 
 " Opens NERDTree if no files specified, unless using session
 autocmd StdinReadPre * let s:std_in=1
@@ -182,16 +182,14 @@ nnoremap <leader>x :bd<CR>
 "}}}
 " Functions {{{
 
-" Correctly opens/closes NERDTree
-function SmartToggleNERDTree()
-    if exists("g:NERDTree") && g:NERDTree.IsOpen()
-        echom "NERD Tree Closed"
-        execute ":NERDTreeClose"
-    else
-        echom "NERD Tree Open"
-        execute ":NERDTreeFind"
-    endif
-endfunc
+" Refresh NERDTree
+map <C-n> <CR>
+function NERDTreeToggleAndRefresh()
+  :NERDTreeToggle
+  if g:NERDTree.IsOpen()
+    :NERDTreeRefreshRoot
+  endif
+endfunction
 
 "}}}
 " Auto Completion {{{
