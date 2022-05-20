@@ -121,4 +121,7 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 # for app in ${to_kill[@]}; do
 	# killall "${app}" &> /dev/null
 # done
+
+# VS Code VIM Mode
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
 print_success "DONE. Note that some of these changes require a logout/restart to take effect."

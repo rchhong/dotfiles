@@ -23,3 +23,8 @@ brew "qmk/qmk/qmk"
 brew "nvm"
 brew "pandoc"
 brew "pure"
+brew "fish"
+
+# brew "koekeishiya/formulae/yabai"
+# brew install skhd
+# brew install uberstrich
