@@ -42,8 +42,6 @@ alias c="clear"
 alias h='history|grep'
 alias n='npm'
 
-alias tlmgr='/usr/local/texlive/*basic/bin/universal-darwin/tlmgr'
-
 # Very annoying, disabled
 alias sl="ls"
 

@@ -42,7 +42,16 @@ Plugin 'preservim/nerdtree'
 Plugin 'mbbill/undotree'
 " Language Pack
 Plugin 'sheerun/vim-polyglot'
+" Dev Icons
+Plugin 'ryanoasis/vim-devicons'
+" Show git status
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Show git status in file
+Plugin 'airblade/vim-gitgutter'
+" tmux integration
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
+
 
 if vundle_present == 0
   echo "Installing Bundles, please ignore key map error messages"
@@ -50,6 +59,40 @@ if vundle_present == 0
   :PluginInstall
 endif
 " }}}
+" Functions {{{
+
+" Refresh NERDTree
+function NERDTreeToggleAndRefresh()
+  :NERDTreeToggle
+  if g:NERDTree.IsOpen()
+    :NERDTreeRefreshRoot
+  endif
+endfunction
+
+" Toggle git-gutter diff
+let g:gitgutter_diff_open = 0
+let g:gitgutter_preview_win_floating = 1
+function! GitGutterDiffOrigToggle()
+   if ! g:gitgutter_diff_open
+       GitGutterDiffOrig
+   else
+       +clo
+    endif
+    let g:gitgutter_diff_open = !g:gitgutter_diff_open
+endfunction
+
+" "
+function! GFilesFallback()
+  let output = system('git rev-parse --show-toplevel') " Is there a faster way?
+  let prefix = get(g:, 'fzf_command_prefix', '')
+  if v:shell_error == 0
+    exec "normal :" . prefix . "GFiles\<CR>"
+  else
+    exec "normal :" . prefix . "Files\<CR>"
+  endif
+  return 0
+endfunction
+"}}}
 " NERDTree {{{
 
 " Show hidden files
@@ -99,7 +142,7 @@ autocmd! FileType fzf set laststatus=0 noshowmode noruler
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Mirrors ctrl-P functionality
-nnoremap <C-p> :GFiles <C-R>=expand('%:h')<CR><CR>
+nnoremap <C-p> ::call GFilesFallback()<CR>
 nnoremap <C-b> :Buffers<CR>
 autocmd! FileType fzf
 
@@ -132,7 +175,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_theme='molokai'
 
 " Powerline Symbols
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 " Improved File Title
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -165,6 +208,9 @@ let g:airline#extensions#tabline#buffers_label = 'b'
 
 " Disable file paths in the tab
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Remove search count
+let g:airline#extensions#searchcount#enabled = 0
 " }}}
 " Leader Shortcuts {{{
 
@@ -179,18 +225,11 @@ nnoremap <leader>r :Rg<CR>
 " Close Current Buffer
 nnoremap <leader>x :bd<CR>
 
-"}}}
-" Functions {{{
+" Show diff
+nnoremap <silent> <leader>gd :call GitGutterDiffOrigToggle()<CR>
 
-" Refresh NERDTree
-map <C-n> <CR>
-function NERDTreeToggleAndRefresh()
-  :NERDTreeToggle
-  if g:NERDTree.IsOpen()
-    :NERDTreeRefreshRoot
-  endif
-endfunction
-
+" Show preview
+nnoremap <leader>gp <Plug>(GitGutterPreviewHunk)
 "}}}
 " Auto Completion {{{
 

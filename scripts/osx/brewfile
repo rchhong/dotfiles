@@ -22,6 +22,7 @@ brew "java"
 brew "qmk/qmk/qmk"
 brew "nvm"
 brew "pandoc"
+brew "watch"
 brew "pure"
 brew "fish"
 

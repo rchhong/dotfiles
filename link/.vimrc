@@ -347,6 +347,9 @@ nnoremap <leader>s :set spell!<CR>
 " Write current buffer
 nnoremap <leader>w :w<CR>
 
+" Close Current Buffer
+nnoremap <leader>x :bd<CR>
+
 if has('nvim')
 
 " Open terminal in other window

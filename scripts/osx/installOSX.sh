@@ -30,13 +30,13 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # print_stage "INSTALLING ZSH PLUGINS"
 # fzf file completion
-# $(brew --prefix)/opt/fzf/install
-
-# nvm
-# git clone https://github.com/lukechilds/zsh-nvm $ZSH_CUSTOM/plugins/zsh-nvm
+$(brew --prefix)/opt/fzf/install
 
 # zsh autosuggestions
-# git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 # zsh syntax highlighting
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+# WARNING - latex might be finnicky
+# /usr/local/texlive/2022basic/bin/universal-darwin/tlmgr path add - fixes path issues

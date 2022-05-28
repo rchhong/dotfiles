@@ -12,6 +12,7 @@ toSymlinkFiles=(
 	.vimrc
 	.zshrc
 	.gitignore_global
+  .tmux.conf
   # .yabairc
   # .skhdrc
   # .tmux.conf

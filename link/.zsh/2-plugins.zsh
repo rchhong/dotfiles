@@ -7,7 +7,6 @@ plugins=(
   safe-paste
   yarn
   nvm
-  # zsh-nvm
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
