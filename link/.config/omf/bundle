@@ -1,0 +1,4 @@
+package autojump
+package bang-bang
+theme default
+theme pure

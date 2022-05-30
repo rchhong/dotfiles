@@ -22,9 +22,9 @@ brew "java"
 brew "qmk/qmk/qmk"
 brew "nvm"
 brew "pandoc"
+brew "autojump"
 brew "watch"
 brew "pure"
-brew "fish"
 
 # brew "koekeishiya/formulae/yabai"
 # brew install skhd

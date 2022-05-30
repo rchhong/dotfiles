@@ -25,15 +25,26 @@ function print_error {
 
 # https://github.com/fearside/ProgressBar/blob/master/progressbar.sh
 # Author : Teddy Skarin
+
+PROGRESS_BAR_NUM_DONE=0
+PROGRESS_BAR_TOTAL=0
+
+function setup_progress_bar {
+	PROGRES_BAR_NUM_DONE=0
+	PROGRESS_BAR_TOTAL=${1}
+}
+
 function progress_bar {
-	let _progress=(${1}*100/${2}*100)/100
+	let _progress=(${PROGRESS_BAR_NUM_DONE}*100/${PROGRESS_BAR_TOTAL}*100)/100
 	let _done=(${_progress}*4)/10
 	let _left=40-$_done
 	_done=$(printf "%${_done}s")
 	_left=$(printf "%${_left}s")
 	print_info "\r${3} Progress : [${_done// /#}${_left// /-}] ${_progress}%%"
+	((PROGRESS_BAR_NUM_DONE++))
 }
 
+export -f setup_progress_bar
 export -f progress_bar
 export -f print_stage
 export -f print_info

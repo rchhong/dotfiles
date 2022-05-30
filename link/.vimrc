@@ -5,7 +5,6 @@ source ~/.vim/plugins.vim
 
 " }}}
 " Colors {{{
-
 " Syntax highlighting
 syntax on
 
@@ -44,6 +43,8 @@ if has('nvim')
 endif
 " }}}
 " Misc {{{
+" Possibly needed in vim, but not neovim
+" set encoding=utf-8
 
 " Makes backspace more intuitive
 set backspace=indent,eol,start
@@ -207,37 +208,38 @@ function TwoSpaces()
 endfunc
 "}}}
 " Auto Completion {{{
+" DISABLE IN FAVOR OF COC (for now)
 " Turns on auto completion
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 
 " Longest common text shows up, window still shows up with only one option
-set completeopt=longest,menuone
+" set completeopt=longest,menuone
 
 " Dictionary configuration
-set dictionary+=/usr/share/dict/words
+" set dictionary+=/usr/share/dict/words
 
 
 " Makes navigation of omnimenu more natural
 " inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 " inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 " inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 " inoremap <expr> <PageUp>   pumvisible() ? "	 \<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 " Menu item always highlighted
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+" inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Automatically start at longest match
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+" inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Open omni completion menu closing previous if open and opening new menu without changing the text
-inoremap <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
-           \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+" inoremap <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
+           " \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
 
 " Open user completion menu closing previous if open and opening new menu without changing the text
-inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
-           \ '<C-x><C-u><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+" inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
+           " \ '<C-x><C-u><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
 
 " }}}
 " {{{ Autoclose
@@ -422,5 +424,8 @@ if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
 if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
 if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
 
+" WARINING: WHEN USING WITH COC, CANNOT ENABLE THIS
+set nobackup
+set nowritebackup
 " }}}
 " vim:foldmethod=marker:foldlevel=0

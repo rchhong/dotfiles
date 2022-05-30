@@ -21,8 +21,6 @@ brew bundle --file caskfile
 brew bundle --file masfile
 
 print_stage "INSTALLING CONDA PACKAGES"
-# conda install jupyterlab
-# conda install pandas
 conda install -c conda-forge radian
 conda config --set auto_activate_base false
 
