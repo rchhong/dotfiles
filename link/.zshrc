@@ -4,4 +4,3 @@ for i in $ZSH_FILES_DIRECTORY/*; do
 done
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-

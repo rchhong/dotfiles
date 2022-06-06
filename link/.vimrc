@@ -20,27 +20,6 @@ colorscheme molokai
 " set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-" Monokai colors
-" TODO: Make customizable by putting these values in a separate file
-if has('nvim')
-    let g:terminal_color_0  = '#1A1A1A'
-    let g:terminal_color_1  = '#F4005F'
-    let g:terminal_color_2  = '#98E024'
-    let g:terminal_color_3  = '#FA8419'
-    let g:terminal_color_4  = '#9D65FF'
-    let g:terminal_color_5  = '#F4005F'
-    let g:terminal_color_6  = '#58D1EB'
-    let g:terminal_color_7  = '#C4C5B5'
-    let g:terminal_color_8  = '#625E4C'
-    let g:terminal_color_9  = '#F4005F'
-    let g:terminal_color_10  = '#98E024'
-    let g:terminal_color_11  = '#E0D561'
-    let g:terminal_color_12  = '#9D65FF'
-    let g:terminal_color_13  = '#F4005F'
-    let g:terminal_color_14  = '#58D1EB'
-    let g:terminal_color_15  = '#F6F6EF'
-endif
 " }}}
 " Misc {{{
 " Possibly needed in vim, but not neovim
@@ -193,13 +172,6 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunc
 
-" Makes new terminal in new tab
-function Terminal()
-    tabnew
-    terminal
-    startinsert
-endfunction
-
 " Change to two spaces depending on the language
 function TwoSpaces()
     setlocal tabstop=2
@@ -315,17 +287,6 @@ inoremap (,<CR> (<CR>),<ESC>O
 inoremap [,<CR> [<CR>],<ESC>O
 inoremap {,<CR> {<CR>},<ESC>O
 " }}}
-" Terminal {{{
-if has('nvim')
-
-" Swap between terminal and normal mode
-tnoremap <C-v><Esc> <Esc>
-
-" Makes escape work in terminal
-autocmd TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-
-endif
-" }}}
 " Sessions {{{
 " Move where sessions are stored
 let g:sessions_dir = "~/.vim/sessions"
@@ -351,19 +312,6 @@ nnoremap <leader>w :w<CR>
 
 " Close Current Buffer
 nnoremap <leader>x :bd<CR>
-
-if has('nvim')
-
-" Open terminal in other window
-" nnoremap <leader>t :call Terminal()<CR>
-
-endif
-
-" Force Close Current Buffer
-" nnoremap <leader>f :bd!<CR>
-
-" Custom function to open buffer
-" nnoremap <leader>b :call ChangeBuffer()<CR>
 
 " Make sessions
 exec 'nnoremap <Leader>ss :mks! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
@@ -412,9 +360,6 @@ set writebackup
 " Enable persistent undo and move persistent undo folder
 set undofile
 set undodir=~/.vim/undo//
-
-" See undo tree
-nnoremap <F5> :UndotreeToggle<CR>
 
 " Move swap file folder
 set directory=~/.vim/swp//

@@ -1,0 +1,63 @@
+# Plugin manager
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# Needed for vim support
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+on_if = '!has("nvim")'
+
+# Needed for vim support
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+on_if = '!has("nvim")'
+
+# Molokai theme
+[[plugins]]
+repo = 'tomasr/molokai'
+
+# Easier commenting/uncommenting
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+hook_add = 'source ~/.vim/config/plugins/nerdcommenter.vim'
+
+# Statusbar
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+depends = 'vim-airline-themes'
+hook_add = 'source ~/.vim/config/plugins/vim_airline.vim'
+
+# Statusbar themes
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+# Language Pack
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+# Dev Icons
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+# More targets
+[[plugins]]
+repo = 'wellle/targets.vim'
+
+# File browser
+[[plugins]]
+repo = 'preservim/nerdtree'
+depends = 'nerdtree-git-plugin'
+# on_cmd = ['NERDTreeRefreshRoot', 'NERDTreeFind', 'NERDTreeToggle', 'NERDTree']
+hook_add = 'source ~/.vim/config/plugins/nerdtree.vim'
+
+# Show git status in file brower
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+# Git status in file
+[[plugins]]
+repo = 'mhinz/vim-signify'
+
+# Makes tab do more
+[[plugins]]
+repo = 'ervandew/supertab'

@@ -1,0 +1,44 @@
+# UI for updates
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
+on_cmd = 'DeinUpdate'
+
+# tmux integration
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+on_map = {n = ['<C-h>', '<C-j>', '<C-k>', '<C-l>']}
+
+# Allows easy change of surrounding characters
+[[plugins]]
+repo = 'tpope/vim-surround'
+on_map = {n = ['cs', 'ds', 'ys'], x = 'S'}
+depends = 'vim-repeat'
+
+# Repeat support for some plugins
+[[plugins]]
+repo = 'tpope/vim-repeat'
+on_map = '.'
+
+# See Undo History
+[[plugins]]
+repo = 'mbbill/undotree'
+on_cmd = 'UndotreeToggle'
+hook_add = 'source ~/.vim/config/plugins/undotree.vim'
+
+# Git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+on_cmd = ['Git', 'Gedit', 'Gsplit', 'Gdiffsplit', 'Gvdiffsplit', 'Gread', 'Gwrite', 'Ggrep', 'Glgrep', 'GMove', 'GDelete', 'GBrowse']
+
+# File finding
+[[plugins]]
+repo = 'junegunn/fzf'
+on_cmd = ['FZF', ]
+on_func = ['fzf#run', ]
+# hook_add = 'source ~/.vim/config/plugins/fzf.vim'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = ['fzf', ]
+on_cmd = ['Files', 'GFiles', 'Buffers']
+hook_add = 'source ~/.vim/config/plugins/fzf.vim'
