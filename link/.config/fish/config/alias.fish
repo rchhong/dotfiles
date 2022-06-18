@@ -3,10 +3,9 @@ alias cd..='cd ../'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-alias ~='cd ~'
 
 # Reload Terminal
-alias reload='source ~/.zshrc'
+alias reload='source ~/.config/fish/config.fish'
 
 # When nothing works
 alias fkit='rm -rf node_modules/ && yarn install'
@@ -23,10 +22,8 @@ alias vimundo='cd ~/.vim/undo'
 alias vimbackup='cd ~/.vim/tmp'
 
 # Access common config files
-alias ohmyzsh="~/.oh-my-zsh"
-alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
-alias zshconfig="cd ~/.zsh"
+alias fishconfig="cd ~/.config/fish"
 alias dotfiles="cd ~/.dotfiles"
 
 # DL Youtube
@@ -41,9 +38,6 @@ alias x="exit"
 alias c="clear"
 alias h='history|grep'
 alias n='npm'
-
-# Very annoying, disabled
-alias sl="ls"
 
 # QMK
 alias lily58='cd ~/qmk_firmware/keyboards/lily58/keymaps/rchhong'
