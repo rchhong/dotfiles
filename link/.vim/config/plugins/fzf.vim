@@ -24,7 +24,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Mirrors ctrl-P functionality
 nnoremap <C-p> :call GFilesFallback()<CR>
-nnoremap <C-v> :Buffers<CR>
+nnoremap <C-b> :Buffers<CR>
 autocmd! FileType fzf
 
 " Cancels fzf

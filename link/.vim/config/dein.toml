@@ -17,11 +17,13 @@ on_if = '!has("nvim")'
 repo = 'tomasr/molokai'
 
 # Easier commenting/uncommenting
+# Replace with this? tpope/vim-commentary
 [[plugins]]
 repo = 'scrooloose/nerdcommenter'
 hook_add = 'source ~/.vim/config/plugins/nerdcommenter.vim'
 
 # Statusbar
+# TODO: Get rid of this shit and write my own, use buftabline for top part
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 depends = 'vim-airline-themes'

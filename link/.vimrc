@@ -1,5 +1,6 @@
 " Required for any vimrc
 set nocompatible
+" TODO: Split this one up too
 " Plugins {{{
 source ~/.vim/plugins.vim
 
@@ -215,6 +216,7 @@ endfunc
 
 " }}}
 " {{{ Autoclose
+" Investigate https://github.com/jiangmiao/auto-pairs
 "autoclose and position cursor to write text inside
 inoremap ' ''<left>
 inoremap ` ``<left>
@@ -294,7 +296,7 @@ let g:sessions_dir = "~/.vim/sessions"
 " Leader Shortcuts {{{
 
 let mapleader=","
-"asdf
+
 " Disable search highlight
 nnoremap <leader><space> :noh<CR>
 
@@ -369,8 +371,5 @@ if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
 if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
 if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
 
-" WARINING: WHEN USING WITH COC, CANNOT ENABLE THIS
-set nobackup
-set nowritebackup
 " }}}
 " vim:foldmethod=marker:foldlevel=0
