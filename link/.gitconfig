@@ -1,6 +1,7 @@
 [user]
 	email = ryanchhong@gmail.com
 	name = Ryan Chhong
+	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDpA1QUy8atAVx17nPPhqmPDzbX0nlchzOPswnQ5keIRd3V8+sul5ZrK3M+bdgr6AUbI/xofPis1vfnpuvZAf91AF5RaABJ0rOPqbXKuAr6zPckjC11FsfUdTpD6zhHrJFlQxn/G+TL/1dvYzPPOcmCn9gyFpXuo+YNlbUstyZyW/SaW41WzMrXSZGY3Spz6g4Qax6emFfM0tvlvzcwB2E9IODJJ2C1yXun5tJjpuGQ5X8JOY76hP6fF5UwCTBMI80FkEfUIvrxxAhGjpmqM2AIPWtTIiXEJRevo7fjFbYQThYA2uhOljSN4tqGCg+jFp3sV0LKbFfGikeXz4U03t3MP43WeW47ttrgGI3bTMolyA0M6OyVTG8mgVG3MMwniZD455waGPVzQgQRICUxQpXIceiwD+z6kFN1hjc0OBFM+T3Px+1bZUNQ+PNCH0Qq5c3jEiIlMwaxVkWvs1LhkEJbpJsEXdcwyRfLPj/shHP5wdIuUejRsg0no1cQOefS9VRpKVIFpXdBDtOTVRznWYEyYezSiOH4PZUz1k19OBGef/tCvmpnVs3ligAiONTM4u71LInvRA+zS/4/ZvgHdk3i3QEz8ww+z2RBQSlZ/SegPBNf/TBpo7bTNaHFvGo4bAJjGatKDsgs3VyEnoWmmqAkfyArNSYj/jyS+FvR2kOW7Q== ryanchhong@Ryans-MBP.attlocal.net
 [alias]
 	tree = log --all --decorate --oneline --graph
     # Space saver
@@ -27,3 +28,5 @@
 	helper = !gh auth git-credential
 [credential]
 	helper = osxkeychain
+[gpg]
+	format = ssh

@@ -24,6 +24,7 @@ print_stage "INSTALLING CONDA PACKAGES"
 conda install -c conda-forge radian
 conda config --set auto_activate_base false
 
+# tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # print_stage "INSTALLING ZSH PLUGINS"

@@ -9,18 +9,19 @@ source ~/.vim/plugins.vim
 " Syntax highlighting
 syntax on
 
+" set Vim-specific sequences for RGB colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" Color Scheme
+colorscheme molokai
+
 " Full-color support
 set termguicolors
 
 " Dark background
 set background=dark
 
-" Color Scheme
-colorscheme molokai
-
-" set Vim-specific sequences for RGB colors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " }}}
 " Misc {{{
 " Possibly needed in vim, but not neovim
