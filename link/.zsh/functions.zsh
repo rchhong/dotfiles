@@ -1,14 +1,3 @@
-# function acp() {
-    # git add .
-    # git commit -m $1
-    # git push
-# }
-
-# function ac() {
-    # git add .
-    # git commit -m $1
-# }
-
 function mkcd() {
   if [[ $1 ]] ; then
     mkdir -p $1
@@ -32,4 +21,11 @@ function rga-fzf() {
 	)" &&
 	echo "opening $file" &&
 	open "$file"
+}
+
+function brew-upgrade-greedy() {
+    defaults export com.apple.dock "/tmp/dock-layout.plist"
+    $HOMEBREW_PREFIX/bin/brew upgrade --greedy
+    defaults import com.apple.dock "/tmp/dock-layout.plist"
+    killall Dock
 }
