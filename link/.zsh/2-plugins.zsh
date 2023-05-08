@@ -1,13 +1,14 @@
 plugins=(
+  z
   extract
   git
-  npm
+  fnm
   pip
   sudo
   safe-paste
   yarn
-  nvm
   zsh-autosuggestions
+  brew
   zsh-syntax-highlighting
 )
 

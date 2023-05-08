@@ -4,6 +4,5 @@ package bass
 package fish-space
 package foreign-env
 package fzf
-package nvm
 theme default
 theme pure
