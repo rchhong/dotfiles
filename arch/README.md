@@ -13,3 +13,4 @@ None are necessary from my experience testing, but just in case the following ar
 Run the following command
 ```
 bash -c "$(curl -s https://raw.githubusercontent.com/infernalhydra/dotfiles/master/install.sh)"
+```

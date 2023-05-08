@@ -40,7 +40,7 @@ function progress_bar {
 	let _left=40-$_done
 	_done=$(printf "%${_done}s")
 	_left=$(printf "%${_left}s")
-	print_info "\r${3} Progress : [${_done// /#}${_left// /-}] ${_progress}%%"
+	print_info "\r${1}\n Progress : [${_done// /#}${_left// /-}] ${_progress}%%"
 	((PROGRESS_BAR_NUM_DONE++))
 }
 

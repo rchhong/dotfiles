@@ -1,5 +1,7 @@
 # dotfiles
-This repository contains my various configuration files for both Mac OS and Linux (Ubuntu and Arch).  Additionally, there are installation scripts, but these are not finished/out of date for Linux.  **Use installation scripts at own risk.**
+This repository contains my various configuration files for both Mac OS and ~~Linux (Ubuntu and Arch)~~ (Linux compatability removed for now due to lack of testing).
+
+**Use installation scripts at own risk.**
 
 ## Links
 

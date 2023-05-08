@@ -18,7 +18,7 @@ bash -c "$(curl -s https://raw.githubusercontent.com/infernalhydra/dotfiles/mast
 ```
 
 ## Adding SSH keys to keychain
-Make sure you actually generate ssh key first
+Prior to running this, ensure that there is an SSH that is either generated or migrated from your previous system.  This makes is so you don't have to always type in your ssh key.
 ```
 ssh-add --apple-use-keychain ~/.ssh/id_rsa
 ```

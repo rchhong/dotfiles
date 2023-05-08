@@ -6,9 +6,6 @@ source $DOTFILES/scripts/shared/helpers.sh
 sudo -v
 
 print_stage "INSTALLING HOMEBREW"
-# oh my zsh
-# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -19,15 +16,17 @@ print_stage "INSTALLING PROGRAMS AND TERMINAL TOOLS"
 brew bundle --file brewfile
 brew bundle --file caskfile
 brew bundle --file masfile
+# tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 print_stage "INSTALLING CONDA PACKAGES"
 conda install -c conda-forge radian
 conda config --set auto_activate_base false
 
-# tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+print_stage "INSTALLING ZSH PLUGINS"
+# oh my zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# print_stage "INSTALLING ZSH PLUGINS"
 # fzf file completion
 $(brew --prefix)/opt/fzf/install
 
@@ -37,5 +36,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugi
 # zsh syntax highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
-# WARNING - latex might be finnicky
-# /usr/local/texlive/2022basic/bin/universal-darwin/tlmgr path add - fixes path issues
+# Fixes tlmgr issues
+cd $(ls -d /usr/local/texlive/ |head -n 1)
+./bin/universal-darwin/tlmgr path add - fixes path issues
+
+cd ~
