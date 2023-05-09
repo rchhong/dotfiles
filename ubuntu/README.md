@@ -1,6 +1,6 @@
 # Ubuntu Linux
 
-![neofetch screenshot](/media/ubuntu.png)
+![neofetch screenshot](./media/ubuntu.png)
 
 TODO: Refactor this whole thing, spagetti bash code, not too sure if this one works anymore
 

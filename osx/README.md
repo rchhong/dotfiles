@@ -1,6 +1,6 @@
 # Mac OS
 
-![neofetch screenshot](/media/macos.png)
+![neofetch screenshot](./media/macos.png)
 
 ## Prerequesites
 
@@ -14,7 +14,7 @@ Among other things, XCode developer tools installs git, which is necessary for t
 ## Install
 Run the following command
 ```
-bash -c "$(curl -s https://raw.githubusercontent.com/infernalhydra/dotfiles/master/install.sh)"
+bash -c "$(curl -s https://raw.githubusercontent.com/infernalhydra/dotfiles/main/osx/install.sh)"
 ```
 
 ## Adding SSH keys to keychain

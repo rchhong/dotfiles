@@ -6,7 +6,6 @@ source $DOTFILES/scripts/shared/helpers.sh
 sudo -v
 
 print_stage "INSTALLING HOMEBREW"
-
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/ryanchhong/.zprofile
@@ -38,6 +37,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 
 # Fixes tlmgr issues
 cd $(ls -d /usr/local/texlive/ |head -n 1)
-./bin/universal-darwin/tlmgr path add - fixes path issues
+./bin/universal-darwin/tlmgr path add
 
 cd ~

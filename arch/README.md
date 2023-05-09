@@ -1,6 +1,6 @@
 # Arch Linux (Manjaro)
 
-![neofetch screenshot](/media/manjaro.png)
+![neofetch screenshot](./media/manjaro.png)
 
 ## Prerequisites
 
