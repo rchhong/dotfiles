@@ -3,16 +3,13 @@
 DOTFILES=$HOME/.dotfiles
 source $DOTFILES/scripts/helpers.sh
 
-print_stage "SYMBOLIC LINKING FILES"
-
-# Backups
-[[ ! -d "$DOTFILES/backup" ]] && mkdir -p $DOTFILES/backup
+print_stage "SYMBOLIC LINKING CONFIG FILES"
 
 #Make symlinks
 linkDirCommon=$DOTFILES/common/link
 for i in $linkDirCommon/*; do
   to_install=$(echo $i | cut -d'/' -f7-)
-  print_info "Installing $to_install"
+  print_info "$to_install"
 
   # Avoid conflicts
   CONFLICTS=$(stow --simulate  --no-folding --verbose -t ~ -d $linkDirCommon $to_install 2>&1 | awk '/\* existing target is/ {print $NF}')
