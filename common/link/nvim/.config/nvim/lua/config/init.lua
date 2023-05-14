@@ -1,0 +1,7 @@
+require('config/colors')
+require('config/folds')
+require('config/leader_shortcuts')
+require('config/misc')
+require('config/search')
+require('config/spaces')
+require('config/ui')

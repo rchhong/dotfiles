@@ -8,6 +8,7 @@ tap "homebrew/cask-font"
 # brew uberstrich
 brew "autojump"
 brew "awk"
+brew "fd"
 brew "ffmpeg"
 brew "fnm"
 brew "font-meslo-lg-nerd-font"

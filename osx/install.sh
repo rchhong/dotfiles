@@ -36,7 +36,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugi
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
 # Fixes tlmgr issues
-cd $(ls -d /usr/local/texlive/ |head -n 1)
-./bin/universal-darwin/tlmgr path add
+"/usr/local/texlive/$(ls -d /usr/local/texlive/ |head -n 1)/bin/universal-darwin/tlmgr" path add
 
-cd ~
+# TODO: increase the granlarity level
+print_stage "INSTALLING CONFIG FILES"
+$DOTFILES/scripts/link.sh common private osx
+

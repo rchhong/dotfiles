@@ -60,20 +60,3 @@ repo = 'Xuyuanp/nerdtree-git-plugin'
 # Git status in file
 [[plugins]]
 repo = 'mhinz/vim-signify'
-
-# NVIM ONLY
-# Language server
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
-depends = 'mason-lspconfig.nvim'
-on_if = 'has("nvim")'
-
-# Manage language servers
-[[plugins]]
-repo = 'williamboman/mason.nvim'
-depends = 'mason-lspconfig.nvim'
-on_if = 'has("nvim")'
-
-[[plugins]]
-repo = 'williamboman/mason-lspconfig.nvim'
-on_if = 'has("nvim")'

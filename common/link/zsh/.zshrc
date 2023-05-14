@@ -9,3 +9,5 @@ export GPG_TTY=$(tty)
 
 eval "$(fnm env --use-on-cd)"
 # zprof
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
