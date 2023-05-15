@@ -17,15 +17,19 @@ vim.opt.hidden = true
 vim.opt.pastetoggle = "<F3>"
 
 -- Spellcheck US Words
--- set spell spelllang=en_us
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
 
 local m = require('helpers/mapping')
 
 -- Remaps escape
 m.imap('jk', '<ESC>')
 
--- Use Ctrl-O and Ctrl-I when jumping multiple lines
--- m.nmap('k', "(v:count > 1 ? "m'" . v:count : '') . 'gk'")
--- m.nmap('j', "(v:count > 1 ? "m'" . v:count : '') . 'gj'")
+-- Up/down are by visual line, instead of actual line
+vim.keymap.set('n', 'j', "(v:count == 0 ? 'gj' : 'j')", { noremap = true, silent = true, expr = true })
+vim.keymap.set('n', '<Down>', "(v:count == 0 ? 'gj' : 'j')", { noremap = true, silent = true, expr = true })
+
+vim.keymap.set('n', 'k', "(v:count == 0 ? 'gk' : 'k')", { noremap = true, silent = true, expr = true })
+vim.keymap.set('n', '<Up>', "(v:count == 0 ? 'gk' : 'k')", { noremap = true, silent = true, expr = true })
 
 

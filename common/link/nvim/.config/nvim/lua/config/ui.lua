@@ -1,4 +1,5 @@
--- Relative numbers
+-- Relative numbers except for current line
+vim.wo.number = true
 vim.wo.relativenumber = true
 
 -- Shows options when hitting tab on command mode

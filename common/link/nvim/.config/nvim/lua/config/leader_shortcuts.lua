@@ -17,5 +17,3 @@ m.nmap("<leader>w", ":w<CR>")
 
 --  Close Current Buffer
 m.nmap("<leader>x", ":bd<CR>")
-
-
