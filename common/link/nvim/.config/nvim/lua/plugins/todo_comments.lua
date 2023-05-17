@@ -9,4 +9,5 @@ return {
             signs = false
         })
     end
+    -- TODO: Add hotkey for :TodoTelescope
 }

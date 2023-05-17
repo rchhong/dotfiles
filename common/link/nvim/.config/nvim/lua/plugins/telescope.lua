@@ -1,17 +1,47 @@
 return {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     lazy = true,
+    priority = 100,
     dependencies = {
         'nvim-lua/plenary.nvim',
         'nvim-tree/nvim-web-devicons',
         'nvim-treesitter/nvim-treesitter',
         'telescope-fzf-native.nvim',
+        'debugloop/telescope-undo.nvim',
     },
     cmd = {
         "Telescope"
     },
+    keys = {
+        { "<C-p>", mode = {"n"} },
+        { "<C-b>", mode = {"n"} },
+        { '<leader>fg', mode = {"n"} },
+        { '<leader>fu', mode = {"n"} },
+        { '<leader>pp', mode = {"n"} },
+    },
     config = function()
         require('telescope').setup({
+            defaults = {
+                file_ignore_patterns = {
+                    ".git/",
+                    "^node_modules/",
+                    "^build/",
+                    ".cache",
+                    "%.pdf",
+                    "%.mkv",
+                    "%.mp4",
+                    "%.zip",
+                    "__pycache__/",
+                    ".ipynb_checkpoints/"
+                }
+            },
+            pickers = {
+                find_files = {
+                    hidden = true,
+                    no_ignore = false,
+                    no_ignore_parent = false
+                }
+            },
             extensions = {
                 fzf = {
                     fuzzy = true,                    -- false will only do exact matching
@@ -19,14 +49,30 @@ return {
                     override_file_sorter = true,     -- override the file sorter
                     case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                                     -- the default case_mode is "smart_case"
+                },
+                undo = {
+                    side_by_side = true,
+                    layout_strategy = "vertical",
+                    layout_config = {
+                      preview_height = 0.8,
+                    },
                 }
             }
         })
 
         require('telescope').load_extension('fzf')
+        require("telescope").load_extension("undo")
 
         local m = require('helpers/mapping')
         local builtin = require('telescope.builtin')
+        local extension = require('telescope').extensions
+
+
+        local function find_all()
+            require('telescope.builtin').find_files({
+                hidden = true,
+            })
+        end
 
         local function files_fallback()
             vim.fn.system 'git rev-parse --is-inside-work-tree'
@@ -34,12 +80,16 @@ return {
             if vim.v.shell_error == 0 then
                 require('telescope.builtin').git_files(dropdown)
             else
-                require('telescope.builtin').find_files(dropdown)
+                require('telescope.builtin').find_files({hidden=true})
             end
         end
-        -- TODO: Install undo tree
+
+        -- TODO: Create augroup to open telescope upon vim opening a directory
         m.nmap('<C-p>', files_fallback)
-        m.nmap('<C-r>', builtin.live_grep)
         m.nmap('<C-b>', builtin.buffers)
+
+        m.nmap('<leader>fg', builtin.live_grep)
+        m.nmap('<leader>fa', find_all)
+        m.nmap('<leader>fu', extension.undo.undo)
     end
 }
