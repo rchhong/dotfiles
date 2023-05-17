@@ -7,9 +7,9 @@ return {
     config = function()
         require('lualine').setup({
             options = {
-                theme = 'molokai',
+                disabled_filetypes = { 'Lazy', 'NvimTree' },
                 section_separators = '',
-                component_separators = ''
+                component_separators = '',
             }
         })
     end

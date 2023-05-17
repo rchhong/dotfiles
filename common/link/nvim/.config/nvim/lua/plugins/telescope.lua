@@ -7,10 +7,8 @@ return {
         'nvim-treesitter/nvim-treesitter',
         'telescope-fzf-native.nvim',
     },
-    keys = {
-        { "<C-p>", mode = "n" },
-        { "<C-r>", mode = "n" },
-        { "<C-b>", mode = "n" },
+    cmd = {
+        "Telescope"
     },
     config = function()
         require('telescope').setup({
@@ -39,6 +37,7 @@ return {
                 require('telescope.builtin').find_files(dropdown)
             end
         end
+        -- TODO: Install undo tree
         m.nmap('<C-p>', files_fallback)
         m.nmap('<C-r>', builtin.live_grep)
         m.nmap('<C-b>', builtin.buffers)

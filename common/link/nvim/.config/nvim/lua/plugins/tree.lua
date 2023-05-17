@@ -27,6 +27,12 @@ return {
             hijack_netrw = true,
             auto_reload_on_write = true,
             hijack_unnamed_buffer_when_opening = false,
+            sync_root_with_cwd = true,
+            respect_buf_cwd = true,
+            root_dirs = {
+                "*/src/",
+                "*/nvim/"
+            },
             view = {
                 width = {}
             },
@@ -41,6 +47,10 @@ return {
                   resize_window = true,
                   quit_on_open = true,
                 },
+            },
+            update_focused_file = {
+                enable = true,
+                update_root = true
             },
             on_attach = my_on_attach,
         })

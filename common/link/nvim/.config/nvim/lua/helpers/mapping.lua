@@ -1,7 +1,15 @@
 local M = {}
 
-function M.map(mode, shortcut, command)
-    vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true })
+function M.map(mode, shortcut, command, opts)
+    local user_opts = opts or {}
+    local opts = { noremap = true, silent = true }
+    
+    -- Merge extra options and given options
+    for k,v in pairs(user_opts) do
+        opts[k] = v
+    end
+
+    vim.keymap.set(mode, shortcut, command, opts)
 end
 
 function M.nmap(shortcut, command)
