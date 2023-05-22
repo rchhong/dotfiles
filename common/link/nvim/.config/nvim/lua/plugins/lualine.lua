@@ -7,7 +7,7 @@ return {
     config = function()
         require('lualine').setup({
             options = {
-                disabled_filetypes = { 'Lazy', 'NvimTree' },
+                disabled_filetypes = { 'Lazy', 'NvimTree', "Trouble"},
                 section_separators = '',
                 component_separators = '',
             }

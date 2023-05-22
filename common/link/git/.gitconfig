@@ -24,6 +24,7 @@
     rebase = merges
 [core]
     excludesfile = ~/.gitignore_global
+	editor = nvim
 [credential "https://github.com"]
 	helper = !gh auth git-credential
 [credential]

@@ -2,7 +2,8 @@
 vim.opt.foldenable = true
 
 --  Fold by syntax by default
-vim.opt.foldmethod = "syntax"
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 --  Set max folds
 vim.opt.foldnestmax = 10

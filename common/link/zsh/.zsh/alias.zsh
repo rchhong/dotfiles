@@ -8,19 +8,16 @@ alias ~='cd ~'
 # Reload Terminal
 alias reload='source ~/.zshrc'
 
-# When nothing works
-alias fkit='rm -rf node_modules/ && yarn install'
-
 # Change vim to nvim
 alias oldvim="\\vim"
 alias vim='nvim'
 alias vi='nvim'
 
-# vim directories
-alias vimdir='cd ~/.vim'
-alias vimswap='cd ~/.vim/swp'
-alias vimundo='cd ~/.vim/undo'
-alias vimbackup='cd ~/.vim/tmp'
+# nvim directories
+alias nvimdir='cd ~/.config/nvim/'
+alias nvimswap='cd ~/.config/nvim/swp'
+alias nvimundo='cd ~/.config/nvim/undo'
+alias nvimbackup='cd ~/.config/nvim/tmp'
 
 # Access common config files
 alias ohmyzsh="~/.oh-my-zsh"
@@ -36,11 +33,10 @@ alias dlvideo="yt-dlp --sub-lang en --add-metadata --write-sub -o '~/Videos/%(ar
 # Aliases for lazy people like me
 # R only works when its capitalized
 alias r="R"
-alias y="yarn"
 alias x="exit"
 alias c="clear"
 alias h='history|grep'
-alias n='npm'
+alias npm='pnpm'
 
 # Very annoying, disabled
 alias sl="ls"

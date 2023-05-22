@@ -7,7 +7,6 @@ return {
         'nvim-tree/nvim-web-devicons',
         'nvim-treesitter/nvim-treesitter',
         'telescope-fzf-native.nvim',
-        'debugloop/telescope-undo.nvim',
     },
     cmd = {
         "Telescope"
@@ -16,8 +15,8 @@ return {
         { "<C-p>", mode = {"n"} },
         { "<C-b>", mode = {"n"} },
         { '<leader>fg', mode = {"n"} },
+        { '<leader>fa', mode = {"n"} },
         { '<leader>fu', mode = {"n"} },
-        { '<leader>pp', mode = {"n"} },
     },
     config = function()
         require('telescope').setup({
@@ -50,18 +49,10 @@ return {
                     case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                                     -- the default case_mode is "smart_case"
                 },
-                undo = {
-                    side_by_side = true,
-                    layout_strategy = "vertical",
-                    layout_config = {
-                      preview_height = 0.8,
-                    },
-                }
             }
         })
 
         require('telescope').load_extension('fzf')
-        require("telescope").load_extension("undo")
 
         local m = require('helpers/mapping')
         local builtin = require('telescope.builtin')
@@ -84,12 +75,11 @@ return {
             end
         end
 
-        -- TODO: Create augroup to open telescope upon vim opening a directory
         m.nmap('<C-p>', files_fallback)
         m.nmap('<C-b>', builtin.buffers)
 
         m.nmap('<leader>fg', builtin.live_grep)
         m.nmap('<leader>fa', find_all)
-        m.nmap('<leader>fu', extension.undo.undo)
+
     end
 }

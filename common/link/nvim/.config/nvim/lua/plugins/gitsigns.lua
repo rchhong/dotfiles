@@ -3,7 +3,7 @@ return {
     event = "VeryLazy",
     config = function()
       require('gitsigns').setup({
-
+          trouble = false
       })
 
           local gs = package.loaded.gitsigns
