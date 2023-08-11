@@ -1,0 +1,60 @@
+#!/bin/bash
+
+DOTFILES=$HOME/.dotfiles
+TEMP=$DOTFILES/temp/
+source $DOTFILES/scripts/helpers.sh
+
+# Install fnm
+curl -fsSL https://fnm.vercel.app/install | bash
+
+# Install pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+
+# Install Miniconda
+progressBar $n $total "Installing Miniconda"
+wget -O $DOTFILES/temp/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod a+x $DOTFILES/temp/miniconda.sh
+$DOTFILES/temp/miniconda.sh  
+
+# Install AWS CLI
+sudo apt-get install awscli
+
+# Install Azure CLI
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+# Install GCP CLI
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates gnupg curl sudo
+echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo apt-get update && sudo apt-get install google-cloud-cli
+
+# Install Docker
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Add current user to docker group (no more sudo with docker commands)
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+echo "{ \
+  "log-driver": "json-file", \
+  "log-opts": { \
+    "max-size": "10m", \
+    "max-file": "3" \
+  }\
+}	" | sudo tee /etc/docker/daemon.json > /dev/null
+
+# Start Docker on startup
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
