@@ -17,6 +17,6 @@ elif [ "$(uname)" == "Linux" ]; then
       # Install git
       sudo apt install git
       git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
-      $DOTFILES/scripts/ubuntu/installLinux.sh
+      $DOTFILES/scripts/ubuntu/install_ubuntu.sh
     fi
 fi
