@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
+TEMP=$DOTFILES/temp/
 source $DOTFILES/scripts/helpers.sh
 
 terminal_only_mode=false
@@ -29,18 +30,18 @@ then
 fi
 
 mkdir $DOTFILES/temp
-# if [ "$zsh" == true ]; then
-# 	$DOTFILES/ubuntu/install_zsh.sh
-# fi
+if [ "$zsh" == true ]; then
+	$DOTFILES/ubuntu/install_zsh.sh
+fi
 $DOTFILES/ubuntu/install_terminal.sh
 $DOTFILES/ubuntu/install_development.sh
 
-# if [ "$terminal_only_mode" == false ]; then
-# 	$DOTFILES/ubuntu/install_applications.sh
-# 	$DOTFILES/ubuntu/install_settings.sh
-# 	if [ "$work_mode" == false ]; then
-# 		$DOTFILES/ubuntu/install_personal.sh
-# 	fi
-# fi
+if [ "$terminal_only_mode" == false ]; then
+	$DOTFILES/ubuntu/install_applications.sh
+	$DOTFILES/ubuntu/install_settings.sh
+	if [ "$work_mode" == false ]; then
+		$DOTFILES/ubuntu/install_personal.sh
+	fi
+fi
 
 rm -rf $DOTFILES/temp

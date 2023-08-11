@@ -1,3 +1,9 @@
+#!/bin/bash
+
+DOTFILES=$HOME/.dotfiles
+TEMP=$DOTFILES/temp/
+source $DOTFILES/scripts/helpers.sh
+
 echo "Installing zsh"
 # Install zsh
 print_info "Installing zsh"
