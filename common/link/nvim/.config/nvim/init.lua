@@ -1,6 +1,7 @@
 -- Leader keys
 vim.g.mapleader = ","
 vim.g.maplocalleader = " "
+vim.loader.enable()
 
 -- Disable built-in functions for plugins
 require('config/disable_builtin')

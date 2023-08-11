@@ -1,10 +1,16 @@
 return {
     "windwp/nvim-autopairs",
+    dependencies = {
+        'hrsh7th/nvim-cmp',
+        'nvim-treesitter/nvim-treesitter',
+    },
+    lazy = true,
     event = "VeryLazy",
     config = function()
         require("nvim-autopairs").setup({
             disable_filetype = {
                 "TelescopePrompt",
+                "Trouble",
                 "vim"
             },
             enable_check_bracket_line = false,

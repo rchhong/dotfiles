@@ -5,8 +5,10 @@ export DEFAULTS_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bi
 export CONDA_PATH=/$HOME/miniconda3/bin
 export ANDROID_PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/tools:$ANDROID_HOME/emulator
 export RUBY_PATH=/usr/local/lib/ruby/gems/2.7.0/bin:/usr/local/opt/ruby/bin
+export RUST_PATH=$HOME/.cargo/env
+export DOTNET_PATH=$HOME/.dotnet
 
-export PATH=$PATH:$RUBY_PATH:$DEFAULTS_PATH:$CONDA_PATH:$ANDROID_PATH:$HOME/Library/Python/3.8/bin:$HOME/.dotnet
+export PATH=$PATH:$RUBY_PATH:$DEFAULTS_PATH:$CONDA_PATH:$ANDROID_PATH:$HOME/Library/Python/3.8/bin:$DOTNET_PATH:$RUST_PATH
 
 export MANPATH="/usr/local/man:$MANPATH"
 

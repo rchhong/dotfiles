@@ -11,6 +11,6 @@ return {
         })
 
         local m = require('helpers/mapping')
-        m.nmap("<leader>xt", ":TodoTrouble")
+        m.nmap("<leader>xt", ":TodoTrouble<CR>")
     end
 }

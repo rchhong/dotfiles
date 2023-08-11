@@ -15,6 +15,7 @@ print_stage "INSTALLING PROGRAMS AND TERMINAL TOOLS"
 brew bundle --file brewfile
 brew bundle --file caskfile
 brew bundle --file masfile
+# TODO: Start yabai + skhd services
 # tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

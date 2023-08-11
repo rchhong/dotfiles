@@ -3,6 +3,8 @@ return {
     event = "VeryLazy",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        "windwp/nvim-ts-autotag",
+        "nvim-treesitter/nvim-treesitter-context"
     },
     build = function()
         require('nvim-treesitter.install').update({ with_sync = true })
@@ -57,7 +59,6 @@ return {
                 additional_vim_regex_highlighting = false,
             },
             -- TODO: Clean this up, understand what this does better
-            -- TODO: Add LSP support
             textobjects = {
                 select = {
                   enable = true,
@@ -148,7 +149,13 @@ return {
                         ["[d"] = "@conditional.outer",
                       }
                     },
+                },
+                autotag = {
+                  enable = true,
                 }
         })
+
+        local m = require("helpers.mapping")
+        m.nmap("[c", require("treesitter-context").go_to_context)
     end
 }

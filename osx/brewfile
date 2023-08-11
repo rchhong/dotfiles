@@ -1,11 +1,9 @@
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-font"
 
-# brew "gdb"
 # brew "koekeishiya/formulae/yabai"
-# brew "mongodb-community", restart_service: true
-# brew skhd
-# brew uberstrich
+# brew "koekeishiya/formulae/skhd"
+# TODO: add GPG
 brew "autojump"
 brew "awk"
 brew "fd"

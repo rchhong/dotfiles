@@ -122,6 +122,7 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 	# killall "${app}" &> /dev/null
 # done
 
-# VS Code VIM Mode
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+# 24 hour time
+defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm:ss'
+
 print_success "DONE. Note that some of these changes require a logout/restart to take effect."
