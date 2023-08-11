@@ -84,3 +84,8 @@ print_info "Installing refind"
 sudo apt-add-repository ppa:rodsmith/refind
 sudo apt-get update
 sudo apt install -y refind
+
+# Install Obsidian
+print_info "Installing Postman"
+wget -O $TEMP/obsidian.deb https://github.com/obsidianmd/obsidian-releases/releases/download/v1.3.7/obsidian_1.3.7_amd64.deb
+sudo apt install $TEMP/obsidian.deb
