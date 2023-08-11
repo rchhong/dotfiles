@@ -1,3 +1,5 @@
 backup/
 *.bak
 private/link/*
+temp/
+work/
