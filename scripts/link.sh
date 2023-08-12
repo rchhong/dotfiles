@@ -32,7 +32,7 @@ do
     print_info "Installing $to_install"
 
     # Avoid conflicts
-    CONFLICTS=$(stow --simulate --no-folding --verbose -t ~ -d $link_dir "$to_install" 2>&1 | awk '/\* existing target is/ {print $NF}')
+    CONFLICTS=$(stow --simulate --no-folding --verbose "$to_install" 2>&1 | awk '/\* existing target is/ {print $NF}')
     for filename in ${CONFLICTS[@]}; do
       if [[ -f $HOME/$filename || -L $HOME/$filename ]]; then
         if [[ FORCE -eq 1 ]];
@@ -48,7 +48,7 @@ do
     if [[ $FORCE -eq 1 ]]; then RESTOW='--restow'; else RESTOW=''; fi
 		if [[ $DRY_RUN -eq 1 ]]; then DR='--simulate'; else DR=''; fi
     # Create symlinks
-    stow $RESTOW $DR --no-folding --verbose -t ~ -d $link_dir "$to_install"
+    stow $RESTOW $DR --no-folding --verbose "$to_install"
   done
 done
 

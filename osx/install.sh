@@ -41,5 +41,5 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 
 # TODO: increase the granlarity level
 print_stage "INSTALLING CONFIG FILES"
-$DOTFILES/scripts/link.sh common private osx
+$DOTFILES/scripts/link.sh kitty raycast skhd yabai
 

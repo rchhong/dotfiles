@@ -1,5 +1,6 @@
 backup/
 *.bak
-private/link/*
+private/*
 temp/
 work/
+.DS_Store

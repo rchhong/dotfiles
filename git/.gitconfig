@@ -1,7 +1,7 @@
 [user]
 	email = ryanchhong@gmail.com
 	name = Ryan Chhong
-	signingkey = 58A27788BE13AF1F
+	signingkey = /Users/ryanchhong/.ssh/id_rsa.pub
 [alias]
 	tree = log --all --decorate --oneline --graph
     # Space saver
@@ -31,3 +31,5 @@
 	helper = osxkeychain
 [commit]
 	gpgsign = true
+[gpg]
+	format = ssh
