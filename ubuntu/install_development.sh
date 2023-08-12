@@ -4,25 +4,32 @@ DOTFILES=$HOME/.dotfiles
 TEMP=$DOTFILES/temp/
 source $DOTFILES/scripts/helpers.sh
 
+print_stage "Installing Developer Tools"
+
 # Install fnm
+print_info "Installing fnm"
 curl -fsSL https://fnm.vercel.app/install | bash
 
 # Install pnpm
+print_info "Installing pnpm"
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 # Install Miniconda
-progressBar $n $total "Installing Miniconda"
+print_info "Installing miniconda"
 wget -O $DOTFILES/temp/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 chmod a+x $DOTFILES/temp/miniconda.sh
-$DOTFILES/temp/miniconda.sh  
+$DOTFILES/temp/miniconda.sh
 
 # Install AWS CLI
+print_info "Installing AWS CLI"
 sudo apt-get install awscli
 
 # Install Azure CLI
+print_info "Installing Azure CLI"
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 # Install GCP CLI
+print_info "Installing GCP CLI"
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates gnupg curl sudo
 echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
@@ -30,6 +37,7 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 sudo apt-get update && sudo apt-get install google-cloud-cli
 
 # Install Docker
+print_info "Installing Docker"
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -58,3 +66,5 @@ echo "{ \
 # Start Docker on startup
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
+
+print_success "Done!"

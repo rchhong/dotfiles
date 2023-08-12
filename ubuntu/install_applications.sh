@@ -4,10 +4,14 @@ DOTFILES=$HOME/.dotfiles
 TEMP=$DOTFILES/temp/
 source $DOTFILES/scripts/helpers.sh
 
+print_stage "Installing GUI Applications"
+
 # Install GNOME Tweak Tool
+print_info "Installing GNOME Tweak Tool"
 sudo apt install gnome-tweaks
 
 # Install firefox
+print_info "Installing Firefox"
 # Remove snap version of firefox for performance reasons
 sudo snap remove firefox
 rm -rf ~/snap/firefox
@@ -65,7 +69,7 @@ sudo apt install vlc
 
 # Install postman
 print_info "Installing Postman"
-wget -O $TEMP/postman.tar.gz https://dl.pstmn.io/download/latest/linux64 
+wget -O $TEMP/postman.tar.gz https://dl.pstmn.io/download/latest/linux64
 sudo tar -xzf $TEMP/postman.tar.gz -C /opt
 sudo ln -s /opt/Postman/Postman /usr/bin/postman
 cat > ~/.local/share/applications/postman.desktop <<EOL
@@ -89,3 +93,5 @@ sudo apt install -y refind
 print_info "Installing Postman"
 wget -O $TEMP/obsidian.deb https://github.com/obsidianmd/obsidian-releases/releases/download/v1.3.7/obsidian_1.3.7_amd64.deb
 sudo apt install $TEMP/obsidian.deb
+
+print_success "Done!"

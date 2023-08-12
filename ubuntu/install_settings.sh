@@ -6,6 +6,7 @@ source $DOTFILES/scripts/helpers.sh
 
 # Settings
 # For more modifications, run `dconf watch /` and see what changes
+print_stage "Installing Settings"
 
 # Disable Hot Corners
 gsettings set org.gnome.desktop.interface enable-hot-corners false
@@ -22,7 +23,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
 # Show battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 
-# Show day of the week 
+# Show day of the week
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 
 # Dark theme
@@ -38,6 +39,5 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 
 # Setup dock
 gsettings set org.gnome.shell favorite-apps ['org.gnome.Nautilus.desktop', 'firefox.desktop', 'kitty.desktop', 'code.desktop', 'postman.desktop', 'obsidian.desktop']
-
 
 print_success "Done!"

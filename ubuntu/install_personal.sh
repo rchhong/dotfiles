@@ -17,7 +17,10 @@ wget -O $TEMP/ticktick.deb https://ticktick-download-linux.s3.amazonaws.com/down
 sudo apt install $TEMP/ticktick.deb
 
 #Install Anki
+print_info "Installing Anki"
 sudo apt install libxcb-xinerama0 libxcb-cursor0 zstd
 wget -O $TEMP/anki.tar.zst https://github.com/ankitects/anki/releases/download/2.1.65/anki-2.1.65-linux-qt6.tar.zst
 tar xaf $TEMP/anki.tar.zst
 sudo $TEMP/anki-2.1.XX-linux-qt6/install.sh
+
+print_success "Done!"
