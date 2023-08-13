@@ -35,6 +35,10 @@ gsettings set org.gnome.shell enabled-extensions ['ubuntu-appindicators@ubuntu.c
 # Autohide dock
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 
+# kitty as default terminal
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator `which kitty` 50
+sudo update-alternatives --config x-terminal-emulator
+
 # Optional: Install this to move the clock to the left https://extensions.gnome.org/extension/2/move-clock/
 
 # Setup dock

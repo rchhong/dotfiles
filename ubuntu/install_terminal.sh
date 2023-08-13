@@ -59,4 +59,7 @@ wget -O $TEMP/rga.tar.gz https://github.com/phiresky/ripgrep-all/releases/downlo
 tar -xzf $TEMP/rga.tar.gz
 sudo mv $TEMP/ripgrep_all*/rga* /usr/local/bin/
 
+# Install config files
+$DOTFILES/scripts/link.sh -f bash conda fish git gpg kitty nvim ssh tmux vim zsh
+
 print_success "Done!"
