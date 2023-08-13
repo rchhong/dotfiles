@@ -13,8 +13,6 @@ vim.opt.mouse = 'a'
 -- Hide buffers
 vim.opt.hidden = true
 
--- Toggle paste mode
-vim.opt.pastetoggle = "<F3>"
 
 -- Spellcheck US Words
 vim.opt.spell = true

@@ -1,7 +1,7 @@
 [user]
 	email = ryanchhong@gmail.com
 	name = Ryan Chhong
-	signingkey = /Users/ryanchhong/.ssh/id_rsa.pub
+	signingkey = ~/.ssh/id_rsa.pub
 [alias]
 	tree = log --all --decorate --oneline --graph
     # Space saver

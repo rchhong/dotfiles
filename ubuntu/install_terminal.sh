@@ -6,10 +6,18 @@ source $DOTFILES/scripts/helpers.sh
 
 print_stage "Installing terminal applications"
 
-# Install Powerline Patched Fonts
+# Install Nerd Font
 print_info "Installing Powerline Patched Fonts"
-sudo apt install fonts-powerline
-print_success "Done!"
+sudo apt install fontconfig
+cd ~
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip
+mkdir -p .local/share/fonts
+unzip Meslo.zip -d .local/share/fonts
+cd .local/share/fonts
+rm *Windows*
+cd ~
+rm Meslo.zip
+fc-cache -fv
 
 # Installing terminal-based tools
 toDownload=(
@@ -18,10 +26,14 @@ toDownload=(
     fd-find
     ffmpeg
     fzf
+    gcc
     htop
+    lua5.3
+    make
     neofetch
     neovim
     pandoc
+    pass
     poppler-utils
     ripgrep
     stow
@@ -64,6 +76,16 @@ print_info "Installing rga"
 wget -O $TEMP/rga.tar.gz https://github.com/phiresky/ripgrep-all/releases/download/v1.0.0-alpha.5/ripgrep_all-v1.0.0-alpha.5-x86_64-unknown-linux-musl.tar.gz
 tar -xzf $TEMP/rga.tar.gz
 sudo mv $TEMP/ripgrep_all*/rga* /usr/local/bin/
+
+# Install github cli
+type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+sudo apt update
+sudo apt install gh
 
 # Install config files
 $DOTFILES/scripts/link.sh -f bash conda fish git gpg kitty nvim ssh tmux vim zsh

@@ -2,8 +2,6 @@
 
 ![neofetch screenshot](./media/ubuntu.png)
 
-TODO: Refactor this whole thing, spagetti bash code, not too sure if this one works anymore
-
 ## Prerequesites
 It is recommended to install vanilla GNOME to remove the Ubuntu branding 
 
@@ -19,9 +17,8 @@ Select lightdm as the greeter.
 Run the following command
 ```
 bash -c "$(curl -s https://raw.githubusercontent.com/infernalhydra/dotfiles/master/install.sh)"
-
-## Theme
-Canta theme with numix circle icons will be installed
+```
 
 ## App
-<!-- TODO: Actually Finish this section -->
+### VS Code Issues
+To fix the issues with the terminal, change the font to `MesloLGS Nerd Font Mono`
