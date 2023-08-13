@@ -15,7 +15,10 @@ elif [[ "$(uname)" == "Linux" ]]; then
     else
       echo "Configuring Ubuntu"
       # Install git
-      sudo apt install git
+      sudo add-apt-repository ppa:git-core/ppa -y
+      sudo apt-get update
+      sudo apt install -y git
+
       git clone https://github.com/InfernalHydra/dotfiles.git $DOTFILES
       $DOTFILES/scripts/ubuntu/install_ubuntu.sh
     fi
