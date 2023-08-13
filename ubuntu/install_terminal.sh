@@ -37,6 +37,12 @@ for i in "${toDownload[@]}"; do
 	sudo apt install -y $i
 done
 
+# neovim
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt-get update
+sudo apt-get install neovim 
+
 # tmux plugin manager
 print_info "Installing tmux plugin manager"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
