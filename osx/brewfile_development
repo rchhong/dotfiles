@@ -1,0 +1,7 @@
+brew "docker"
+brew "fnm"
+brew "lazygit"
+brew "gh"
+brew "gnupg"
+brew "pinentry-mac"
+brew "pnpm"

@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-DOTFILES=$HOME/.dotfiles
-source $DOTFILES/scripts/Shared/helpers.sh
 
-print_stage "CHANGING SETTINGS"
+DOTFILES=$HOME/.dotfiles
+TEMP=$DOTFILES/temp/
+source $DOTFILES/scripts/helpers.sh
+
+print_stage "Installing settings"
 osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
@@ -124,5 +126,6 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # 24 hour time
 defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm:ss'
+defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
 
 print_success "DONE. Note that some of these changes require a logout/restart to take effect."

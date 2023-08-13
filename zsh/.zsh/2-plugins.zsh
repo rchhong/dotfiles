@@ -1,14 +1,23 @@
 plugins=(
-  z
-  extract
-  git
-  fnm
-  pip
-  sudo
-  safe-paste
-  yarn
-  zsh-autosuggestions
   brew
+  conda-zsh-completion
+  extract
+  fd
+  fnm
+  fzf
+  gh
+  git
+  macos
+  pip
+  rust
+  safe-paste
+  ssh-agent
+  sudo
+  tmux
+  ubuntu
+  z
+  zsh-autosuggestions
+  zsh-completions
   zsh-syntax-highlighting
 )
 

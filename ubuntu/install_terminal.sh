@@ -31,7 +31,6 @@ toDownload=(
     lua5.3
     make
     neofetch
-    neovim
     pandoc
     pass
     poppler-utils
@@ -50,10 +49,11 @@ for i in "${toDownload[@]}"; do
 done
 
 # neovim
+print_info "Installing neovim manager"
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
-sudo apt-get install neovim 
+sudo apt-get install neovim
 
 # tmux plugin manager
 print_info "Installing tmux plugin manager"
@@ -78,6 +78,7 @@ tar -xzf $TEMP/rga.tar.gz
 sudo mv $TEMP/ripgrep_all*/rga* /usr/local/bin/
 
 # Install github cli
+print_info "Installing GitHub CLI"
 type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
 && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
@@ -88,6 +89,7 @@ sudo apt update
 sudo apt install gh
 
 # Install config files
+print_info "Installing config files"
 $DOTFILES/scripts/link.sh -f bash conda fish git gpg kitty nvim ssh tmux vim zsh
 
 print_success "Done!"
