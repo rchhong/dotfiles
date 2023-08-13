@@ -25,10 +25,6 @@
 [core]
     excludesfile = ~/.gitignore_global
 	editor = nvim
-[credential "https://github.com"]
-	helper = !gh auth git-credential
-[credential]
-	helper = osxkeychain
 [commit]
 	gpgsign = true
 [gpg]
