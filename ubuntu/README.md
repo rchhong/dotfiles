@@ -7,7 +7,7 @@ This setup is not quite as intricate as others, but this setup is generally made
 ## Install
 Run the following command
 ```
-bash -c "$(curl -s https://raw.githubusercontent.com/rchhong/dotfiles/master/install.sh)"
+wget -O - https://raw.githubusercontent.com/rchhong/dotfiles/main/install.sh | bash
 ```
 
 ## Apps

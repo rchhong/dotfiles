@@ -7,7 +7,7 @@ source $DOTFILES/scripts/helpers.sh
 echo "Installing zsh"
 # Install zsh
 print_info "Installing zsh"
-sudo apt install zsh
+sudo apt -y install zsh
 chsh -s $(which zsh)
 
 # Install oh-my-zsh
@@ -17,6 +17,10 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/maste
 # Install zsh autosuggestions
 print_info "Installing zsh autosuggestions"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# Install zsh completions
+print_info "Installing zsh completions"
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 
 # Install zsh syntax highlighting
 print_info "Installing zsh syntax highlighting"

@@ -22,7 +22,7 @@ $DOTFILES/temp/miniconda.sh
 
 # Install AWS CLI
 print_info "Installing AWS CLI"
-sudo apt-get install awscli
+sudo apt-get -y install awscli
 
 # Install Azure CLI
 print_info "Installing Azure CLI"
@@ -31,7 +31,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 # Install GCP CLI
 print_info "Installing GCP CLI"
 sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates gnupg curl sudo
+sudo apt-get install -y apt-transport-https ca-certificates gnupg curl sudo
 echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 sudo apt-get update && sudo apt-get install google-cloud-cli
@@ -39,7 +39,7 @@ sudo apt-get update && sudo apt-get install google-cloud-cli
 # Install Docker
 print_info "Installing Docker"
 sudo apt-get update
-sudo apt-get install ca-certificates curl gnupg
+sudo apt-get install -y ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -48,12 +48,11 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Add current user to docker group (no more sudo with docker commands)
 sudo groupadd docker
 sudo usermod -aG docker $USER
-newgrp docker
 
 echo "{ \
   "log-driver": "json-file", \

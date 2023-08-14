@@ -30,7 +30,7 @@ gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
 
 # Enable some built-in extensions, don't want to load more cause work stuff
-gsettings set org.gnome.shell enabled-extensions ['ubuntu-appindicators@ubuntu.com', 'ubuntu-dock@ubuntu.com']
+gsettings set org.gnome.shell enabled-extensions "['ubuntu-appindicators@ubuntu.com', 'ubuntu-dock@ubuntu.com']"
 
 # Autohide dock
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
@@ -39,9 +39,9 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator `which kitty` 50
 sudo update-alternatives --config x-terminal-emulator
 
-# Optional: Install this to move the clock to the left https://extensions.gnome.org/extension/2/move-clock/
+# # Optional: Install this to move the clock to the left https://extensions.gnome.org/extension/2/move-clock/
 
-# Setup dock
-gsettings set org.gnome.shell favorite-apps ['org.gnome.Nautilus.desktop', 'firefox.desktop', 'spotify.desktop', 'kitty.desktop', 'code.desktop', 'postman.desktop', 'obsidian.desktop']
+# # Setup dock
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'spotify.desktop', 'kitty.desktop', 'code.desktop', 'postman.desktop', 'obsidian.desktop']"
 
-print_success "Done!"
+# print_success "Done!"

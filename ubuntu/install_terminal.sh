@@ -8,7 +8,7 @@ print_stage "Installing terminal applications"
 
 # Install Nerd Font
 print_info "Installing Powerline Patched Fonts"
-sudo apt install fontconfig
+sudo apt -y install fontconfig
 cd ~
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip
 mkdir -p .local/share/fonts
@@ -50,21 +50,14 @@ done
 
 # neovim
 print_info "Installing neovim manager"
-sudo apt-get install software-properties-common
+sudo apt-get install -y software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
-sudo apt-get install neovim
+sudo apt-get install -y neovim
 
 # tmux plugin manager
 print_info "Installing tmux plugin manager"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# zsh completions
-print_info "Installing zsh completions"
-echo 'deb http://download.opensuse.org/repositories/shells:/zsh-users:/zsh-completions/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/shells:zsh-users:zsh-completions.list
-curl -fsSL https://download.opensuse.org/repositories/shells:zsh-users:zsh-completions/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_zsh-users_zsh-completions.gpg > /dev/null
-sudo apt update
-sudo apt install zsh-completions
 
 # starship prompt
 print_info "Installing starship prompt"
@@ -85,8 +78,6 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 && sudo apt update \
 && sudo apt install gh -y
-sudo apt update
-sudo apt install gh
 
 # Install config files
 print_info "Installing config files"

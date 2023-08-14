@@ -9,12 +9,12 @@ print_stage "Installing Personal Applications"
 # Install Discord
 print_info "Installing Discord"
 wget -O $TEMP/discord.deb https://discordapp.com/api/download?platform=linux&format=deb
-sudo apt install $TEMP/discord.deb
+sudo apt install -y $TEMP/discord.deb
 
 # Install TickTick
 print_info "Installing TickTick"
 wget -O $TEMP/ticktick.deb https://ticktick-download-linux.s3.amazonaws.com/download/linux/linux_deb_x64/ticktick-1.0.70-amd64.deb
-sudo apt install $TEMP/ticktick.deb
+sudo apt install -y $TEMP/ticktick.deb
 
 #Install Anki
 print_info "Installing Anki"

@@ -6,12 +6,14 @@ DOTFILES=$HOME/.dotfiles
 if [[ "$(uname)" == "Darwin" ]]; then
     echo "Configuring MacOS"
     git clone https://github.com/rchhong/dotfiles.git $DOTFILES
-    $DOTFILES/scripts/osx/install_osx.sh
+    $DOTFILES/osx/install_osx.sh
+    cd $DOTFILES
 elif [[ "$(uname)" == "Linux" ]]; then
     if [[ -f "/etc/arch-release" ]]; then
       echo "Configuring Arch Linux (Manjaro)"
       git clone https://github.com/rchhong/dotfiles.git $DOTFILES
-      $DOTFILES/scripts/arch/install_arch.sh
+      cd $DOTFILES
+      $DOTFILES/arch/install_arch.sh
     else
       echo "Configuring Ubuntu"
       # Install git
@@ -20,6 +22,7 @@ elif [[ "$(uname)" == "Linux" ]]; then
       sudo apt install -y git
 
       git clone https://github.com/rchhong/dotfiles.git $DOTFILES
-      $DOTFILES/scripts/ubuntu/install_ubuntu.sh
+      cd $DOTFILES
+      $DOTFILES/ubuntu/install_ubuntu.sh
     fi
 fi

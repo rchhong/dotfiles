@@ -8,7 +8,7 @@ print_stage "Installing GUI Applications"
 
 # Install GNOME Tweak Tool
 print_info "Installing GNOME Tweak Tool"
-sudo apt install gnome-tweaks
+sudo apt -y install gnome-tweaks
 
 # Install firefox
 print_info "Installing Firefox"
@@ -54,7 +54,7 @@ sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/sha
 
 #Install VSCode
 print_info "Installing VS Code"
-sudo apt-get install wget gpg
+sudo apt-get install -y wget gpg
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
@@ -65,7 +65,7 @@ sudo apt install -y code
 
 # Install vlc
 print_info "Installing VLC"
-sudo apt install vlc
+sudo apt install -y vlc
 
 # Install postman
 print_info "Installing Postman"
@@ -86,6 +86,6 @@ EOL
 # Install Obsidian
 print_info "Installing Postman"
 wget -O $TEMP/obsidian.deb https://github.com/obsidianmd/obsidian-releases/releases/download/v1.3.7/obsidian_1.3.7_amd64.deb
-sudo apt install $TEMP/obsidian.deb
+sudo apt install -y $TEMP/obsidian.deb
 
 print_success "Done!"
