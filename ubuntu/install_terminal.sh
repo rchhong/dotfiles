@@ -67,7 +67,7 @@ curl -sS https://starship.rs/install.sh | sh
 # TODO: Fix this hard code mess
 print_info "Installing rga"
 wget -O $TEMP/rga.tar.gz https://github.com/phiresky/ripgrep-all/releases/download/v1.0.0-alpha.5/ripgrep_all-v1.0.0-alpha.5-x86_64-unknown-linux-musl.tar.gz
-tar -xzf $TEMP/rga.tar.gz
+tar -xzf $TEMP/rga.tar.gz -C $TEMP/
 sudo mv $TEMP/ripgrep_all*/rga* /usr/local/bin/
 
 # Install github cli
