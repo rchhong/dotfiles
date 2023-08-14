@@ -1,5 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
-export RUST_BACKTRACE=full
+export SHELL=$(which zsh)
 
 export DEFAULTS_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 export RUBY_PATH=/usr/local/lib/ruby/gems/2.7.0/bin:/usr/local/opt/ruby/bin
