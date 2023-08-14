@@ -42,6 +42,6 @@ sudo update-alternatives --config x-terminal-emulator
 # Optional: Install this to move the clock to the left https://extensions.gnome.org/extension/2/move-clock/
 
 # Setup dock
-gsettings set org.gnome.shell favorite-apps ['org.gnome.Nautilus.desktop', 'firefox.desktop', 'kitty.desktop', 'code.desktop', 'postman.desktop', 'obsidian.desktop']
+gsettings set org.gnome.shell favorite-apps ['org.gnome.Nautilus.desktop', 'firefox.desktop', 'spotify.desktop', 'kitty.desktop', 'code.desktop', 'postman.desktop', 'obsidian.desktop']
 
 print_success "Done!"

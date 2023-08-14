@@ -12,4 +12,5 @@ bash -c "$(curl -s https://raw.githubusercontent.com/rchhong/dotfiles/master/ins
 
 ## Apps
 ### VS Code Issues
-To fix the issues with the terminal, change the font to `MesloLGS Nerd Font Mono`
+To fix the issues with the terminal, change the font to `MesloLGS Nerd Font Mono`.
+Additionally, many things in nvim are broken by NerdFont 3.0.
