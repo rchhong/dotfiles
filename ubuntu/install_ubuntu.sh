@@ -30,9 +30,6 @@ then
 fi
 
 mkdir $DOTFILES/temp
-if [ "$zsh" == true ]; then
-	$DOTFILES/ubuntu/install_zsh.sh
-fi
 $DOTFILES/ubuntu/install_terminal.sh
 $DOTFILES/ubuntu/install_development.sh
 
@@ -42,6 +39,10 @@ if [ "$terminal_only_mode" == false ]; then
 	if [ "$work_mode" == false ]; then
 		$DOTFILES/ubuntu/install_personal.sh
 	fi
+fi
+
+if [ "$zsh" == true ]; then
+	$DOTFILES/ubuntu/install_zsh.sh
 fi
 
 rm -rf $DOTFILES/temp

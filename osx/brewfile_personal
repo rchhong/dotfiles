@@ -1,5 +1,6 @@
 tap "homebrew/cask-drivers"
 
+brew "doctl"
 brew "mas"
 brew "qmk/qmk/qmk"
 brew "yt-dlp"

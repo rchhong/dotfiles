@@ -1,5 +1,8 @@
+tap "homebrew/cask-font"
+
 brew "docker"
 brew "fnm"
+brew "font-meslo-lg-nerd-font"
 brew "lazygit"
 brew "gh"
 brew "gnupg"
