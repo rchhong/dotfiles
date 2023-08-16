@@ -29,20 +29,24 @@ then
 	zsh=true
 fi
 
-# mkdir $DOTFILES/temp
-# $DOTFILES/ubuntu/install_terminal.sh
-# $DOTFILES/ubuntu/install_development.sh
+mkdir $DOTFILES/temp
+$DOTFILES/ubuntu/install_terminal.sh
+$DOTFILES/ubuntu/install_development.sh
 
-# if [ "$terminal_only_mode" == false ]; then
-# 	$DOTFILES/ubuntu/install_applications.sh
-# 	$DOTFILES/ubuntu/install_settings.sh
-# 	if [ "$work_mode" == false ]; then
-# 		$DOTFILES/ubuntu/install_personal.sh
-# 	fi
-# fi
+if [ "$terminal_only_mode" == false ]; then
+	$DOTFILES/ubuntu/install_applications.sh
+	$DOTFILES/ubuntu/install_settings.sh
+	if [ "$work_mode" == false ]; then
+		$DOTFILES/ubuntu/install_personal.sh
+	fi
+fi
 
-# if [ "$zsh" == true ]; then
-# 	$DOTFILES/ubuntu/install_zsh.sh
-# fi
+if [ "$zsh" == true ]; then
+	$DOTFILES/ubuntu/install_zsh.sh
+fi
+
+# Install config files
+print_info "Installing config files"
+$DOTFILES/scripts/link.sh -f bash conda fish git gpg kitty nvim ssh tmux vim zsh
 
 rm -rf $DOTFILES/temp
