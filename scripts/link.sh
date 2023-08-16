@@ -38,7 +38,7 @@ do
         DIRECTORY="$(dirname $filename)"
           if [[ $DRY_RUN -eq 0 ]]; then
           if [[ $DIRECTORY != "." ]]; then
-            mkdir -p $BACKUP/$DIRECTORY 
+            mkdir -p $BACKUP/$DIRECTORY
           fi
           mv $HOME/$filename $BACKUP/$filename
         fi
@@ -51,7 +51,7 @@ do
   if [[ $FORCE -eq 1 ]]; then RESTOW='--restow'; else RESTOW=''; fi
   if [[ $DRY_RUN -eq 1 ]]; then DR='--simulate'; else DR=''; fi
   # Create symlinks
-  stow $RESTOW $DR --no-folding --verbose "$app"
+  stow $RESTOW $DR -d $DOTFILES --no-folding --verbose "$app"
 done
 
 print_success "FINISHED SYMLINKING"

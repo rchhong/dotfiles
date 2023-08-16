@@ -10,14 +10,14 @@ fish=false
 
 read -p "For work (Y/N)? " -n 1 -r
 echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]
+if [[ $REPLY =~ [Yy]$ ]]
 then
 	work_mode=true
 fi
 
 read -p "fish (Y/N)? " -n 1 -r
 echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]
+if [[ $REPLY =~ [Yy]$ ]]
 then
 	fish=true
 fi
