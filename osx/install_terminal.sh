@@ -20,8 +20,3 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # fzf file completion
 $(brew --prefix)/opt/fzf/install
-
-print_stage "Installing config files"
-$DOTFILES/scripts/link.sh bash conda fish git gpg kitty nvim raycast skhd ssh tmux vim yabai
-$DOTFILES/scripts/link.sh kitty raycast skhd yabai
-
