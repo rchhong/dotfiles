@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-TEMP=$DOTFILES/temp/
+TEMP=$DOTFILES/temp
 source $DOTFILES/scripts/helpers.sh
 
 terminal_only_mode=false
@@ -29,7 +29,7 @@ then
 	zsh=true
 fi
 
-mkdir $DOTFILES/temp
+mkdir -p $TEMP
 $DOTFILES/ubuntu/install_terminal.sh
 $DOTFILES/ubuntu/install_development.sh
 
@@ -49,4 +49,4 @@ fi
 print_info "Installing config files"
 $DOTFILES/scripts/link.sh -f bash conda fish git gpg kitty nvim ssh tmux vim zsh
 
-rm -rf $DOTFILES/temp
+rm -rf $TEMP

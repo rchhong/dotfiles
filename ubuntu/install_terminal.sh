@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-TEMP=$DOTFILES/temp/
+TEMP=$DOTFILES/temp
 source $DOTFILES/scripts/helpers.sh
 
 print_stage "Installing terminal applications"

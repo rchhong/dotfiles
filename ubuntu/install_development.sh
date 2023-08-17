@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-TEMP=$DOTFILES/temp/
+TEMP=$DOTFILES/temp
 source $DOTFILES/scripts/helpers.sh
 
 print_stage "Installing Developer Tools"
@@ -22,7 +22,9 @@ $DOTFILES/temp/miniconda.sh
 
 # Install AWS CLI
 print_info "Installing AWS CLI"
-sudo apt-get -y install awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "$TEMP/awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 
 # Install Azure CLI
 print_info "Installing Azure CLI"
