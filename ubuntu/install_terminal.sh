@@ -40,6 +40,7 @@ toDownload=(
     tldr
     tmux
     tree
+    unzip
     vim
 )
 
