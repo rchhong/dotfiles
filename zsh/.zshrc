@@ -6,9 +6,3 @@ for i in $ZSH_FILES_DIRECTORY/*; do
 done
 
 # zprof
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# fnm
-export PATH="$HOME/.local/share/fnm:$PATH"
-eval "`fnm env`"

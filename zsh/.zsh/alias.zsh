@@ -37,6 +37,7 @@ alias x="exit"
 alias c="clear"
 alias h='history|grep'
 alias npm='pnpm'
+alias mamba='micromamba'
 alias s='kitty +kitten ssh'
 
 # Very annoying, disabled
