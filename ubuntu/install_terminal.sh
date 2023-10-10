@@ -28,6 +28,7 @@ toDownload=(
     fzf
     gcc
     htop
+    jq
     lua5.3
     make
     neofetch
