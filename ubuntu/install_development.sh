@@ -20,23 +20,27 @@ wget -O $DOTFILES/temp/miniconda.sh https://repo.anaconda.com/miniconda/Minicond
 chmod a+x $DOTFILES/temp/miniconda.sh
 $DOTFILES/temp/miniconda.sh
 
-# Install AWS CLI
-print_info "Installing AWS CLI"
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "$TEMP/awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+# Install micromamba
+print_info "Installing micromamba"
+"${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 
-# Install Azure CLI
-print_info "Installing Azure CLI"
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+# # Install AWS CLI
+# print_info "Installing AWS CLI"
+# curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "$TEMP/awscliv2.zip"
+# unzip awscliv2.zip
+# sudo ./aws/install
 
-# Install GCP CLI
-print_info "Installing GCP CLI"
-sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates gnupg curl sudo
-echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-sudo apt-get update && sudo apt-get install google-cloud-cli
+# # Install Azure CLI
+# print_info "Installing Azure CLI"
+# curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+# # Install GCP CLI
+# print_info "Installing GCP CLI"
+# sudo apt-get update
+# sudo apt-get install -y apt-transport-https ca-certificates gnupg curl sudo
+# echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+# sudo apt-get update && sudo apt-get install google-cloud-cli
 
 # Install Docker
 print_info "Installing Docker"
