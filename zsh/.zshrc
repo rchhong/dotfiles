@@ -6,3 +6,6 @@ for i in $ZSH_FILES_DIRECTORY/*; do
 done
 
 # zprof
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
