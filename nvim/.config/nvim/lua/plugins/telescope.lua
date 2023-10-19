@@ -15,8 +15,6 @@ return {
         { "<C-p>", mode = {"n"} },
         { "<C-b>", mode = {"n"} },
         { '<leader>fg', mode = {"n"} },
-        { '<leader>fa', mode = {"n"} },
-        { '<leader>fu', mode = {"n"} },
     },
     config = function()
         require('telescope').setup({
@@ -65,21 +63,21 @@ return {
             })
         end
 
-        local function files_fallback()
-            vim.fn.system 'git rev-parse --is-inside-work-tree'
-            -- local dropdown = require('telescope.themes').get_dropdown()
-            if vim.v.shell_error == 0 then
-                require('telescope.builtin').git_files(dropdown)
-            else
-                require('telescope.builtin').find_files({hidden=true})
-            end
-        end
+        -- local function files_fallback()
+        --     vim.fn.system 'git rev-parse --is-inside-work-tree'
+        --     -- local dropdown = require('telescope.themes').get_dropdown()
+        --     if vim.v.shell_error == 0 then
+        --         require('telescope.builtin').git_files(dropdown)
+        --     else
+        --         require('telescope.builtin').find_files({hidden=true})
+        --     end
+        -- end
 
-        m.nmap('<C-p>', files_fallback)
+        m.nmap('<C-p>', find_all)
         m.nmap('<C-b>', builtin.buffers)
 
         m.nmap('<leader>fg', builtin.live_grep)
-        m.nmap('<leader>fa', find_all)
+        -- m.nmap('<leader>fa', find_all)
 
     end
 }
