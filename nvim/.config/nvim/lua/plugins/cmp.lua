@@ -41,13 +41,13 @@ return {
             ['<C-Space>'] = cmp.mapping.complete(),
 
             -- Abort completion, sometimes needed when trying to fill out snippets
-            ["<C-e>"] = cmp.mapping.abort()
+            ["<C-e>"] = cmp.mapping.abort(),
 
             -- Super-tab handles completion vs snippet variable
             ["<Tab>"] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()
-              -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
+              -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
               -- that way you will only jump inside the snippet region
               elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
@@ -57,7 +57,7 @@ return {
                 fallback()
               end
             end, { "i", "s" }),
-        
+
             ["<S-Tab>"] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_prev_item()

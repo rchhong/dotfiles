@@ -15,15 +15,25 @@ return {
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
-        python = { "ruff" },
+        python = { "ruff_fix", "ruff_format", "trim_whitespace" },
         -- javascript = { { "prettierd", "prettier" } },
         ["*"] = { "codespell" },
       },
 
-      format_on_save = { timeout_ms = 500, lsp_fallback = true },
       formatters = {},
     },
     init = function()
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
+      require("conform").formatters.ruff_fix = {
+        prepend_args = {"--extend-select", "E", "--extend-select", "I", "--extend-select", "D"},
+      }
+
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*",
+        callback = function(args)
+          require("conform").format({ bufnr = args.buf, timeout_ms = 500, lsp_fallback = true, async = true })
+        end,
+      })
     end,
   }
