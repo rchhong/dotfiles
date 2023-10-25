@@ -5,7 +5,7 @@ return {
       -- LSP Support
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
-  
+
     -- Autocompletion
     {'hrsh7th/nvim-cmp'},
     {'hrsh7th/cmp-nvim-lsp'},
@@ -40,19 +40,18 @@ return {
 
         vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
         vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-        vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts) 
+        vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
       end
     })
 
-    local default_setup = function(server)
-      lspconfig[server].setup({})
-    end
-
     require('mason').setup({})
-    require('mason-lspconfig').setup({
-      ensure_installed = {},
-      handlers = {default_setup},
-      lua_ls = function()
+    require('mason-lspconfig').setup({})
+
+    require("mason-lspconfig").setup_handlers({
+      function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {}
+      end,
+      ['lua-ls'] = function()
         require('lspconfig').lua_ls.setup({
           settings = {
             Lua = {
@@ -70,8 +69,18 @@ return {
             }
           }
         })
-      end
+      end,
     })
+
+    require'lspconfig'.ruff_lsp.setup({
+      init_options = {
+        settings = {
+          -- Any extra CLI arguments for `ruff` go here.
+          args = {"--extend-select", "E", "--extend-select", "I", "--extend-select", "D"},
+        }
+      }
+    })
+
   end
 }
 
