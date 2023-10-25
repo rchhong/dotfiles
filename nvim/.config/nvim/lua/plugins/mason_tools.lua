@@ -16,6 +16,7 @@ return {
             'ruff',
             'ruff-lsp',
             'codespell',
+            -- :PylspInstall pylsp-rope pylsp-mypy
             'python-lsp-server',
           },
 
