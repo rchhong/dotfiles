@@ -19,7 +19,12 @@ return {
         -- javascript = { { "prettierd", "prettier" } },
         ["*"] = { "codespell" },
       },
-
+      format_on_save = {
+        -- These options will be passed to conform.format()
+        timeout_ms = 500,
+        lsp_fallback = true,
+        async = true,
+      },
       formatters = {},
     },
     init = function()
@@ -28,12 +33,5 @@ return {
       require("conform").formatters.ruff_fix = {
         prepend_args = {"--extend-select", "E", "--extend-select", "I", "--extend-select", "D"},
       }
-
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*",
-        callback = function(args)
-          require("conform").format({ bufnr = args.buf, timeout_ms = 500, lsp_fallback = true, async = true })
-        end,
-      })
     end,
   }
