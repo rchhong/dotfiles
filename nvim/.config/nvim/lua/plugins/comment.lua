@@ -1,16 +1,22 @@
 return {
-    'numToStr/Comment.nvim',
+    'echasnovski/mini.comment',
+    event="VeryLazy",
+    dependencies = {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        lazy = true,
+        opts = {
+          enable_autocmd = false,
+        },
+    },
+    opts = {
+        options = {
+          custom_commentstring = function()
+            return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
+          end,
+        },
+    },
     keys = {
         {"gcc", mode = {"n"}},
-        {"gbc", mode = {"n"}},
-        {"gc", mode = {"v"}},
-        {"gb", mode = {"v"}},
-        {"gcO", mode = {"n"}},
-        {"gco", mode = {"n"}},
-        {"gcA", mode = {"n"}}
+        {"gc", mode = {"n", 'v'}},
     },
-    config = function()
-        require('Comment').setup({
-        })
-    end
 }

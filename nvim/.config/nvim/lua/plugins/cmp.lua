@@ -1,7 +1,6 @@
 return {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
-    lazy = true,
     event = "InsertEnter",     -- Required
     dependencies = {
         {'hrsh7th/cmp-nvim-lsp'}, -- Required
@@ -28,14 +27,14 @@ return {
 
         cmp.setup({
           sources = {
-            {name = 'path'},
             {name = 'nvim_lsp'},
-            {name = 'buffer', keyword_length = 3},
-            {name = 'luasnip', keyword_length = 2},
+            {name = 'luasnip'},
+            {name = 'path'},
+            {name = 'buffer'},
           },
           mapping = {
             -- `Enter` key to confirm completion
-            ['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = false}),
+            ['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = true}),
 
             -- Ctrl+Space to trigger completion menu
             ['<C-Space>'] = cmp.mapping.complete(),
@@ -58,7 +57,31 @@ return {
               end
             end, { "i", "s" }),
 
+            ["<Down>"] = cmp.mapping(function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+              -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+              -- that way you will only jump inside the snippet region
+              elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+              elseif has_words_before() then
+                cmp.complete()
+              else
+                fallback()
+              end
+            end, { "i", "s" }),
+
             ["<S-Tab>"] = cmp.mapping(function(fallback)
+              if cmp.visible() then
+                cmp.select_prev_item()
+              elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+              else
+                fallback()
+              end
+            end, { "i", "s" }),
+
+            ["<U>"] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_prev_item()
               elseif luasnip.jumpable(-1) then
