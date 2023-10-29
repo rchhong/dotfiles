@@ -14,7 +14,6 @@ return {
     config = function ()
         -- You need to setup `cmp` after lsp-zero
         local cmp = require('cmp')
-        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local luasnip = require('luasnip')
 
         local has_words_before = function()
@@ -100,10 +99,5 @@ return {
             end,
           },
         })
-        -- Insert `(` after select function or method item
-        cmp.event:on(
-          'confirm_done',
-          cmp_autopairs.on_confirm_done()
-        )
     end
 }

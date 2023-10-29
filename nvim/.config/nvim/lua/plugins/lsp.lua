@@ -1,10 +1,15 @@
--- TODO: Add linter, formatters
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
       -- LSP Support
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
+
+    -- Config files
+    { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
+
+    -- Helpers for nvim config
+    { "folke/neodev.nvim", opts = {} },
 
     -- Autocompletion
     {'hrsh7th/nvim-cmp'},
@@ -50,25 +55,6 @@ return {
     require("mason-lspconfig").setup_handlers({
       function (server_name) -- default handler (optional)
         require("lspconfig")[server_name].setup {}
-      end,
-      ['lua-ls'] = function()
-        require('lspconfig').lua_ls.setup({
-          settings = {
-            Lua = {
-              runtime = {
-                version = 'LuaJIT'
-              },
-              diagnostics = {
-                globals = {'vim'},
-              },
-              workspace = {
-                library = {
-                  vim.env.VIMRUNTIME,
-                }
-              }
-            }
-          }
-        })
       end,
     })
 
