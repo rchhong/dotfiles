@@ -1,12 +1,12 @@
 return {
     'lewis6991/gitsigns.nvim',
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     config = function()
       require('gitsigns').setup({
           trouble = false
       })
 
-          local gs = package.loaded.gitsigns
+      local gs = package.loaded.gitsigns
 
     local function map(mode, l, r, opts)
       opts = opts or {}
