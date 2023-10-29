@@ -6,19 +6,12 @@ return {
     dependencies = {
         'nvim-tree/nvim-web-devicons'
     },
-    config = function()
-        require('trouble').setup({
-
-        })
-
-        local m = require("helpers/mapping")
-        local trouble = require("trouble")
-
-        m.nmap("<leader>xx", ":TroubleToggle<CR>")
-        m.nmap("<leader>xw", ":TroubleToggle workspace_diagnostics<CR>")
-        m.nmap("<leader>xd", ":TroubleToggle document_diagnostics<CR>")
-        m.nmap("<leader>xl", ":TroubleToggle loclist<CR>")
-        m.nmap("<leader>xq", ":TroubleToggle quickfix<CR>")
-        m.nmap("gR", ":TroubleToggle lsp_references<CR>")
-    end
+    keys = {
+        {"<leader>xx", "<cmd>TroubleToggle<CR>", desc = "Toggles Trouble", mode = {'n'}},
+        {"<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", desc = "Toggles Trouble (for workplace)", mode = {'n'}},
+        {"<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", desc = "Toggles Trouble (for document)", mode = {'n'}},
+        -- {"<leader>xl", "<cmd>TroubleToggle loclist<CR>", desc = "Toggles Trouble", mode = {'n'}},
+        -- {"<leader>xq", "<cmd>TroubleToggle quickfix<CR>", desc = "Quickfix Items", mode = {'n'}},
+        -- {"<leader>gr", "<cmd>TroubleToggle lsp_references<CR>", desc = "Toggles lsp Refernces", mode = {'n'}},
+    },
 }

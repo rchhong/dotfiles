@@ -4,7 +4,7 @@ return {
         "TodoTreeToggle"
     },
     keys = {
-        {'<F5>', '<cmd>UndotreeToggle<cr>', mode = {"n"}}
+        {'<F5>', '<cmd>UndotreeToggle<cr>', desc = "Toggles UndoTree", mode = {"n"}}
     }
 }
 
