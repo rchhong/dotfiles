@@ -1,10 +1,15 @@
 return {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    "echasnovski/mini.surround",
     event = "VeryLazy",
-    config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
+    opts = {
+        mappings = {
+          add = "ys", -- Add surrounding in Normal and Visual modes
+          delete = "ds", -- Delete surrounding
+          find = "fs", -- Find surrounding (to the right)
+          find_left = "Fs", -- Find surrounding (to the left)
+          highlight = "hs", -- Highlight surrounding
+          replace = "cs", -- Replace surrounding
+          update_n_lines = "ns", -- Update `n_lines`
+        },
+    },
 }
