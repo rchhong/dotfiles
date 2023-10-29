@@ -1,63 +1,54 @@
 return {
-    'nvim-tree/nvim-tree.lua',
+    'nvim-neo-tree/neo-tree.nvim',
     dependencies = {
-        'nvim-tree/nvim-web-devicons'
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
     },
-    lazy = true,
     keys = {
-        {"<F6>", mode = "n"},
+        {
+            "<F6>",
+            function()
+                require('neo-tree.command').execute({ toggle = true, dir = vim.loop.cwd() })
+            end,
+            desc="NeoTree (cwd)",
+            mode={"n"}
+        },
     },
-    config = function()
-        local function my_on_attach(bufnr)
-            local api = require('nvim-tree.api')
-
-            local function opts(desc)
-                return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-            end
-            -- use all default mappings
-            api.config.mappings.default_on_attach(bufnr)
-
-            -- Overrides
-            vim.keymap.set('n', '<CR>', api.node.open.no_window_picker, opts('Open: No Window Picker'))
-            ---
-        end
-
-        require("nvim-tree").setup({
-            disable_netrw = true,
-            hijack_netrw = true,
-            auto_reload_on_write = true,
-            hijack_unnamed_buffer_when_opening = false,
-            sync_root_with_cwd = true,
-            respect_buf_cwd = true,
-            root_dirs = {
-                "*/src/",
-                "*/nvim/"
+    opts = {
+        -- When opening files, do not select windows with these types
+        open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
+        default_component_configs = {
+            indent = {
+              with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+              expander_collapsed = "",
+              expander_expanded = "",
+              expander_highlight = "NeoTreeExpander",
             },
-            view = {
-                width = {}
+        },
+        event_handlers = {
+            {
+              event = "file_opened",
+              handler = function(file_path)
+                -- auto close
+                -- vimc.cmd("Neotree close")
+                -- OR
+                require("neo-tree.command").execute({ action = "close" })
+              end
             },
-            renderer = {
-              group_empty = true,
-              indent_markers = {
-                enable = true,
-              }
+        },
+        filesystem = {
+            -- This will find and focus the file in the active buffer every time
+            -- the current file is changed while the tree is open.
+            follow_current_file = { enabled = true },
+            -- Use OS file watcher
+            use_libuv_file_watcher = true,
+            -- Show hidden files
+            filtered_items = {
+                hide_dotfiles = false,
+                hide_gitignored = false,
+                hide_hidden = false,
             },
-            actions = {
-                open_file = {
-                  resize_window = true,
-                  quit_on_open = true,
-                },
-            },
-            update_focused_file = {
-                enable = true,
-                update_root = true
-            },
-            on_attach = my_on_attach,
-        })
-
-        local m = require('helpers.mapping')
-        local api = require('nvim-tree.api')
-
-        m.nmap("<F6>", api.tree.toggle)
-    end
+        },
+    }
 }
