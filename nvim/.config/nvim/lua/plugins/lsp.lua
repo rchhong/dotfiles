@@ -58,13 +58,26 @@ return {
       end,
     })
 
-    require'lspconfig'.ruff_lsp.setup({
+    require('lspconfig').ruff_lsp.setup({
       init_options = {
         settings = {
           -- Any extra CLI arguments for `ruff` go here.
           args = {"--extend-select", "E", "--extend-select", "I", "--extend-select", "D"},
         }
       }
+    })
+
+    require('lspconfig').pylsp.setup({
+      settings = {
+        pylsp = {
+          configurationSources = {"flake8"},
+          plugins = {
+            jedi_completion = {
+              include_params = true
+            },
+          },
+        },
+      }, on_attach = on_attach, capabilities = capabilities
     })
 
   end
