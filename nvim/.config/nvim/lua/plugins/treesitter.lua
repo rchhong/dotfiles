@@ -71,10 +71,10 @@ return {
                 move = {
                       enable = true,
                       set_jumps = true, -- whether to set jumps in the jumplist
-                      goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["[["] = "@parameter.outer" },
-                      goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
-                      goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["]]"] = "@parameter.outer"},
-                      goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
+                      goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]p"] = "@parameter.outer" },
+                      goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]P"] = "@parameter.outer" },
+                      goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[p"] = "@parameter.outer"},
+                      goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[P"] = "@parameter.outer"},
                   },
                 },
                 autotag = {
