@@ -2,6 +2,7 @@ tap "homebrew/cask-font"
 tap "oven-sh/bun"
 
 brew "bun"
+brew "bfg"
 brew "deno"
 brew "docker"
 brew "fnm"

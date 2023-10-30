@@ -13,7 +13,7 @@ return {
     },
     keys = {
         { "<C-p>", function() require('telescope.builtin').find_files({ hidden = true }) end, mode = {"n"} },
-        { "<C-b>", function() require('telescope.builtin').buffers() end, mode = {"n"} },
+        { "<C-b>", function() require('telescope.builtin').buffers({sort_mru=true, sort_lastused=true}) end, mode = {"n"} },
         { '<leader>fg', function() require('telescope.builtin').live_grep() end, mode = {"n"} },
     },
     opts = {
