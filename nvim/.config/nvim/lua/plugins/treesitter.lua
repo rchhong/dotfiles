@@ -1,6 +1,11 @@
 return {
     'nvim-treesitter/nvim-treesitter',
     event = { "BufReadPost", "BufWritePost", "BufNewFile"},
+    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    keys = {
+        { "<c-space>", desc = "Increment selection" },
+        { "<bs>", desc = "Decrement selection", mode = "x" },
+    },
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
         "windwp/nvim-ts-autotag",
@@ -58,6 +63,15 @@ return {
                 -- Instead of true it can also be a list of languages
                 additional_vim_regex_highlighting = false,
             },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                  init_selection = "<C-space>",
+                  node_incremental = "<C-space>",
+                  scope_incremental = false,
+                  node_decremental = "<bs>",
+                },
+            },
             textobjects = {
                 lsp_interop = {
                       enable = true,
@@ -81,8 +95,5 @@ return {
                   enable = true,
                 }
         })
-
-        local m = require("helpers.mapping")
-        m.nmap("[c", require("treesitter-context").go_to_context)
     end
 }

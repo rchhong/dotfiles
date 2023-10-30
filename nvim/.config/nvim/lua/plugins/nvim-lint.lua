@@ -24,7 +24,4 @@ return {
             end,
         })
     end,
-    -- config = function()
-
-    -- end
 }

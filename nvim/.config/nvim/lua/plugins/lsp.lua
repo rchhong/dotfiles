@@ -20,7 +20,6 @@ return {
   config = function()
     local lspconfig = require('lspconfig')
     local lsp_defaults = lspconfig.util.default_config
-    local m = require('helpers/mapping')
 
     lsp_defaults.capabilities = vim.tbl_deep_extend(
       'force',

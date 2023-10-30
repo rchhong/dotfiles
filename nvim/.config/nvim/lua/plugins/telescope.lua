@@ -12,72 +12,43 @@ return {
         "Telescope"
     },
     keys = {
-        { "<C-p>", mode = {"n"} },
-        { "<C-b>", mode = {"n"} },
-        { '<leader>fg', mode = {"n"} },
+        { "<C-p>", function() require('telescope.builtin').find_files({ hidden = true }) end, mode = {"n"} },
+        { "<C-b>", function() require('telescope.builtin').buffers() end, mode = {"n"} },
+        { '<leader>fg', function() require('telescope.builtin').live_grep() end, mode = {"n"} },
     },
-    config = function()
-        require('telescope').setup({
-            defaults = {
-                file_ignore_patterns = {
-                    ".git/",
-                    "^node_modules/",
-                    "^build/",
-                    ".cache",
-                    "%.pdf",
-                    "%.mkv",
-                    "%.mp4",
-                    "%.zip",
-                    "__pycache__/",
-                    ".ipynb_checkpoints/"
-                }
-            },
-            pickers = {
-                find_files = {
-                    hidden = true,
-                    no_ignore = false,
-                    no_ignore_parent = false
-                }
-            },
-            extensions = {
-                fzf = {
-                    fuzzy = true,                    -- false will only do exact matching
-                    override_generic_sorter = true,  -- override the generic sorter
-                    override_file_sorter = true,     -- override the file sorter
-                    case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                                    -- the default case_mode is "smart_case"
-                },
+    opts = {
+        defaults = {
+            file_ignore_patterns = {
+                ".git/",
+                "^node_modules/",
+                "^build/",
+                ".cache",
+                "%.pdf",
+                "%.mkv",
+                "%.mp4",
+                "%.zip",
+                "__pycache__/",
+                ".ipynb_checkpoints/"
             }
-        })
-
-        require('telescope').load_extension('fzf')
-
-        local m = require('helpers/mapping')
-        local builtin = require('telescope.builtin')
-        local extension = require('telescope').extensions
-
-
-        local function find_all()
-            require('telescope.builtin').find_files({
+        },
+        pickers = {
+            find_files = {
                 hidden = true,
-            })
-        end
-
-        -- local function files_fallback()
-        --     vim.fn.system 'git rev-parse --is-inside-work-tree'
-        --     -- local dropdown = require('telescope.themes').get_dropdown()
-        --     if vim.v.shell_error == 0 then
-        --         require('telescope.builtin').git_files(dropdown)
-        --     else
-        --         require('telescope.builtin').find_files({hidden=true})
-        --     end
-        -- end
-
-        m.nmap('<C-p>', find_all)
-        m.nmap('<C-b>', builtin.buffers)
-
-        m.nmap('<leader>fg', builtin.live_grep)
-        -- m.nmap('<leader>fa', find_all)
-
+                no_ignore = false,
+                no_ignore_parent = false
+            }
+        },
+        extensions = {
+            fzf = {
+                fuzzy = true,                    -- false will only do exact matching
+                override_generic_sorter = true,  -- override the generic sorter
+                override_file_sorter = true,     -- override the file sorter
+                case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                                -- the default case_mode is "smart_case"
+            },
+        }
+    },
+    init = function()
+        require('telescope').load_extension('fzf')
     end
 }
