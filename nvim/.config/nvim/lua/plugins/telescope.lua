@@ -14,7 +14,25 @@ return {
     keys = {
         { "<C-p>", function() require('telescope.builtin').find_files({ hidden = true }) end, mode = {"n"} },
         { "<C-b>", function() require('telescope.builtin').buffers({sort_mru=true, sort_lastused=true}) end, mode = {"n"} },
-        { '<leader>fg', function() require('telescope.builtin').live_grep() end, mode = {"n"} },
+        { '<leader>sg', function() require('telescope.builtin').live_grep() end, mode = {"n"} },
+        { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
+        { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
+        { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
+        { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
+        {
+            "<leader>ss",
+            function()
+              require("telescope.builtin").lsp_document_symbols()
+            end,
+            desc = "Goto Symbol",
+          },
+          {
+            "<leader>sS",
+            function()
+              require("telescope.builtin").lsp_dynamic_workspace_symbols()
+            end,
+            desc = "Goto Symbol (Workspace)",
+        },
     },
     opts = {
         defaults = {
@@ -50,5 +68,5 @@ return {
     },
     init = function()
         require('telescope').load_extension('fzf')
-    end
+    end,
 }
