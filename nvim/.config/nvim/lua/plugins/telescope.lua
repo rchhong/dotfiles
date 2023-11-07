@@ -12,7 +12,7 @@ return {
         "Telescope"
     },
     keys = {
-        { "<C-p>", function() require('telescope.builtin').find_files({ hidden = true }) end, mode = {"n"} },
+        { "<C-p>", function() require('telescope.builtin').find_files() end, mode = {"n"} },
         { "<C-b>", function() require('telescope.builtin').buffers({sort_mru=true, sort_lastused=true}) end, mode = {"n"} },
         { '<leader>sg', function() require('telescope.builtin').live_grep() end, mode = {"n"} },
         { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
@@ -52,8 +52,8 @@ return {
         pickers = {
             find_files = {
                 hidden = true,
-                no_ignore = false,
-                no_ignore_parent = false
+                no_ignore = true,
+                no_ignore_parent = true
             }
         },
         extensions = {

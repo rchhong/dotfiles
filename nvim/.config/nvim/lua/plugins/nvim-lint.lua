@@ -15,7 +15,8 @@ return {
             "--extend-select",
             "I",
             "--extend-select",
-            "D"
+            "D",
+            "--force-exclude"
         }
 
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {

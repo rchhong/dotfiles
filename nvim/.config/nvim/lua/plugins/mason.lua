@@ -11,6 +11,10 @@ return {
         'codespell',
         -- :PylspInstall pylsp-rope pylsp-mypy
         'python-lsp-server',
+        'prettier',
+        'gitleaks',
+        'vale',
+        'vale-ls'
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}

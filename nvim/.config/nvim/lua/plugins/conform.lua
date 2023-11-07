@@ -16,7 +16,8 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "ruff_fix", "ruff_format", "trim_whitespace" },
-        -- javascript = { { "prettierd", "prettier" } },
+        markdown = { "vale" },
+        javascript = { "prettier" },
         ["*"] = { "codespell" },
       },
       format_on_save = {
@@ -31,7 +32,7 @@ return {
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
       require("conform").formatters.ruff_fix = {
-        prepend_args = {"--extend-select", "E", "--extend-select", "I", "--extend-select", "D"},
+        prepend_args = {"--extend-select", "E", "--extend-select", "I", "--extend-select", "D", "--force-exclude"},
       }
     end,
   }
