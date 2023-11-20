@@ -52,8 +52,8 @@ return {
         pickers = {
             find_files = {
                 hidden = true,
-                no_ignore = true,
-                no_ignore_parent = true
+                no_ignore = False,
+                no_ignore_parent = False
             }
         },
         extensions = {
