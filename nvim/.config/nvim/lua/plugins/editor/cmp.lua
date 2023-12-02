@@ -26,6 +26,7 @@ return {
 
         cmp.setup({
           sources = {
+            {name = "jupynium", priority = 1000 },
             {name = 'nvim_lsp'},
             {name = 'luasnip'},
             {name = 'path'},
@@ -98,6 +99,14 @@ return {
               require('luasnip').lsp_expand(args.body)
             end,
           },
+          sorting = {
+            priority_weight = 1.0,
+            comparators = {
+              cmp.config.compare.score,            -- Jupyter kernel completion shows prior to LSP
+              cmp.config.compare.recently_used,
+              cmp.config.compare.locality,
+            },
+          }
         })
     end
 }
