@@ -66,7 +66,7 @@ return {
             },
         }
     },
-    init = function()
+    config = function()
         require('telescope').load_extension('fzf')
     end,
 }
