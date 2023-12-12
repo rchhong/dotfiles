@@ -6,22 +6,28 @@ return {
       "rcarriga/nvim-notify",   -- optional
       "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
     },
+    keys = {
+        {"<leader>jk", "<cmd>JupyniumSelectKernel<CR>", desc="Jupynium: Select Kernel"},
+        {"<leader>jr", "<cmd>JupyniumRestartKernel<CR>", desc="Jupynium: Restart Kernel"},
+        {"<leader>jj", "<cmd>JupyniumStartAndAttachToServer<CR>", desc="Jupynium: Start and Attach to Server"},
+        {"<leader>js", "<cmd>JupyniumStartSync<CR>", desc="Jupynium: Start sync"},
+    },
     ft = {"python"},
     opts = {
         python_host = { "micromamba", "run", "-a", "\"\"", "-n", "base", "python" },
         jupyter_command = { "micromamba", "run", "-a", "\"\"", "-n", "base", "jupyter" },
         auto_start_server = {
-            enable = true,
+            enable = false,
             file_pattern = { "*.ju.*", "*.ipynb" },
         },
         auto_attach_to_server = {
-            enable = true,
+            enable = false,
             file_pattern = { "*.ju.*", "*.ipynb" },
         },
         auto_start_sync = {
-            enable = true,
+            enable = false,
             file_pattern = { "*.ju.*", "*.ipynb" },
         },
         jupynium_file_pattern = { "*.ju.*", "*.ipynb" },
-    }
+    },
 }

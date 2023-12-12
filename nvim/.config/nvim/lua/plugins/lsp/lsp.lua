@@ -21,10 +21,18 @@ return {
     local lspconfig = require('lspconfig')
     local lsp_defaults = lspconfig.util.default_config
 
+    -- Needed for nvim-ufo
+    local ufo_capabilities = vim.lsp.protocol.make_client_capabilities()
+    ufo_capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true
+    }
+    
     lsp_defaults.capabilities = vim.tbl_deep_extend(
       'force',
       lsp_defaults.capabilities,
-      require('cmp_nvim_lsp').default_capabilities()
+      require('cmp_nvim_lsp').default_capabilities(),
+      ufo_capabilities
     )
 
     vim.api.nvim_create_autocmd('LspAttach', {
