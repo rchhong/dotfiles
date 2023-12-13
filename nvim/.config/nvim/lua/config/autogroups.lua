@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
      if vim.fn.isdirectory(bufferPath) ~= 0 then
        local ts_builtin = require('telescope.builtin')
        vim.api.nvim_buf_delete(0, { force = true })
-       ts_builtin.find_files()
+       ts_builtin.find_files({hidden=true})
      end
    end,
  })

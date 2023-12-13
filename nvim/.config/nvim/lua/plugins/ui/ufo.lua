@@ -4,12 +4,11 @@ return {
         'kevinhwang91/promise-async',
         "nvim-treesitter/nvim-treesitter",
     },
+    -- TODO: Jupynium doesn't trigger these events
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     config = function()
         vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
         vim.o.foldlevelstart = 99
-        
-        -- local bakup = jit
-        -- jit = nil
         
         require('ufo').setup({
             fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
@@ -71,6 +70,5 @@ return {
         end
         })
 
-        -- jit = bakup
     end
 }

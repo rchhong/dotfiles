@@ -22,7 +22,7 @@ return {
             config = {
                 header = vim.split(logo, "\n"),
                 center = {
-                    {key = "f", icon = "", desc = " Find File", action = ":Telescope find_files"},
+                    {key = "f", icon = "", desc = " Find File", action = ":Telescope find_files hidden=true"},
                     {key = "e", icon = "", desc = " New file", action = "ene | startinsert"},
                     {key = "r", icon = "", desc = " Recent Files", action = "Telescope oldfiles"},
                     {key = "g", icon = "", desc = " Find Text", action = "Telescope live_grep"},
