@@ -24,6 +24,6 @@ return {
         { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
     },
     config = function()
-        require('dap-python').setup("~/micromamba/bin/python")
+        require('dap-python').setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy")
     end
 }
