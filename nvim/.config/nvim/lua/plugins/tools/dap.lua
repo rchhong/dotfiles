@@ -32,32 +32,8 @@ return {
 
         dap.adapters.firefox = {
             type = 'executable',
-            command = 'node',
-            args = {vim.fn.stdpath("data") .. '/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js'},
-        }
-
-        dap.configurations.typescript = {
-            {
-            name = 'Debug with Firefox',
-            type = 'firefox',
-            request = 'launch',
-            reAttach = true,
-            url = 'http://localhost:3000',
-            webRoot = '${workspaceFolder}',
-            firefoxExecutable = '/opt/homebrew/bin/firefox'
-            }
-        }
-
-        dap.configurations.javascript = {
-            {
-            name = 'Debug with Firefox',
-            type = 'firefox',
-            request = 'launch',
-            reAttach = true,
-            url = 'http://localhost:3000',
-            webRoot = '${workspaceFolder}',
-            firefoxExecutable = '/opt/homebrew/bin/firefox'
-            }
+            command = 'bash',
+            args = {vim.fn.stdpath("data") .. '/mason/bin/firefox-debug-adapter'},
         }
 
         -- Node
@@ -66,27 +42,30 @@ return {
             host = "localhost",
             port = "${port}",
             executable = {
-              command = "node",
+              command = "bash",
               -- 💀 Make sure to update this path to point to your installation
-              args = {"/path/to/js-debug/src/dapDebugServer.js", "${port}"},
+              args = {vim.fn.stdpath("data") .. '/mason/bin/js-debug-adapter', "${port}"},
             }
         }
 
         dap.configurations.typescript = {
             {
-              type = 'pwa-node',
-              request = 'launch',
-              name = "Launch file",
-              runtimeExecutable = "deno",
-              runtimeArgs = {
-                "run",
-                "--inspect-wait",
-                "--allow-all"
-              },
-              program = "${file}",
-              cwd = "${workspaceFolder}",
-              attachSimplePort = 9229,
+                type = 'pwa-node',
+                request = 'launch',
+                name = "Launch file",
+                program = "${file}",
+                cwd = "${workspaceFolder}",
             },
+            {
+                name = 'Debug with Firefox',
+                type = 'firefox',
+                request = 'launch',
+                reAttach = true,
+                url = 'http://localhost:3000',
+                webRoot = '${workspaceFolder}',
+                -- TODO: Change this
+                firefoxExecutable = '/usr/bin/firefox'
+            }
         }
 
         dap.configurations.javascript = {
@@ -94,16 +73,25 @@ return {
               type = 'pwa-node',
               request = 'launch',
               name = "Launch file",
-              runtimeExecutable = "deno",
-              runtimeArgs = {
-                "run",
-                "--inspect-wait",
-                "--allow-all"
-              },
               program = "${file}",
               cwd = "${workspaceFolder}",
-              attachSimplePort = 9229,
             },
+            {
+                name = 'Debug with Firefox',
+                type = 'firefox',
+                request = 'launch',
+                reAttach = true,
+                url = 'http://localhost:3000',
+                webRoot = '${workspaceFolder}',
+                -- TODO: Change this
+                firefoxExecutable = '/usr/bin/firefox'
+            }
         }
+
+        -- For web browsers, need to assign browser to ts/js
+        require("dap.ext.vscode").load_launchjs(nil, {
+            firefox={"typescript", "javascript"},
+            chrome={"typescript", "javascript"}
+        })
     end
 }

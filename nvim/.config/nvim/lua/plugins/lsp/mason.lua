@@ -6,16 +6,21 @@ return {
     build = ":MasonUpdate",
     opts = {
       ensure_installed = {
+        -- Misc
+        'codespell',
+        'gitleaks',
+        -- Python
         'ruff',
         'ruff-lsp',
-        'codespell',
         -- :PylspInstall pylsp-rope pylsp-mypy
         'python-lsp-server',
         'debugpy',
-        'prettier',
+        -- TS/JS
         'firefox-debug-adapter',
         'js-debug-adapter',
-        'gitleaks',
+        'prettier',
+        'typescript-language-server'
+        -- Markdown
         'vale',
         'vale-ls'
       },
