@@ -19,7 +19,7 @@ return {
         'firefox-debug-adapter',
         'js-debug-adapter',
         'prettier',
-        'typescript-language-server'
+        'typescript-language-server',
         -- Markdown
         'vale',
         'vale-ls'
