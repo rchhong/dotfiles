@@ -11,7 +11,10 @@ return {
         'codespell',
         -- :PylspInstall pylsp-rope pylsp-mypy
         'python-lsp-server',
+        'debugpy',
         'prettier',
+        'firefox-debug-adapter',
+        'js-debug-adapter',
         'gitleaks',
         'vale',
         'vale-ls'

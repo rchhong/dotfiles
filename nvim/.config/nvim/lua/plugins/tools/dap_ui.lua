@@ -5,12 +5,12 @@ return {
     },
     opts = {},
     keys = {
-        {"<leader>du", function() require("dapui").toggle() end, desc = "DAP UI: Toggle UI"},
-        {"<leader>de", function() require("dapui").eval() end, desc = "DAP UI: Eval", mode={"n", "v"}}
+        {"<leader>dbu", function() require("dapui").toggle() end, desc = "DAP UI: Toggle UI"},
+        {"<leader>dbe", function() require("dapui").eval() end, desc = "DAP UI: Eval", mode={"n", "v"}}
     },
     config = function(_, opts)
         require("dap.ext.vscode").load_launchjs()
-       
+
         local dap = require("dap")
         local dapui = require("dapui")
         dapui.setup(opts)
