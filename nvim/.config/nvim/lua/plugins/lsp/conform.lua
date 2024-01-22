@@ -18,7 +18,7 @@ return {
         python = { "ruff_fix", "ruff_format", "trim_whitespace" },
         markdown = { "vale" },
         javascript = { "prettier" },
-        -- ["*"] = { "codespell" },
+        ["*"] = { "codespell" },
       },
       format_on_save = {
         -- These options will be passed to conform.format()
