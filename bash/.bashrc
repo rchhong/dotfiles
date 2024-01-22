@@ -143,3 +143,5 @@ unset __conda_setup
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 . "$HOME/.cargo/env"
+
+complete -C /usr/bin/terraform terraform
