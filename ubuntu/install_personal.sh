@@ -23,4 +23,22 @@ wget -O $TEMP/anki.tar.zst https://github.com/ankitects/anki/releases/download/2
 tar xaf $TEMP/anki.tar.zst -C $TEMP/
 sudo $TEMP/anki-2.1.XX-linux-qt6/install.sh
 
+# Install Bitwarden
+print_info "Installing Bitwarden"
+wget -O $TEMP/bitwarden.AppImage https://vault.bitwarden.com/download/?app=desktop&platform=linux
+if [ ! -d "~/Applications" ]; then
+    mkdir -p ~/Applications
+fi
+mv $TEMP/bitwarden.AppImage ~/Applications
+
+touch ~/.local/share/applications/bitwarden.desktop
+echo "[Desktop Entry]
+Encoding=UTF-8
+Name=Bitwarden
+Exec=/home/ryanc/Applications/bitwarden.AppImage
+Terminal=false
+Type=Application
+Categories=Utility;Development;
+" >> ~/.local/share/applications/bitwarden.desktop
+
 print_success "Done!"
