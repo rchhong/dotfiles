@@ -1,0 +1,7 @@
+# AWS Profile only
+[aws]
+format = 'on [$symbol$profile]($style) '
+
+# Tuncate long git branchs (often happens with Jira)
+[git_branch]
+truncation_length = 20
