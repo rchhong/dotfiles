@@ -80,10 +80,14 @@ return {
       settings = {
         pylsp = {
           configurationSources = {"flake8"},
+          formatCommand = {"black"},
           plugins = {
             jedi_completion = {
               include_params = true
             },
+            pycodestyle = {
+              ignore = {"E501", "E121", "E123", "E126", "E226", "E24", "E704", "W503", "W504"}
+            }
           },
         },
       }, on_attach = on_attach, capabilities = capabilities
