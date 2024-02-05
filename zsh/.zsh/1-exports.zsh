@@ -14,4 +14,10 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 export BROWSER=firefox
 
+# Needed for image.nvim
+if [[ "$(uname)" == "Darwin" ]]; then
+    export DYLD_LIBRARY_PATH=$(brew --prefix)/lib
+fi
+
+
 ZSH_THEME=""

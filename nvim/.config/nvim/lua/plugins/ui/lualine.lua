@@ -5,7 +5,6 @@ return {
         'nvim-tree/nvim-web-devicons'
     },
     opts = function()
-        
         --- @param always_truncate boolean always truncate
         --- @param trunc_width number trunctates component when screen width is less then trunc_width
         --- @param trunc_len number truncates component to trunc_len number of chars
@@ -16,6 +15,7 @@ return {
             return function(str)
               local win_width = vim.fn.winwidth(0)
               if always_truncate and trunc_len then
+                 if str:len() == 0 then return '' end
                  return str:sub(1, trunc_len) .. (no_ellipsis and '' or '...')
               elseif hide_width and win_width < hide_width then return ''
               elseif trunc_width and trunc_len and win_width < trunc_width and #str > trunc_len then

@@ -27,7 +27,7 @@ return {
         dynamicRegistration = false,
         lineFoldingOnly = true
     }
-    
+
     lsp_defaults.capabilities = vim.tbl_deep_extend(
       'force',
       lsp_defaults.capabilities,

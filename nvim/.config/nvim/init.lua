@@ -19,11 +19,20 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Lua can see luarocks packages
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+
+-- python3 path here \/.
+vim.g.python3_host_prog = vim.fn.expand("$HOME") .. "/micromamba/bin/python3"
+
 require("lazy").setup("plugins", {
     dev = {
       path = "~/local_plugins",
       fallback = false,
     },
   })
+
+
 
 require('config/init')

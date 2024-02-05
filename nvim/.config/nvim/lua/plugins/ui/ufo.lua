@@ -9,7 +9,7 @@ return {
     config = function()
         vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
         vim.o.foldlevelstart = 99
-        
+
         require('ufo').setup({
             fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
                 local newVirtText = {}
@@ -55,15 +55,15 @@ return {
                 :catch(function(err)
                     return handleFallbackException(err, "indent")
                 end)
-                :thenCall(function(ufo_folds)
-                    local ok, jupynium = pcall(require, "jupynium")
-                    if ok then
-                        for _, fold in ipairs(jupynium.get_folds()) do
-                            table.insert(ufo_folds, fold)
-                        end
-                    end
-                    return ufo_folds
-                end)
+                -- :thenCall(function(ufo_folds)
+                --     local ok, jupynium = pcall(require, "jupynium")
+                --     if ok then
+                --         for _, fold in ipairs(jupynium.get_folds()) do
+                --             table.insert(ufo_folds, fold)
+                --         end
+                --     end
+                --     return ufo_folds
+                -- end)
             end
 
             return getFolds

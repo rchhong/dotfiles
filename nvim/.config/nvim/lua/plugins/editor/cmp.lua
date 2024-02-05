@@ -9,7 +9,8 @@ return {
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-buffer" },
         { "saadparwaiz1/cmp_luasnip" },
-        { "rafamadriz/friendly-snippets" }
+        { "rafamadriz/friendly-snippets" },
+        { "jmbuhr/otter.nvim" }
     },
     config = function ()
         -- You need to setup `cmp` after lsp-zero
@@ -26,7 +27,8 @@ return {
 
         cmp.setup({
           sources = {
-            {name = "jupynium", priority = 1000 },
+            -- {name = "jupynium", priority = 1000 },
+            {name = "otter"},
             {name = 'nvim_lsp'},
             {name = 'luasnip'},
             {name = 'path'},

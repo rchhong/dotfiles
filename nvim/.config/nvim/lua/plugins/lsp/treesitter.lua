@@ -17,7 +17,7 @@ return {
     config = function()
         require('nvim-treesitter.configs').setup({
             -- A list of parser names, or "all" (the five listed parsers should always be installed)
-            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python"},
+            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown","markdown_inline", "python"},
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
@@ -78,22 +78,60 @@ return {
                       border = 'none',
                       floating_preview_opts = {},
                       peek_definition_code = {
-                        ["<leader>df"] = "@function.outer",
-                        ["<leader>dc"] = "@class.outer",
+                        ["<leader>df"] = {query = "@function.outer", desc = "Peek definition of outer function"},
+                        ["<leader>dc"] = {query = "@class.outer", desc = "Peek definition of outer class"},
                       },
                 },
                 move = {
                       enable = true,
                       set_jumps = true, -- whether to set jumps in the jumplist
-                      goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]p"] = "@parameter.outer" },
-                      goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]P"] = "@parameter.outer" },
-                      goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[p"] = "@parameter.outer"},
-                      goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[P"] = "@parameter.outer"},
+                      goto_next_start = {
+                        ["]f"] = {query = "@function.outer", desc = 'Go to start of next function'},
+                        ["]c"] = {query = "@class.outer", desc = 'Go to start of next class'},
+                        ["]p"] = {query = "@parameter.outer", desc = "Go to start of next parameter"},
+                        ["]b"] = {query = "@code_cell.inner", desc = "Go to start of next code block" },
+                      },
+                      goto_next_end = {
+                        ["]F"] = {query = "@function.outer", desc = 'Go to end of next function'},
+                        ["]C"] = {query = "@class.outer", desc = 'Go to end of next class'},
+                        ["]P"] = {query = "@parameter.outer", desc = "Go to end of next parameter"},
+                        ["]B"] = {query = "@code_cell.inner", desc = "Go to end of next code block"},
+                      },
+                      goto_previous_start = {
+                        ["[f"] = {query = "@function.outer", desc = 'Go to start of previous function'},
+                        ["[c"] = {query = "@class.outer", desc = 'Go to start of previous class'},
+                        ["[p"] = {query = "@parameter.outer", desc = "Go to start of previous parameter"},
+                        ["[b"] = {query = "@code_cell.inner", desc = "Go to start of previous code block"},
+                      },
+                      goto_previous_end = {
+                        ["[F"] = {query = "@function.outer", desc = 'Go to end of previous function'},
+                        ["[C"] = {query = "@class.outer", desc = 'Go to end of previous class'},
+                        ["[P"] = {query = "@parameter.outer", desc = "Go to end of previous parameter"},
+                        ["[B"] = {query = "@code_cell.inner", desc = "Go to end of previous code block"},
+                      },
                   },
+                select = {
+                    enable = true,
+                    lookahead = true, -- you can change this if you want
+                    keymaps = {
+                        ["ib"] = { query = "@code_cell.inner", desc = "Select in block" },
+                        ["ab"] = { query = "@code_cell.outer", desc = "Select around block" },
+                    },
                 },
-                autotag = {
-                  enable = true,
-                }
+                swap = { -- Swap only works with code blocks that are under the same
+                        -- markdown header
+                    enable = true,
+                    swap_next = {
+                        ["<leader>sbl"] = "@code_cell.outer",
+                    },
+                    swap_previous = {
+                        ["<leader>sbh"] = "@code_cell.outer",
+                    },
+                },
+            },
+            autotag = {
+                enable = true,
+            },
         })
     end
 }
