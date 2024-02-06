@@ -13,7 +13,7 @@ m.nmap("<leader>s", ":set spell!<CR>")
 -- m.nmap("<leader>q", ":tabclose<CR>")
 
 --  Write current buffer
-m.nmap("<leader>w", ":w<CR>")
+m.nmap("<leader>w", ":w!<CR>")
 
 --  Close Current Buffer
 -- m.nmap("<leader>x", ":bd<CR>")

@@ -10,6 +10,7 @@ return {
         signs = false
     },
     keys = {
-        {"<leader>xt", "<cmd>TodoTrouble<cr>", desc = "TodoTrouble Toggle", mode={"n"}}
+        {"<leader>xt", "<cmd>TroubleToggle todo<cr>", desc = "TodoTrouble Toggle", mode={"n"}},
+        {"<leader>st", "<cmd>TodoTelescope<cr>", desc = "TodoTrouble Toggle", mode={"n"}}
     },
 }
