@@ -29,7 +29,7 @@ toDownload=(
     gcc
     htop
     jq
-    lua5.3
+    lua5.1
     make
     neofetch
     pandoc
@@ -43,6 +43,8 @@ toDownload=(
     tree
     unzip
     vim
+    imagemagick
+    luarocks
 )
 
 for i in "${toDownload[@]}"; do
