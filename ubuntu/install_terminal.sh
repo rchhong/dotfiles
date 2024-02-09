@@ -45,6 +45,7 @@ toDownload=(
     vim
     imagemagick
     luarocks
+    libmagickwand-dev
 )
 
 for i in "${toDownload[@]}"; do

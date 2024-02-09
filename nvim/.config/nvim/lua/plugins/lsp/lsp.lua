@@ -79,18 +79,48 @@ return {
     require('lspconfig').pylsp.setup({
       settings = {
         pylsp = {
-          configurationSources = {"flake8"},
-          formatCommand = {"black"},
+          configurationSources = {"pycodestyle"},
           plugins = {
+            autopep8 = {
+              enabled = false
+            },
+            flake8 = {
+              enabled = false
+            },
             jedi_completion = {
+              enabled = true,
               include_params = true
             },
             pycodestyle = {
               ignore = {"E501", "E121", "E123", "E126", "E226", "E24", "E704", "W503", "W504"}
+            },
+            pydocstyle = {
+              enabled = false,
+              convention = 'numpy'
+            },
+            pylint = {
+              enabled = false
+            },
+            rope_autoimport = {
+              enabled = true,
+              completions = {
+                enabled = false
+              },
+              code_actions = {
+                enabled = true
+              }
+            },
+            yapf = {
+              enabled = false
             }
           },
         },
       }, on_attach = on_attach, capabilities = capabilities
+    })
+
+    require('lspconfig').pyright.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
     })
 
   end
