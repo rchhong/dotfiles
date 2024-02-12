@@ -1,7 +1,6 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-TEMP=$DOTFILES/temp
 source $DOTFILES/scripts/helpers.sh
 
 print_stage "Installing terminal applications"
@@ -53,12 +52,24 @@ for i in "${toDownload[@]}"; do
 	sudo apt install -y $i
 done
 
+# tmux
+print_info "Installing tmux"
+sudo apt-get install libevent-dev ncurses-dev build-essential bison pkg-config
+wget -O tmux.tar.gz https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
+tar -zxf tmux.tar.gz
+cd tmux-*/
+./configure
+make && sudo make install
+cd ..
+rm -rf tmux.tar.gz tmux-*/
+sudo apt autoremove
+
+
 # neovim
-print_info "Installing neovim manager"
-sudo apt-get install -y software-properties-common
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt-get update
-sudo apt-get install -y neovim
+print_info "Installing neovim"
+wget -O nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz
+tar -xzvf nvim.tar.gz
+mv -r nvim-linux64 /usr/local/bin/
 
 # tmux plugin manager
 print_info "Installing tmux plugin manager"
@@ -71,9 +82,9 @@ curl -sS https://starship.rs/install.sh | sh
 # Install rga
 # TODO: Fix this hard code mess
 print_info "Installing rga"
-wget -O $TEMP/rga.tar.gz https://github.com/phiresky/ripgrep-all/releases/download/v1.0.0-alpha.5/ripgrep_all-v1.0.0-alpha.5-x86_64-unknown-linux-musl.tar.gz
-tar -xzf $TEMP/rga.tar.gz -C $TEMP/
-sudo mv $TEMP/ripgrep_all*/rga* /usr/local/bin/
+wget -O rga.tar.gz https://github.com/phiresky/ripgrep-all/releases/download/v1.0.0-alpha.5/ripgrep_all-v1.0.0-alpha.5-x86_64-unknown-linux-musl.tar.gz
+tar -xzf rga.tar.gz -C .
+sudo mv ./ripgrep_all*/rga* /usr/local/bin/
 
 # Install github cli
 print_info "Installing GitHub CLI"

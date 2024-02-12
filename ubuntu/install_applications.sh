@@ -1,7 +1,6 @@
 !/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-TEMP=$DOTFILES/temp
 source $DOTFILES/scripts/helpers.sh
 
 print_stage "Installing GUI Applications"
@@ -85,7 +84,8 @@ EOL
 
 # Install Obsidian
 print_info "Installing Postman"
-wget -O $TEMP/obsidian.deb https://github.com/obsidianmd/obsidian-releases/releases/download/v1.3.7/obsidian_1.3.7_amd64.deb
-sudo apt install -y $TEMP/obsidian.deb
+wget -O obsidian.deb https://github.com/obsidianmd/obsidian-releases/releases/download/v1.3.7/obsidian_1.3.7_amd64.deb
+sudo apt install -y obsidian.deb
+rm -rf obsidian.deb
 
 print_success "Done!"

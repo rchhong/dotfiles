@@ -1,7 +1,6 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-TEMP=$DOTFILES/temp
 source $DOTFILES/scripts/helpers.sh
 
 # Settings

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 DOTFILES=$HOME/.dotfiles
-TEMP=$DOTFILES/temp
 source $DOTFILES/scripts/helpers.sh
 
 print_stage "Installing Developer Tools"
@@ -79,9 +78,10 @@ sudo systemctl enable containerd.service
 # Install lazygit
 print_info "Installing lazygit"
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl -Lo $TEMP/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf $TEMP/lazygit.tar.gz $TEMP/lazygit
-sudo install $TEMP/lazygit /usr/local/bin
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+rm -rf lazygit.tar.gz lazygit
 
 # Install terraform
 print_info "Installing terraform"
@@ -105,7 +105,8 @@ sudo apt-get install terraform
 print_info "Installing quarto"
 QUARTO_VERSION=$(curl -s "https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 QUARTO_DL_URL="https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.deb"
-wget -O $TEMP/quarto.deb $QUARTO_DL_URL
-sudo dpkg -i $TEMP/quarto.deb
+wget -O quarto.deb $QUARTO_DL_URL
+sudo dpkg -i quarto.deb
+rm -rf quarto.deb
 
 print_success "Done!"
