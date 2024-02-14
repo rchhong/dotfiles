@@ -1,6 +1,14 @@
 return {
     "mfussenegger/nvim-lint",
     event = {"BufWritePost"},
+    keys = {
+        {
+            "<leader>l",
+            function() require("lint").try_lint() end,
+            mode = "n",
+            desc = "Lint: trigger linting for current file."
+        }
+    },
     init = function()
         local lint = require('lint')
         lint.linters_by_ft = {
