@@ -5,7 +5,7 @@ return {
     keys = {
       {
         "<F3>",
-        function() require("conform").format({lsp_fallback = true, async = true}) end,
+        function() require("conform").format({lsp_fallback = true, async = true}) end, 
         desc = "Format buffer",
       },
     },
