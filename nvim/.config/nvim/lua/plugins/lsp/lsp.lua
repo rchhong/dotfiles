@@ -123,6 +123,16 @@ return {
       capabilities = capabilities,
     })
 
+    require('lspconfig').terraformls.setup({
+      settings = {
+        terraform = {
+          experimentalFeatures = {
+            validateOnSave = true
+          }
+        }
+      }
+    })
+
   end
 }
 
