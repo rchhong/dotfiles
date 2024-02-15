@@ -21,9 +21,6 @@ return {
         'js-debug-adapter',
         'prettier',
         'typescript-language-server',
-        -- Markdown
-        'vale',
-        'vale-ls'
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
