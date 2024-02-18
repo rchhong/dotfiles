@@ -45,3 +45,6 @@ alias sl="ls"
 # QMK
 alias lily58='cd ~/qmk_firmware/keyboards/lily58/keymaps/rchhong'
 alias kbd67lite='cd ~/qmk_firmware/keyboards/kbdfans/kbd67/hotswap/keymaps/rchhong'
+
+# Lazygit
+alias lazygit='LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/theme.yml" lazygit'

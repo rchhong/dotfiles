@@ -15,7 +15,6 @@ plugins=(
   sudo
   tmux
   ubuntu
-  z
   zsh-autosuggestions
   zsh-completions
   zsh-syntax-highlighting
