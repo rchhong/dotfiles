@@ -17,15 +17,18 @@
     # Remove file(s) from Git but not from disk
     untrack = rm --cache --
     lol = log --oneline --graph --all
+# Color on
 [color]
 	ui = auto
 [core]
     excludesfile = ~/.gitignore_global
 	editor = nvim
     pager = delta
+# Sign commits
 [commit]
 	gpgsign = true
     verbose = true
+# Catppuccin theme
 [delta "catppuccin-mocha"]
 	blame-palette = "#1e1e2e #181825 #11111b #313244 #45475a"
 	commit-decoration-style = "box ul"
@@ -52,29 +55,45 @@
 	plus-style = "syntax #2c333a"
 	# Should match the name of the bat theme
 	syntax-theme = "Catppuccin-mocha"
+# Delta configuration
 [delta]
     navigate = true    # use n and N to move between diff sections
     light = false
     side-by-side = true
     line-numbers = true
     features = catppuccin-mocha
+# Zebra mode for diff
 [diff]
     colorMoved = default
+# Tell git about my ssh key
 [gpg]
 	format = ssh
 # [includeIf "gitdir:~/code/<work>/"]
 #     path = "~/code/<work>/.gitconfig"
+# "main" as main branch
 [init]
 	defaultBranch = main
+# Use delta
 [interactive]
     diffFilter = delta --color-only
+# Diff3 conflict style
 [merge]
     conflictstyle = diff3
+# Push only if current branch if its named upstream is identical
 [push]
     default = simple
 # [pull]
 #     rebase = merges
+# Autosquash - see https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt---autosquash
 [rebase]
     autosquash = true
+# Force ssh
 [url "git@github.com:"]
 	insteadOf = "https://github.com/"
+# Avoid data corruption
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+[receive]
+    fsckobjects = true
