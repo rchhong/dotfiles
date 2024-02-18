@@ -2,7 +2,7 @@
 return {
     "williamboman/mason.nvim",
     cmd = "Mason",
-    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+    -- keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     build = ":MasonUpdate",
     opts = {
       ensure_installed = {
@@ -21,11 +21,17 @@ return {
         'js-debug-adapter',
         'prettier',
         'typescript-language-server',
+        -- Terraform
+        'terraform-ls',
+        -- Docker
+        'docker-compose-language-service',
+        'dockerfile-language-server'
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)
       require("mason").setup(opts)
+
       local mr = require("mason-registry")
       mr:on("package:install:success", function()
         vim.defer_fn(function()

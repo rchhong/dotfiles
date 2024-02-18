@@ -16,6 +16,7 @@ return {
             local runner = require("quarto.runner").run_cell
             runner.run_all(true)
         end, desc="Quarto: run all cells of all languages", silent=true},
+        {"<leader>qp", function() require("quarto").quartoPreview() end, desc="Quarto: run visual range", silent=true, noremap = true},
     },
     ft = {
         "quarto",
@@ -36,11 +37,11 @@ return {
         },
         keymap = {
             -- NOTE: setup your own keymaps:
-            hover = "<leader>qH",
-            definition = "<leader>qgd",
-            rename = "<leader>qrn",
-            references = "<leader>qgr",
-            format = "<leader>qgf",
+            hover = "H",
+            definition = "gd",
+            rename = "<F2>",
+            references = "gr",
+            format = "<F3>",
         },
         codeRunner = {
             enabled = true,

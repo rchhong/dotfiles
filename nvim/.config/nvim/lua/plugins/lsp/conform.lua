@@ -5,7 +5,7 @@ return {
     keys = {
       {
         "<F3>",
-        function() require("conform").format({lsp_fallback = true, async = true}) end, 
+        function() require("conform").format({lsp_fallback = true, async = true}) end,
         desc = "Format buffer",
       },
     },
@@ -17,7 +17,7 @@ return {
         javascript = { "prettier" },
         ["*"] = { "codespell" },
       },
-      format_on_save = function(bufnr) 
+      format_on_save = function(bufnr)
         if vim.b[bufnr].disable_autoformat or vim.g.disable_autoformat then
           return {}
         end
@@ -43,7 +43,7 @@ return {
         end
         require("conform").format({ async = true, lsp_fallback = true, range = range })
       end, { range = true })
-      
+
       -- format enable/disable commands
       vim.api.nvim_create_user_command("FormatDisable", function(args)
         if args.bang then

@@ -7,32 +7,46 @@ return {
         'nvim-tree/nvim-web-devicons',
         'nvim-treesitter/nvim-treesitter',
         'nvim-telescope/telescope-fzf-native.nvim',
+        'folke/trouble.nvim'
     },
     cmd = {
         "Telescope"
     },
     keys = {
-        { "<C-p>", function() require('telescope.builtin').find_files({hidden = true, no_ignore = false, no_ignore_parent = false}) end, mode = {"n"} },
-        { "<C-b>", function() require('telescope.builtin').buffers({sort_mru=true, sort_lastused=true}) end, mode = {"n"} },
-        { '<leader>sg', function() require('telescope.builtin').live_grep() end, mode = {"n"} },
-        { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
-        { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
-        { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
-        { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
+        { "<C-p>", function() require('telescope.builtin').find_files({hidden = true, no_ignore = false, no_ignore_parent = false}) end, mode = {"n"}, desc = "Telescope: find files" },
+        { "<C-b>", function() require('telescope.builtin').buffers({sort_mru=true, sort_lastused=true}) end, mode = {"n"}, desc = "Telescope: buffers" },
+        { '<leader>sg', function() require('telescope.builtin').live_grep() end, mode = {"n"}, desc = "Telescope: live grep" },
+        { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Telescope: registers" },
+        { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Telescope: marks" },
+        { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Telescope: document diagnostics" },
+        { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Telescope: Workspace diagnostics" },
         {
             "<leader>ss",
             function()
-              require("telescope.builtin").lsp_document_symbols()
+                require("telescope.builtin").lsp_document_symbols()
             end,
-            desc = "Goto Symbol",
-          },
-          {
+            desc = "Telescope: document symbols",
+        },
+        {
             "<leader>sS",
             function()
               require("telescope.builtin").lsp_dynamic_workspace_symbols()
             end,
-            desc = "Goto Symbol (Workspace)",
+            desc = "Telescope: workplace symbols",
         },
+        {
+            "<C-t>",
+            -- function()
+            --     local actions = require("telescope.actions")
+            --     local trouble = require("trouble.providers.telescope")
+
+            --     local telescope = require("telescope")
+
+            --     trouble.open_with_trouble()
+            -- end,
+            mode = {"i", "n"},
+            desc = "Telescope: open in trouble",
+        }
     },
     opts = {
         defaults = {
@@ -47,7 +61,7 @@ return {
                 "%.zip",
                 "__pycache__/",
                 ".ipynb_checkpoints/"
-            }
+            },
         },
         pickers = {
             find_files = {
@@ -66,7 +80,36 @@ return {
             },
         }
     },
-    config = function()
+    init = function()
+        -- Open telescope if directory given as input
+        local is_git_dir = function()
+            return os.execute('git rev-parse --is-inside-work-tree >> /dev/null 2>&1')
+        end
+
+        vim.api.nvim_create_autocmd('VimEnter', {
+            callback = function()
+                local bufferPath = vim.fn.expand('%:p')
+                if vim.fn.isdirectory(bufferPath) ~= 0 then
+                    local ts_builtin = require('telescope.builtin')
+                    vim.api.nvim_buf_delete(0, { force = true })
+                    ts_builtin.find_files({hidden=true})
+                end
+            end
+        })
+    end,
+    config = function(_, opts)
         require('telescope').load_extension('fzf')
+
+        local actions = require("telescope.actions")
+        local trouble = require("trouble.providers.telescope")
+
+        local telescope = require("telescope")
+
+        opts.defaults.mappings = {
+            i = { ["<c-t>"] = trouble.open_with_trouble },
+            n = { ["<c-t>"] = trouble.open_with_trouble },
+        }
+
+        require('telescope').setup(opts)
     end,
 }

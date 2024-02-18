@@ -1,8 +1,10 @@
+-- Note: I've tried to change this + spilt it up
+-- It didn't work don't do it
 return {
-    -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",     -- Required
     dependencies = {
+        {'neovim/nvim-lspconfig'},
         {'hrsh7th/cmp-nvim-lsp'}, -- Required
         {'L3MON4D3/LuaSnip'},     -- Required
         { "hrsh7th/cmp-path" },
@@ -110,5 +112,22 @@ return {
             },
           }
         })
+
+      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline({ '/', '?' }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'buffer' }
+        }
+      })
+
+      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline(':', {
+        -- mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'path' },
+          { name = 'cmdline' }
+        }
+      })
     end
 }

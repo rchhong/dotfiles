@@ -17,6 +17,20 @@ return {
     {'hrsh7th/cmp-nvim-lsp'},
     {'L3MON4D3/LuaSnip'},
   },
+  keys = {
+    {"K", function() vim.lsp.buf.hover() end, mode = {"n"}, desc = "LSP: hover definition"},
+    {"gd", function() vim.lsp.buf.definition() end, mode = {"n"}, desc = "LSP: go to definition"},
+    {"gD", function() vim.lsp.buf.declaration() end, mode = {"n"}, desc = "LSP: go to declaration"},
+    {"gi", function() vim.lsp.buf.implementation() end, mode = {"n"}, desc = "LSP: go to implementation"},
+    {"go", function() vim.lsp.buf.type_definition() end, mode = {"n"}, desc = "LSP: go to type definition"},
+    {"gr", function() vim.lsp.buf.references() end, mode = {"n"}, desc = "LSP: list all references"},
+    {"gs", function() vim.lsp.buf.signature_help() end, mode = {"n"}, desc = "LSP: signature help"},
+    {"<F2>", function() vim.lsp.buf.rename() end, mode = {"n"}, desc = "LSP: rename variable"},
+    {"<F4>", function() vim.lsp.buf.code_action() end, mode = {"n"}, desc = "LSP: code actions"},
+    {"gl", function() vim.diagnostic.open_float() end, mode = {"n"}, desc = "LSP: open diagnostics float window"},
+    {"[d", function() vim.diagnostic.goto_prev() end, mode = {"n"}, desc = "LSP: previous diagnostic"},
+    {"]d", function() vim.diagnostic.goto_next() end, mode = {"n"}, desc = "LSP: next diagnostic"},
+  },
   config = function()
     local lspconfig = require('lspconfig')
     local lsp_defaults = lspconfig.util.default_config
@@ -34,28 +48,6 @@ return {
       require('cmp_nvim_lsp').default_capabilities(),
       ufo_capabilities
     )
-
-    vim.api.nvim_create_autocmd('LspAttach', {
-      desc = 'LSP actions',
-      callback = function(event)
-        local opts = {buffer = event.buf}
-
-        vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-        vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-        vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-        vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-        vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-        vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-        vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-        vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-        -- vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-        vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-
-        vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-        vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-        vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
-      end
-    })
 
     require('mason').setup({})
     require('mason-lspconfig').setup({})

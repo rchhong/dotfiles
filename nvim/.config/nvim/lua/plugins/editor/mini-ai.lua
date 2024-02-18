@@ -22,7 +22,4 @@ return {
         },
       }
     end,
-    config = function(_, opts)
-        require("mini.ai").setup(opts)
-    end
 }

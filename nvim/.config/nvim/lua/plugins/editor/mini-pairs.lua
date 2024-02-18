@@ -2,7 +2,6 @@ return {
     "echasnovski/mini.pairs",
     lazy = true,
     event = "InsertEnter",
-    opts = {},
     keys = {
         {
           "<leader>up",
@@ -16,6 +15,7 @@ return {
           end,
           desc = "Toggle auto pairs",
         },
-      },
+    },
+    opts = {},
 }
 

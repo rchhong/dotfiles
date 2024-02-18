@@ -3,11 +3,11 @@ return {
     dependencies = {
        "mfussenegger/nvim-dap"
     },
-    opts = {},
     keys = {
-        {"<leader>dbu", function() require("dapui").toggle() end, desc = "DAP UI: Toggle UI"},
-        {"<leader>dbe", function() require("dapui").eval() end, desc = "DAP UI: Eval", mode={"n", "v"}}
+      {"<leader>dbu", function() require("dapui").toggle() end, desc = "DAP UI: Toggle UI"},
+      {"<leader>dbe", function() require("dapui").eval() end, desc = "DAP UI: Eval", mode={"n", "v"}}
     },
+    opts = {},
     config = function(_, opts)
         local dap = require("dap")
         local dapui = require("dapui")

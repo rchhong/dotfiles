@@ -16,6 +16,7 @@
     uncommit = reset --soft HEAD~1
     # Remove file(s) from Git but not from disk
     untrack = rm --cache --
+    lol = log --oneline --graph --all
 [color]
 	ui = auto
 [push]
