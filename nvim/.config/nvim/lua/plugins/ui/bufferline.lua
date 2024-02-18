@@ -1,6 +1,9 @@
 return {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
+    dependencies = {
+      {"catppuccin/nvim", name = "catppuccin"}
+    },
     keys = {
       { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Bufferline: Toggle pin" },
       { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Bufferline: Delete non-pinned buffers" },
@@ -13,6 +16,7 @@ return {
       { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Bufferline: Next buffer" },
     },
     opts = {
+      -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
       options = {
         -- stylua: ignore
         close_command = function(n) require("mini.bufremove").delete(n, false) end,
@@ -48,5 +52,7 @@ return {
           end)
         end,
       })
+
+
     end,
 }
