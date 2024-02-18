@@ -31,7 +31,7 @@ return {
       })
     end,
     keys = {
-      { "]]", desc = "Next Reference" },
-      { "[[", desc = "Prev Reference" },
+      { "]]", desc = "Illuminate: Next Reference" },
+      { "[[", desc = "Illuminate: Prev Reference" },
     },
   }

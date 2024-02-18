@@ -1,7 +1,7 @@
 return {
     "mbbill/undotree",
     keys = {
-        {'<F5>', '<cmd>UndotreeToggle<cr>', desc = "Toggles UndoTree", mode = {"n"}}
+        {'<F5>', '<cmd>UndotreeToggle<cr>', desc = "UndoTree: toggle", mode = {"n"}}
     },
     cmd = {
         "TodoTreeToggle"

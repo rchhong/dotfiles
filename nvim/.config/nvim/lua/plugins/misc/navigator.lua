@@ -1,10 +1,10 @@
 return {
     'numToStr/Navigator.nvim',
     keys = {
-        { "<C-h>", '<CMD>NavigatorLeft<CR>', mode = {"n", "t"}, desc = "Navigate Left (respects tmux)"},
-        { "<C-j>", '<CMD>NavigatorDown<CR>', mode = {"n", "t"}, desc = "Navigate Down (respects tmux)"},
-        { "<C-k>", '<CMD>NavigatorUp<CR>', mode = {"n", "t"}, desc = "Navigate Up (respects tmux)"},
-        { "<C-l>", '<CMD>NavigatorRight<CR>', mode = {"n", "t"}, desc = "Navigate Right (respects tmux)"},
+        { "<C-h>", '<CMD>NavigatorLeft<CR>', mode = {"n", "t"}, desc = "Navigator: Navigate Left (respects tmux)"},
+        { "<C-j>", '<CMD>NavigatorDown<CR>', mode = {"n", "t"}, desc = "Navigator: Navigate Down (respects tmux)"},
+        { "<C-k>", '<CMD>NavigatorUp<CR>', mode = {"n", "t"}, desc = "Navigator: Navigate Up (respects tmux)"},
+        { "<C-l>", '<CMD>NavigatorRight<CR>', mode = {"n", "t"}, desc = "Navigator: Navigate Right (respects tmux)"},
     },
     opts = {
         -- Save modified buffer(s) when moving to mux

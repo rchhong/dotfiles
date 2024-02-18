@@ -7,7 +7,7 @@ return {
             function()
                 if not require("mini.files").close() then require("mini.files").open() end
             end,
-            desc="mini.files (cwd)",
+            desc="Mini.files: cwd",
             mode={"n"}
         },
     },

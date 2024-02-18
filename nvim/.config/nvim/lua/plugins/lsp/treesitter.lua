@@ -3,8 +3,8 @@ return {
     event = { "BufReadPost", "BufWritePost", "BufNewFile"},
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     keys = {
-        { "<c-space>", desc = "Increment selection" },
-        { "<bs>", desc = "Decrement selection", mode = "x" },
+        { "<c-space>", desc = "Treesitter: Increment selection" },
+        { "<bs>", desc = "Treesitter: Decrement selection", mode = "x" },
     },
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
