@@ -1,10 +1,10 @@
 return {
     'quarto-dev/quarto-nvim',
     dependencies = {
-        'jmbuhr/otter.nvim',
         'hrsh7th/nvim-cmp',
         'neovim/nvim-lspconfig',
         'nvim-treesitter/nvim-treesitter',
+        'jmbuhr/otter.nvim',
     },
     keys = {
         {"<leader>qrc", function() require("quarto.runner").run_cell() end, desc="Quarto: run cell", silent=true},
@@ -37,15 +37,21 @@ return {
         },
         keymap = {
             -- NOTE: setup your own keymaps:
-            hover = "H",
+            hover = "K",
             definition = "gd",
+            type_definition = "go",
             rename = "<F2>",
             references = "gr",
             format = "<F3>",
+            document_symbols = "gS",
         },
         codeRunner = {
             enabled = true,
             default_method = "molten",
         },
-    }
+    },
+    config = function(_, opts)
+        require('quarto').setup(opts)
+        require('quarto').activate()
+    end
 }

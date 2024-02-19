@@ -6,5 +6,5 @@ return {
           set_filetype = true,
           write_to_disk = true,
         },
-    },
+    }
 }
