@@ -25,7 +25,13 @@ return {
         'terraform-ls',
         -- Docker
         'docker-compose-language-service',
-        'dockerfile-language-server'
+        'dockerfile-language-server',
+        -- Lua
+        'stylua',
+        'lua-language-server',
+        -- C
+        'clangd',
+        'clang-format',
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}

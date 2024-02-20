@@ -13,7 +13,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "ruff_fix", "ruff_format", "trim_whitespace" },
-        -- markdown = { "vale" },
+        c = { "clang_format" },
         javascript = { "prettier" },
         ["*"] = { "codespell" },
       },
