@@ -1,8 +1,12 @@
 [user]
+    # Email
     email = ryanchhong@gmail.com
+    # Name
     name = Ryan Chhong
+    # ssh key
     signingkey = ~/.ssh/id_rsa.pub
 [alias]
+    # Git tree
     tree = log --all --decorate --oneline --graph
     # Space saver
     compact = !git reflog expire --expire=0 --all && git repack -ad && git prune && git gc
@@ -16,17 +20,22 @@
     uncommit = reset --soft HEAD~1
     # Remove file(s) from Git but not from disk
     untrack = rm --cache --
+    # Git one-line log
     lol = log --oneline --graph --all
-# Color on
 [color]
+    # Color on
     ui = auto
 [core]
+    # Global gitignore
     excludesfile = ~/.gitignore_global
+    # Nvim
     editor = nvim
+    # Use delta
     pager = delta
-# Sign commits
 [commit]
+    # Sign commits
     gpgsign = true
+    # Shows diff in commit message template
     verbose = true
 # Catppuccin theme
 [delta "catppuccin-mocha"]
@@ -62,38 +71,48 @@
     side-by-side = true
     line-numbers = true
     features = catppuccin-mocha
-# Zebra mode for diff
 [diff]
+    # Zebra mode for diff
     colorMoved = default
-# Tell git about my ssh key
+    # Use better, descriptive initials (c, i, w) instead of a/b.
+    mnemonicPrefix = true
+    # Show renames/moves as such
+    renames = true
+    # Display submodule-related information (commit listings)
+    submodule = log
 [gpg]
+    # Tell git about my ssh key
     format = ssh
+# Snippet to use different git settings in directory
 # [includeIf "gitdir:~/code/<work>/"]
 #     path = "~/code/<work>/.gitconfig"
-# "main" as main branch
 [init]
+    # "main" as main branch
     defaultBranch = main
-# Use delta
 [interactive]
+    # Use delta
     diffFilter = delta --color-only
-# Diff3 conflict style
+
 [merge]
+    # Diff3 conflict style
     conflictstyle = diff3
-# Push only if current branch if its named upstream is identical
 [push]
+    # Push only if current branch if its named upstream is identical
     default = simple
 # [pull]
 #     rebase = merges
-# Autosquash - see https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt---autosquash
 [rebase]
+    # Autosquash - see https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt---autosquash
     autosquash = true
 # Force ssh
 [url "git@github.com:"]
     insteadOf = "https://github.com/"
-# Avoid data corruption
 [transfer]
+    # Avoid data corruption
     fsckobjects = true
 [fetch]
+    # Avoid data corruption
     fsckobjects = true
 [receive]
+    # Avoid data corruption
     fsckobjects = true
