@@ -112,4 +112,9 @@ wget -O bat.deb https://github.com/sharkdp/bat/releases/download/v0.24.0/bat_0.2
 sudo dpkg -i bat.deb
 rm -rf bat.deb
 
+# Install delta
+wget -O delta.deb https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb
+sudo dpkg -i delta.deb
+rm -rf delta.deb
+
 print_success "Done!"
