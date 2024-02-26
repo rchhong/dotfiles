@@ -48,3 +48,6 @@ alias kbd67lite='cd ~/qmk_firmware/keyboards/kbdfans/kbd67/hotswap/keymaps/rchho
 
 # Lazygit
 alias lazygit='LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/theme.yml" lazygit'
+
+# tree
+alias tree='eza --tree'
