@@ -45,4 +45,4 @@ fi
 
 # Install config files
 print_info "Installing config files"
-$DOTFILES/scripts/link.sh -f bash conda fish git gpg kitty nvim ssh tmux vim zsh
+$DOTFILES/scripts/link.sh -f bash bat conda fish git gpg kitty lazygit mamba nvim scripts ssh starship tmux vim zsh

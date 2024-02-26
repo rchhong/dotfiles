@@ -38,7 +38,7 @@ if [ "$work_mode" == false ]; then
 fi
 
 print_stage "Installing config files"
-$DOTFILES/scripts/link.sh bash conda fish git gpg kitty nvim raycast skhd ssh tmux vim yabai
+$DOTFILES/scripts/link.sh bash bat conda fish git gpg kitty lazygit mamba nvim scripts ssh starship tmux vim zsh
 $DOTFILES/scripts/link.sh kitty raycast skhd yabai
 
 
