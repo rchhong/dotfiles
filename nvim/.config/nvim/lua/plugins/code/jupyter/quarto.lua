@@ -34,6 +34,7 @@ return {
             completion = {
                 enabled = true,
             },
+            enabled = true
         },
         keymap = {
             -- NOTE: setup your own keymaps:

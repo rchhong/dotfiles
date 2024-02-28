@@ -83,9 +83,6 @@
 [gpg]
     # Tell git about my ssh key
     format = ssh
-# Snippet to use different git settings in directory
-# [includeIf "gitdir:~/code/<work>/"]
-#     path = "~/code/<work>/.gitconfig"
 [init]
     # "main" as main branch
     defaultBranch = main
@@ -116,3 +113,7 @@
 [receive]
     # Avoid data corruption
     fsckobjects = true
+    
+# Snippet to use different git settings in directory
+[includeIf "gitdir:~/projects/"]
+    path = "~/projects/.gitconfig"

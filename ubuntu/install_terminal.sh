@@ -22,7 +22,6 @@ fc-cache -fv
 toDownload=(
     autojump
     curl
-    fd-find
     ffmpeg
     fzf
     gcc
@@ -116,5 +115,10 @@ rm -rf bat.deb
 wget -O delta.deb https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb
 sudo dpkg -i delta.deb
 rm -rf delta.deb
+
+# Install fd
+wget -O fd.deb https://github.com/sharkdp/fd/releases/download/v9.0.0/fd-musl_9.0.0_amd64.deb
+sudo dpkg -i fd.deb
+rm -rf fd.deb
 
 print_success "Done!"

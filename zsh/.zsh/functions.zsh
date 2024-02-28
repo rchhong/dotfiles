@@ -55,3 +55,12 @@ function tmux-sessionizer() {
 
     tmux switch-client -t $selected_name
 }
+
+function create-empty-notebook() {
+    temp_file="$1.py"
+    notebook="$1.ipynb"
+    
+    touch $temp_file
+    jupytext $temp_file -o $notebook --to notebook --set-kernel $2
+    rm $temp_file
+}
