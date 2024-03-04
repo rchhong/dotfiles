@@ -145,3 +145,6 @@ unset __conda_setup
 . "$HOME/.cargo/env"
 
 complete -C /usr/bin/terraform terraform
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"

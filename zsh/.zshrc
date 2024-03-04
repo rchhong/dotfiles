@@ -6,3 +6,4 @@ for i in $ZSH_FILES_DIRECTORY/*; do
 done
 
 # zprof
+eval "$(atuin init zsh --disable-up-arrow)"

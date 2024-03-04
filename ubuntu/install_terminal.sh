@@ -96,9 +96,11 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && sudo apt install gh -y
 
 # Install zeoxide
+print_info "Installing zeoxide"
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
 # Install eza
+print_info "Installing eza"
 sudo mkdir -p /etc/apt/keyrings
 wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
 echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
@@ -107,18 +109,27 @@ sudo apt update
 sudo apt install -y eza
 
 # Install bat
+print_info "Installing bat"
 wget -O bat.deb https://github.com/sharkdp/bat/releases/download/v0.24.0/bat_0.24.0_amd64.deb
 sudo dpkg -i bat.deb
 rm -rf bat.deb
 
 # Install delta
+print_info "Installing delta"
 wget -O delta.deb https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb
 sudo dpkg -i delta.deb
 rm -rf delta.deb
 
 # Install fd
+print_info "Installing fd"
 wget -O fd.deb https://github.com/sharkdp/fd/releases/download/v9.0.0/fd-musl_9.0.0_amd64.deb
 sudo dpkg -i fd.deb
 rm -rf fd.deb
+
+# Install atuin
+print_info "Installing atuin"
+bash <(curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh)       
+atuin import auto
+
 
 print_success "Done!"
