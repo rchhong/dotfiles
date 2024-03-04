@@ -113,7 +113,12 @@
 [receive]
     # Avoid data corruption
     fsckobjects = true
-    
+
 # Snippet to use different git settings in directory
 [includeIf "gitdir:~/projects/"]
     path = "~/projects/.gitconfig"
+[rerere]
+    # Remember how conflicts were resolved
+    enabled = true
+# [maintenance]
+# 	repo = /Users/ryanchhong/.dotfiles
