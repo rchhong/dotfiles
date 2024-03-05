@@ -1,6 +1,7 @@
 tap "homebrew/cask-font"
 tap "oven-sh/bun"
 
+brew "atuin"
 brew "bat"
 brew "bun"
 brew "bfg"
