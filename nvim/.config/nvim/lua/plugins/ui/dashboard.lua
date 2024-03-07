@@ -27,7 +27,8 @@ return {
                     {key = "r", icon = "", desc = " Recent Files", action = "Telescope oldfiles"},
                     {key = "g", icon = "", desc = " Find Text", action = "Telescope live_grep"},
                     {key = "t", icon = "", desc = " Todo List", action = "TodoTrouble"},
-                    {key = "l", icon = "", desc = " Lazy", action = "Lazy"},
+                    {key = "s", icon = "", desc = " Restore Session", action = function() require("persistence").load({last = true}) end},
+                    {key = "l", icon = "󰒲", desc = " Lazy", action = "Lazy"},
                     {key = "q", icon = "", desc = " Quit Neovim", action = "qa"},
                 },
                 footer = function()
