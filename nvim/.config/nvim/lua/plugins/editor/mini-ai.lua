@@ -1,15 +1,31 @@
 -- Taken from LazyNvim
 return {
     "echasnovski/mini.ai",
-    -- keys = {
-    --   { "a", mode = { "x", "o" } },
-    --   { "i", mode = { "x", "o" } },
-    -- },
+    keys = {
+      { "a", mode = { "x", "o" } },
+      { "i", mode = { "x", "o" } },
+      { "g", mode = { "x", "o" } },
+    },
     event = "VeryLazy",
     version = false,
     opts = function()
       local ai = require("mini.ai")
       return {
+        mappings = {
+          -- Main textobject prefixes
+          around = 'a',
+          inside = 'i',
+
+          -- Next/last variants
+          around_next = 'an',
+          inside_next = 'in',
+          around_last = 'al',
+          inside_last = 'il',
+
+          -- Move cursor to corresponding edge of `a` textobject
+          goto_left = 'g[',
+          goto_right = 'g]',
+        },
         n_lines = 500,
         custom_textobjects = {
           o = ai.gen_spec.treesitter({
