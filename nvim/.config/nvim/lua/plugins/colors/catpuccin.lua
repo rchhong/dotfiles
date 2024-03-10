@@ -51,6 +51,7 @@ return {
             dashboard = true,
             flash = true,
             gitsigns = true,
+            harpoon = true,
             illuminate = {
                 enabled = true,
                 lsp = false

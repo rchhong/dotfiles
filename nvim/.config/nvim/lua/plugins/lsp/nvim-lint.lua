@@ -1,6 +1,6 @@
 return {
     "mfussenegger/nvim-lint",
-    event = {"BufWritePost"},
+    event = {"BufWritePost", "BufReadPost", "InsertLeave"},
     keys = {
         {
             "<leader>l",
@@ -9,7 +9,7 @@ return {
             desc = "Lint: trigger linting for current file."
         }
     },
-    init = function()
+    config = function()
         local lint = require('lint')
         lint.linters_by_ft = {
             -- markdown = {'vale',},
