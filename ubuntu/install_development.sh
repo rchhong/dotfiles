@@ -12,6 +12,7 @@ curl -fsSL https://fnm.vercel.app/install | bash
 # Install pnpm
 print_info "Installing pnpm"
 curl -fsSL https://get.pnpm.io/install.sh | sh -
+pnpm install-completion zsh
 
 # Install Miniconda
 print_info "Installing miniconda"

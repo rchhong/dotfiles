@@ -1,6 +1,10 @@
 plugins=(
+  aws
+  azure
   brew
-  conda-zsh-completion
+  # conda-zsh-completion
+  docker
+  docker-compose
   extract
   fd
   fnm
@@ -13,6 +17,7 @@ plugins=(
   safe-paste
   ssh-agent
   sudo
+  terraform
   tmux
   ubuntu
   zsh-autosuggestions

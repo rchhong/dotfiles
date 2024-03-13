@@ -9,7 +9,7 @@ return {
           find_left = "Fs", -- Find surrounding (to the left)
           highlight = "hs", -- Highlight surrounding
           replace = "cs", -- Replace surrounding
-          update_n_lines = "ns", -- Update `n_lines`
+          update_n_lines = ",ns", -- Update `n_lines`
         },
     },
 }
