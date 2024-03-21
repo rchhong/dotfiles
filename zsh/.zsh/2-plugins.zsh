@@ -1,6 +1,5 @@
 plugins=(
   aws
-  azure
   brew
   # conda-zsh-completion
   docker
@@ -19,7 +18,7 @@ plugins=(
   sudo
   terraform
   tmux
-  ubuntu
+  # ubuntu
   zsh-autosuggestions
   zsh-completions
   zsh-syntax-highlighting

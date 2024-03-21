@@ -21,6 +21,9 @@ return {
         'js-debug-adapter',
         'prettier',
         'typescript-language-server',
+        'emmet-ls',
+        'tailwindcss-language-server',
+        'eslint-lsp',
         -- Terraform
         'terraform-ls',
         -- Docker

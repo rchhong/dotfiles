@@ -126,6 +126,14 @@ return {
       }
     })
 
+    require('lspconfig').tsserver.setup({
+      settings = {
+        completions = {
+          completeFunctionCalls = true
+        }
+      }
+    })
+
   end
 }
 
