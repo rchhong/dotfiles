@@ -111,9 +111,14 @@ return {
       }, on_attach = on_attach, capabilities = capabilities
     })
 
-    require('lspconfig').pyright.setup({
+    require('lspconfig').basedpyright.setup({
       on_attach = on_attach,
       capabilities = capabilities,
+      settings = {
+        basedpyright = {
+          typeCheckingMode = "standard",
+        }
+      }
     })
 
     require('lspconfig').terraformls.setup({

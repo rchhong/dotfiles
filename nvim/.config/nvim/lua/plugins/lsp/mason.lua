@@ -14,7 +14,7 @@ return {
         'ruff-lsp',
         -- :PylspInstall pylsp-rope
         'python-lsp-server',
-        'pyright',
+        'basedpyright',
         'debugpy',
         -- TS/JS
         'firefox-debug-adapter',
