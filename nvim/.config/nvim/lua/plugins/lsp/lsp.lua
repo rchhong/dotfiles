@@ -25,7 +25,7 @@ return {
     {"go", function() vim.lsp.buf.type_definition() end, mode = {"n"}, desc = "LSP: go to type definition"},
     {"gR", function() vim.lsp.buf.references() end, mode = {"n"}, desc = "LSP: list all references"},
     {"gS", function() vim.lsp.buf.signature_help() end, mode = {"n"}, desc = "LSP: signature help"},
-    {"gS", function() vim.lsp.buf.document_symbol() end, mode = {"n"}, desc = "LSP: show document symbols"},
+    -- {"gS", function() vim.lsp.buf.document_symbol() end, mode = {"n"}, desc = "LSP: show document symbols"},
     {"<F2>", function() vim.lsp.buf.rename() end, mode = {"n"}, desc = "LSP: rename variable"},
     {"<F4>", function() vim.lsp.buf.code_action() end, mode = {"n"}, desc = "LSP: code actions"},
     {"gl", function() vim.diagnostic.open_float() end, mode = {"n"}, desc = "LSP: open diagnostics float window"},
@@ -108,12 +108,10 @@ return {
             }
           },
         },
-      }, on_attach = on_attach, capabilities = capabilities
+      }
     })
 
     require('lspconfig').basedpyright.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
       settings = {
         basedpyright = {
           typeCheckingMode = "standard",
