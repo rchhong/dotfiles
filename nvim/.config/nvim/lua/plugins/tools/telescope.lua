@@ -7,7 +7,8 @@ return {
         'nvim-tree/nvim-web-devicons',
         'nvim-treesitter/nvim-treesitter',
         'nvim-telescope/telescope-fzf-native.nvim',
-        'folke/trouble.nvim'
+        'folke/trouble.nvim',
+        'neovim/nvim-lspconfig',
     },
     cmd = {
         "Telescope"
@@ -68,6 +69,9 @@ return {
                 hidden = true,
                 no_ignore = false,
                 no_ignore_parent = false
+            },
+            oldfiles = {
+                cwd_only = true
             }
         },
         extensions = {
