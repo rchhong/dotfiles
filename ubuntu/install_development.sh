@@ -24,10 +24,6 @@ $DOTFILES/temp/miniconda.sh
 print_info "Installing micromamba"
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 
-# Install serverless
-print_info "Installing serverless"
-curl -o- -L https://slss.io/install | bash
-
 # # Install AWS CLI
 # print_info "Installing AWS CLI"
 # curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "$TEMP/awscliv2.zip"

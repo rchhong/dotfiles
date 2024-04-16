@@ -9,25 +9,25 @@ print_stage "Installing GUI Applications"
 print_info "Installing GNOME Tweak Tool"
 sudo apt -y install gnome-tweaks
 
-# Install firefox
-print_info "Installing Firefox"
-# Remove snap version of firefox for performance reasons
-sudo snap remove firefox
-rm -rf ~/snap/firefox
+# # Install firefox - Ubuntu force uses the snap version
+# print_info "Installing Firefox"
+# # Remove snap version of firefox for performance reasons
+# sudo snap remove firefox
+# rm -rf ~/snap/firefox
 
-sudo add-apt-repository ppa:mozillateam/ppa
+# sudo add-apt-repository ppa:mozillateam/ppa
 
-# Ensure the PPA/deb/apt version of Firefox is preferred
-echo '
-Package: *
-Pin: release o=LP-PPA-mozillateam
-Pin-Priority: 1001
-' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+# # Ensure the PPA/deb/apt version of Firefox is preferred
+# echo '
+# Package: *
+# Pin: release o=LP-PPA-mozillateam
+# Pin-Priority: 1001
+# ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
 
-# Firefox upgrades to be installed automatically
-echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+# # Firefox upgrades to be installed automatically
+# echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
 
-sudo apt install -y firefox
+# sudo apt install -y firefox
 
 
 # Install Spotify
@@ -87,5 +87,8 @@ print_info "Installing Postman"
 wget -O obsidian.deb https://github.com/obsidianmd/obsidian-releases/releases/download/v1.3.7/obsidian_1.3.7_amd64.deb
 sudo apt install -y obsidian.deb
 rm -rf obsidian.deb
+
+# Install KolourPaint
+
 
 print_success "Done!"
