@@ -30,6 +30,7 @@ return {
         ["markdown.mdx"] = { "prettier" },
         graphql = { "prettier" },
         handlebars = { "prettier" },
+        terraform = {"terraform_fmt"},
         ["*"] = { "codespell" },
       },
       format_on_save = function(bufnr)
@@ -44,7 +45,7 @@ return {
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
       require("conform").formatters.ruff_fix = {
-        prepend_args = {"--extend-select", "E", "--extend-select", "I", "--extend-select", "D", "--force-exclude"},
+        prepend_args = {"--extend-select", "E", "--extend-select", "I", "--extend-select", "D"},
       }
 
       vim.api.nvim_create_user_command("Format", function(args)

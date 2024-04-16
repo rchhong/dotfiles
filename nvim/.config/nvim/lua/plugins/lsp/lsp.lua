@@ -63,8 +63,8 @@ return {
       init_options = {
         settings = {
           -- Any extra CLI arguments for `ruff` go here.
-          -- args = {"--extend-select", "E", "--extend-select", "I", "--extend-select", "D"},
-          args = {"--extend-select", "I", "--extend-select", "D", "--force-exclude"},
+          args = {"--extend-select", "E", "--extend-select", "I", "--extend-select", "D"},
+          -- args = {"--extend-select", "I", "--extend-select", "D", "--force-exclude"},
         }
       }
     })
