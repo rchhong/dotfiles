@@ -89,6 +89,6 @@ sudo apt install -y obsidian.deb
 rm -rf obsidian.deb
 
 # Install KolourPaint
-
+sudo snap install kolourpaint
 
 print_success "Done!"
