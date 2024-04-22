@@ -13,7 +13,7 @@ return {
         local lint = require('lint')
         lint.linters_by_ft = {
             -- markdown = {'vale',},
-            python = {'ruff',}
+            -- python = {'ruff',}
         }
 
         local ruff = require('lint').linters.ruff
