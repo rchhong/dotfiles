@@ -22,6 +22,8 @@ fc-cache -fv
 toDownload=(
     autojump
     curl
+    direnv
+    dotenv
     ffmpeg
     fzf
     gcc

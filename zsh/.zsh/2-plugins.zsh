@@ -2,6 +2,7 @@ plugins=(
   aws
   brew
   # conda-zsh-completion
+  direnv
   docker
   docker-compose
   extract
