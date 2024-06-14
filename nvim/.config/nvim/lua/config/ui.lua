@@ -7,13 +7,13 @@ vim.opt.wildmenu = true
 
 -- Ignore certain types of files
 vim.opt.wildignore:append({
-    "*.pyc",
-    "*.o",
-    "*.class",
-    "*.DS_Store",
-    "*/node_modules/*",
-    "*/.git/*",
-    "*/build/*",
+	"*.pyc",
+	"*.o",
+	"*.class",
+	"*.DS_Store",
+	"*/node_modules/*",
+	"*/.git/*",
+	"*/build/*",
 })
 
 -- Optimize performance
