@@ -12,7 +12,8 @@ return {
         { "hrsh7th/cmp-buffer" },
         { "saadparwaiz1/cmp_luasnip" },
         { "rafamadriz/friendly-snippets" },
-        { "jmbuhr/otter.nvim" }
+        { "jmbuhr/otter.nvim" },
+        { "folke/lazydev.nvim", ft = "lua" }
     },
     config = function ()
         -- You need to setup `cmp` after lsp-zero
@@ -29,12 +30,12 @@ return {
 
         cmp.setup({
           sources = {
-            -- {name = "jupynium", priority = 1000 },
             {name = "otter"},
             {name = 'nvim_lsp'},
             {name = 'luasnip'},
             {name = 'path'},
             {name = 'buffer'},
+            {name = 'lazydev', group_index = 0}
           },
           mapping = {
             -- `Enter` key to confirm completion

@@ -6,11 +6,8 @@ return {
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
 
-    -- Config files
-    { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-
     -- Helpers for nvim config
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/lazydev.nvim", opts = {} },
 
     -- Autocompletion
     {'hrsh7th/nvim-cmp'},
