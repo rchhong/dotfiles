@@ -68,7 +68,7 @@ sudo apt autoremove
 
 # neovim
 print_info "Installing neovim"
-wget -O nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz
+wget -O nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
 tar -xzvf nvim.tar.gz
 mv -r nvim-linux64 /usr/local/bin/
 
