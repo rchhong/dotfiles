@@ -2,7 +2,7 @@ return {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
 	dependencies = {
-		"nvim-tree/nvim-web-devicons",
+		"echasnovski/mini.icons",
 	},
 	opts = function()
 		--- @param always_truncate boolean always truncate

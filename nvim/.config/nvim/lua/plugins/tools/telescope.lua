@@ -5,7 +5,7 @@ return {
 	priority = 100,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
+		"echasnovski/mini.icons",
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-telescope/telescope-fzf-native.nvim",
 		"folke/trouble.nvim",

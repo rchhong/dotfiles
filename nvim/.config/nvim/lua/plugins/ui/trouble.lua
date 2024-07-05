@@ -4,7 +4,7 @@ return {
 		"TroubleToggle",
 	},
 	dependencies = {
-		"nvim-tree/nvim-web-devicons",
+		"echasnovski/mini.icons",
 	},
 	keys = {
 		{

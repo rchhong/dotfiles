@@ -1,7 +1,7 @@
 return {
 	"nvimdev/dashboard-nvim",
 	dependencies = {
-		"nvim-tree/nvim-web-devicons",
+		"echasnovski/mini.icons",
 	},
 	event = "VimEnter",
 	opts = function()
