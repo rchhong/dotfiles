@@ -1,5 +1,4 @@
 tap "homebrew/cask-font"
-tap "oven-sh/bun"
 
 brew "atuin"
 brew "bat"
@@ -20,6 +19,7 @@ brew "gnupg"
 brew "gnu-sed"
 brew "go"
 brew "imagemagick"
+brew "mactex"
 brew "miniconda"
 brew "micromamba"
 brew "pinentry-mac"
