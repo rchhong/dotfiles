@@ -33,6 +33,7 @@ return {
 			graphql = { "prettier" },
 			handlebars = { "prettier" },
 			terraform = { "terraform_fmt" },
+			sql = { "sqlfmt" },
 			["*"] = { "codespell" },
 		},
 		format_on_save = function(bufnr)
