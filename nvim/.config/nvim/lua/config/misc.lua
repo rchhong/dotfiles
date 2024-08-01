@@ -48,3 +48,11 @@ m.map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 m.map("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 m.map("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 m.map("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- Proper detection of various files
+vim.filetype.add({
+    extension = {
+        tf = 'terraform',
+        -- tfvars = 'terraform',
+    }
+})
