@@ -35,6 +35,10 @@ return {
 			-- C
 			"clangd",
 			"clang-format",
+			-- SQL
+			"sqlfmt",
+			"sqlfluff",
+			"sqls"
 		},
 	},
 	---@param opts MasonSettings | {ensure_installed: string[]}

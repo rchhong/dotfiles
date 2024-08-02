@@ -8,7 +8,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 	},
 	keys = {
-		{ "<leader>xt", "<cmd>TroubleToggle todo<cr>", desc = "TodoTrouble Toggle", mode = { "n" } },
+		{ "<leader>xt", "<cmd>Trouble todo<cr>", desc = "TodoTrouble Toggle", mode = { "n" } },
 		{ "<leader>st", "<cmd>TodoTelescope<cr>", desc = "TodoTelescope Toggle", mode = { "n" } },
 	},
 	opts = {

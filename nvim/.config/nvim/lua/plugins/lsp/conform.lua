@@ -48,7 +48,7 @@ return {
 		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 		require("conform").formatters.ruff_fix = {
-			prepend_args = { "--extend-select", "E", "--extend-select", "I", "--extend-select", "D" },
+			append_args = { "--extend-select", "E", "--extend-select", "I", "--extend-select", "D" },
 		}
 
 		vim.api.nvim_create_user_command("Format", function(args)
