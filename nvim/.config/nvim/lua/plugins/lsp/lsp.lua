@@ -222,7 +222,7 @@ return {
 			},
 		})
 
-		require("lspconfig").tsserver.setup({
+		require("lspconfig").ts_ls.setup({
 			settings = {
 				completions = {
 					completeFunctionCalls = true,
