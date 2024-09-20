@@ -1,6 +1,6 @@
 return {
 	"GCBallesteros/jupytext.nvim",
-	build = "pip3 install --user jupytext",
+	build = 'micromamba run -a "" -n base pip install jupytext',
 	-- Depending on your nvim distro or config you may need to make the loading not lazy
 	-- lazy=false,
 	opts = {
