@@ -11,11 +11,11 @@
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
 #
-sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 
 yabai -m config                                 \
-    external_bar                 all:32:0       \
+    external_bar                 all:0:0       \
     menubar_opacity              1.0            \
     mouse_follows_focus          off            \
     focus_follows_mouse          off            \
