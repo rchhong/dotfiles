@@ -11,7 +11,6 @@ return {
 			"gitleaks",
 			-- Python
 			"ruff",
-			"ruff-lsp",
 			-- :PylspInstall pylsp-rope
 			"python-lsp-server",
 			"basedpyright",
@@ -38,7 +37,7 @@ return {
 			-- SQL
 			"sqlfmt",
 			"sqlfluff",
-			"sqls"
+			"sqls",
 		},
 	},
 	---@param opts MasonSettings | {ensure_installed: string[]}

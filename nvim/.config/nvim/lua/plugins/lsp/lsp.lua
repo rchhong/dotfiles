@@ -140,7 +140,7 @@ return {
 			end,
 		})
 
-		require("lspconfig").ruff_lsp.setup({
+		require("lspconfig").ruff.setup({
 			init_options = {
 				settings = {
 					-- Any extra CLI arguments for `ruff` go here.
@@ -175,7 +175,7 @@ return {
 							include_params = true,
 						},
 						mccabe = {
-							enabled = false
+							enabled = false,
 						},
 						pycodestyle = {
 							ignore = { "E501", "E121", "E123", "E126", "E226", "E24", "E704", "W503", "W504" },
