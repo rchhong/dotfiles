@@ -13,3 +13,5 @@ pnpm install-completion zsh
 
 # Needed for docker
 brew services start colima
+
+# NixOS?
