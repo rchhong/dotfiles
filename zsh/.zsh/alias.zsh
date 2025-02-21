@@ -38,6 +38,7 @@ alias c="clear"
 alias h='history|grep'
 # alias mamba='micromamba'
 alias s='kitty +kitten ssh'
+alias k='kubectl'
 
 # Very annoying, disabled
 alias sl="ls"

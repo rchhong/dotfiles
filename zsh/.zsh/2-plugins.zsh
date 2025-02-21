@@ -11,6 +11,7 @@ plugins=(
   fzf
   gh
   git
+  kubectl
   macos
   pip
   rust
