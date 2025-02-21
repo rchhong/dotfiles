@@ -16,7 +16,7 @@ return {
 		lint.linters_by_ft = {
 			-- markdown = {'vale',},
 			-- python = {'ruff',}
-			sql = {'sqlfluff'}
+			sql = { "sqlfluff" },
 		}
 
 		local ruff = require("lint").linters.ruff

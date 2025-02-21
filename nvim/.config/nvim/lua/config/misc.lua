@@ -51,8 +51,8 @@ m.map("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Proper detection of various files
 vim.filetype.add({
-    extension = {
-        tf = 'terraform',
-        -- tfvars = 'terraform',
-    }
+	extension = {
+		tf = "terraform",
+		-- tfvars = 'terraform',
+	},
 })

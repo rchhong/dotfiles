@@ -15,7 +15,13 @@ return {
 		"quarto",
 	},
 	keys = {
-		{ "<leader>me", "<cmd>MoltenEvaluateOperator<CR>", desc = "Molten: evaluate operator", mode = { "n" }, silent = true },
+		{
+			"<leader>me",
+			"<cmd>MoltenEvaluateOperator<CR>",
+			desc = "Molten: evaluate operator",
+			mode = { "n" },
+			silent = true,
+		},
 		{
 			"<leader>mos",
 			"<cmd>noautocmd MoltenEnterOutput<CR>",
@@ -23,7 +29,13 @@ return {
 			mode = { "n" },
 			silent = true,
 		},
-		{ "<leader>mrr", "<cmd>MoltenReevaluateCell<CR>", desc = "Molten: re-evaluate cell", mode = { "n" }, silent = true },
+		{
+			"<leader>mrr",
+			"<cmd>MoltenReevaluateCell<CR>",
+			desc = "Molten: re-evaluate cell",
+			mode = { "n" },
+			silent = true,
+		},
 		{
 			"<leader>mr",
 			"<cmd><C-u>MoltenEvaluateVisual<CR>gv",
@@ -31,7 +43,13 @@ return {
 			mode = { "v" },
 			silent = true,
 		},
-		{ "<leader>moh", "<cmd>MoltenHideOutput<CR>", desc = "Molten: close output window", mode = { "n" }, silent = true },
+		{
+			"<leader>moh",
+			"<cmd>MoltenHideOutput<CR>",
+			desc = "Molten: close output window",
+			mode = { "n" },
+			silent = true,
+		},
 		{ "<leader>mmd", "<cmd>MoltenDelete<CR>", desc = "Molten: delete Molten cell", mode = { "n" }, silent = true },
 		{
 			"<leader>mmx",

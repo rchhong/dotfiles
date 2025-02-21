@@ -108,8 +108,8 @@ return {
 	},
 	init = function()
 		-- Open telescope if directory given as input
-		require('mini.icons').setup()
-        MiniIcons.mock_nvim_web_devicons()
+		require("mini.icons").setup()
+		MiniIcons.mock_nvim_web_devicons()
 
 		local is_git_dir = function()
 			return os.execute("git rev-parse --is-inside-work-tree >> /dev/null 2>&1")
