@@ -87,10 +87,11 @@ return {
 					background = true,
 				},
 			},
-			ufo = true,
-			telescope = {
+			snacks = {
 				enabled = true,
+				indent_scope_color = "text",
 			},
+			ufo = true,
 			which_key = true,
 			-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 			-- Custom integrations for:

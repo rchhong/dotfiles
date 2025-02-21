@@ -6,10 +6,15 @@ return {
 		{ "echasnovski/mini.snippets" },
 		{ "rafamadriz/friendly-snippets" },
 
+		-- For jupyter notebook
 		{ "jmbuhr/otter.nvim" },
 
 		-- Helpers for nvim config
 		{ "folke/lazydev.nvim", ft = "lua" },
+
+		-- Supermaven
+		{ "saghen/blink.compat" },
+		{ "supermaven-inc/supermaven-nvim" },
 	},
 
 	-- use a release tag to download pre-built binaries
@@ -44,7 +49,15 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "supermaven", "buffer" },
+			providers = {
+				supermaven = {
+					name = "supermaven",
+					module = "blink.compat.source",
+					score_offset = 100,
+					async = true,
+				},
+			},
 		},
 		-- Use mini.snippets
 		snippets = { preset = "mini_snippets" },
