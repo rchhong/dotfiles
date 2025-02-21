@@ -19,7 +19,7 @@ package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/shar
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
 
 -- python3 path here \/.
-vim.g.python3_host_prog = vim.fn.expand("$HOME") .. "/micromamba/bin/python3"
+vim.g.python3_host_prog = vim.fn.expand("$HOME") .. "/mamba/bin/python"
 
 require("lazy").setup({
 	spec = {
