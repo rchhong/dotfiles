@@ -2,6 +2,9 @@
 [aws]
 format = 'on [$symbol$profile]($style) '
 
+[kubernetes]
+disabled = false
+
 # Tuncate long git branchs (often happens with Jira)
 [git_branch]
 truncation_length = 20
