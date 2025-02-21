@@ -3,7 +3,6 @@ return {
 	branch = "harpoon2",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope.nvim",
 	},
 	keys = {
 		{
@@ -13,35 +12,6 @@ return {
 			end,
 			mode = { "n" },
 			desc = "Harpoon: Add to list",
-		},
-		{
-			"<leader>hl",
-			function()
-				-- Telescope
-				local harpoon = require("harpoon")
-				local conf = require("telescope.config").values
-				local function toggle_telescope(harpoon_files)
-					local file_paths = {}
-					for _, item in ipairs(harpoon_files.items) do
-						table.insert(file_paths, item.value)
-					end
-
-					require("telescope.pickers")
-						.new({}, {
-							prompt_title = "Harpoon",
-							finder = require("telescope.finders").new_table({
-								results = file_paths,
-							}),
-							previewer = conf.file_previewer({}),
-							sorter = conf.generic_sorter({}),
-						})
-						:find()
-				end
-
-				toggle_telescope(harpoon:list())
-			end,
-			mode = { "n" },
-			desc = "Harpoon: List Harpoon marks in Telescope",
 		},
 		{
 			"<leader>h1",

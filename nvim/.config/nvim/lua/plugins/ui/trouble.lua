@@ -79,7 +79,11 @@ return {
 		},
 	},
 	opts = {
+		-- auto opens when there are items
 		auto_open = false,
+		-- auto opens when there are no items
 		auto_close = false,
+		-- focus when window is opened
+		focus = true,
 	},
 }

@@ -4,12 +4,26 @@ return {
 	cmd = { "TodoTrouble" },
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		"folke/snacks.nvim",
 		"folke/trouble.nvim",
-		"nvim-telescope/telescope.nvim",
 	},
 	keys = {
+		{
+			"<leader>st",
+			function()
+				Snacks.picker.todo_comments()
+			end,
+			desc = "Todo",
+		},
+		{
+			"<leader>sT",
+			function()
+				Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
+			end,
+			desc = "Todo/Fix/Fixme",
+		},
+
 		{ "<leader>xt", "<cmd>Trouble todo<cr>", desc = "TodoTrouble Toggle", mode = { "n" } },
-		{ "<leader>st", "<cmd>TodoTelescope<cr>", desc = "TodoTelescope Toggle", mode = { "n" } },
 	},
 	opts = {
 		signs = false,
