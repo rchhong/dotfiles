@@ -36,7 +36,7 @@ alias r="R"
 alias x="exit"
 alias c="clear"
 alias h='history|grep'
-alias mamba='micromamba'
+# alias mamba='micromamba'
 alias s='kitty +kitten ssh'
 
 # Very annoying, disabled
