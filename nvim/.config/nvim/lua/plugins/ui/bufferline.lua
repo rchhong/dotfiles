@@ -16,7 +16,6 @@ return {
 		{ "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Bufferline: Next buffer" },
 	},
 	opts = {
-		-- highlights = require("catppuccin.groups.integrations.bufferline").get(),
 		options = {
         -- stylua: ignore
         close_command = function(n) require("mini.bufremove").delete(n, false) end,
@@ -42,6 +41,7 @@ return {
 		},
 	},
 	config = function(_, opts)
+		opts.highlights = require("catppuccin.groups.integrations.bufferline").get()
 		require("bufferline").setup(opts)
 		-- Fix bufferline when restoring a session
 		vim.api.nvim_create_autocmd("BufAdd", {
