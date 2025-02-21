@@ -10,9 +10,7 @@ return {
 		{ "folke/lazydev.nvim", opts = {} },
 
 		-- Autocompletion
-		{ "hrsh7th/nvim-cmp" },
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "L3MON4D3/LuaSnip" },
+		{ "saghen/blink.cmp" },
 	},
 	keys = {
 		{
@@ -113,106 +111,79 @@ return {
 			desc = "LSP: next diagnostic",
 		},
 	},
-	config = function()
-		local lspconfig = require("lspconfig")
-		local lsp_defaults = lspconfig.util.default_config
-
-		-- Needed for nvim-ufo
-		local ufo_capabilities = vim.lsp.protocol.make_client_capabilities()
-		ufo_capabilities.textDocument.foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly = true,
-		}
-
-		lsp_defaults.capabilities = vim.tbl_deep_extend(
-			"force",
-			lsp_defaults.capabilities,
-			require("cmp_nvim_lsp").default_capabilities(),
-			ufo_capabilities
-		)
-
-		require("mason").setup({})
-		require("mason-lspconfig").setup({})
-
-		require("mason-lspconfig").setup_handlers({
-			function(server_name) -- default handler (optional)
-				require("lspconfig")[server_name].setup({})
-			end,
-		})
-
-		require("lspconfig").ruff.setup({
-			init_options = {
-				settings = {
-					-- Any extra CLI arguments for `ruff` go here.
-					args = {
-						"--extend-select",
-						"E",
-						"--extend-select",
-						"I",
-						"--extend-select",
-						"D",
-						"--ignore",
-						"E501,I001",
+	opts = {
+		servers = {
+			ruff = {
+				init_options = {
+					settings = {
+						-- Any extra CLI arguments for `ruff` go here.
+						args = {
+							"--extend-select",
+							"E",
+							"--extend-select",
+							"I",
+							"--extend-select",
+							"D",
+							"--ignore",
+							"E501,I001",
+						},
+						-- args = {"--extend-select", "I", "--extend-select", "D", "--force-exclude"},
 					},
-					-- args = {"--extend-select", "I", "--extend-select", "D", "--force-exclude"},
 				},
 			},
-		})
-
-		require("lspconfig").pylsp.setup({
-			settings = {
-				pylsp = {
-					configurationSources = { "pycodestyle" },
-					plugins = {
-						autopep8 = {
-							enabled = false,
-						},
-						flake8 = {
-							enabled = false,
-						},
-						jedi_completion = {
-							enabled = true,
-							include_params = true,
-						},
-						mccabe = {
-							enabled = false,
-						},
-						pycodestyle = {
-							ignore = { "E501", "E121", "E123", "E126", "E226", "E24", "E704", "W503", "W504" },
-						},
-						pydocstyle = {
-							enabled = false,
-							convention = "numpy",
-						},
-						pylint = {
-							enabled = false,
-						},
-						rope_autoimport = {
-							enabled = true,
-							completions = {
+			pylsp = {
+				settings = {
+					pylsp = {
+						configurationSources = { "pycodestyle" },
+						plugins = {
+							autopep8 = {
 								enabled = false,
 							},
-							code_actions = {
-								enabled = true,
+							flake8 = {
+								enabled = false,
 							},
-						},
-						yapf = {
-							enabled = false,
+							jedi_completion = {
+								enabled = true,
+								include_params = true,
+							},
+							mccabe = {
+								enabled = false,
+							},
+							pycodestyle = {
+								ignore = { "E501", "E121", "E123", "E126", "E226", "E24", "E704", "W503", "W504" },
+							},
+							pydocstyle = {
+								enabled = false,
+								convention = "numpy",
+							},
+							pylint = {
+								enabled = false,
+							},
+							rope_autoimport = {
+								enabled = true,
+								completions = {
+									enabled = false,
+								},
+								code_actions = {
+									enabled = true,
+								},
+							},
+							yapf = {
+								enabled = false,
+							},
 						},
 					},
 				},
 			},
-		})
-
-		require("lspconfig").basedpyright.setup({
+		},
+		basedpyright = {
 			settings = {
 				basedpyright = {
 					typeCheckingMode = "standard",
 				},
 			},
-		})
-
-		require("lspconfig").terraformls.setup({
+		},
+		terraformls = {
 			settings = {
 				terraform = {
 					experimentalFeatures = {
@@ -220,14 +191,43 @@ return {
 					},
 				},
 			},
-		})
-
-		require("lspconfig").ts_ls.setup({
+		},
+		ts_ls = {
 			settings = {
 				completions = {
 					completeFunctionCalls = true,
 				},
 			},
-		})
+		},
+	},
+	config = function(_, opts)
+		local lspconfig = require("lspconfig")
+
+		require("mason").setup({})
+		require("mason-lspconfig").setup({})
+
+		local lsp_defaults = lspconfig.util.default_config
+
+		-- Needed for nvim-ufo
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.textDocument.foldingRange = {
+			dynamicRegistration = false,
+			lineFoldingOnly = true,
+		}
+
+		local language_servers = vim.lsp.get_clients() -- or list servers manually like {'gopls', 'clangd'}
+		for _, ls in ipairs(language_servers) do
+			require("lspconfig")[ls].setup({
+				capabilities = capabilities,
+				-- you can add other fields for setting up lsp server in this table
+			})
+		end
+
+		for server, config in pairs(opts.servers) do
+			-- passing config.capabilities to blink.cmp merges with the capabilities in your
+			-- `opts[server].capabilities, if you've defined it
+			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+			lspconfig[server].setup(config)
+		end
 	end,
 }
