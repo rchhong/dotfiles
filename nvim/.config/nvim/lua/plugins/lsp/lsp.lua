@@ -175,27 +175,27 @@ return {
 					},
 				},
 			},
-		},
-		basedpyright = {
-			settings = {
-				basedpyright = {
-					typeCheckingMode = "standard",
-				},
-			},
-		},
-		terraformls = {
-			settings = {
-				terraform = {
-					experimentalFeatures = {
-						validateOnSave = true,
+			basedpyright = {
+				settings = {
+					basedpyright = {
+						typeCheckingMode = "standard",
 					},
 				},
 			},
-		},
-		ts_ls = {
-			settings = {
-				completions = {
-					completeFunctionCalls = true,
+			terraformls = {
+				settings = {
+					terraform = {
+						experimentalFeatures = {
+							validateOnSave = true,
+						},
+					},
+				},
+			},
+			ts_ls = {
+				settings = {
+					completions = {
+						completeFunctionCalls = true,
+					},
 				},
 			},
 		},
@@ -205,8 +205,6 @@ return {
 
 		require("mason").setup({})
 		require("mason-lspconfig").setup({})
-
-		local lsp_defaults = lspconfig.util.default_config
 
 		-- Needed for nvim-ufo
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
