@@ -89,10 +89,17 @@
 [interactive]
     # Use delta
     diffFilter = delta --color-only
-
 [merge]
     # Diff3 conflict style
     conflictstyle = diff3
+    tool = diffview
+[mergetool]
+    prompt = false
+    keepBackup = false
+[mergetool "diffview"]
+    cmd = nvim -n -c "DiffviewOpen" "$MERGE"
+    # Don't use diffview 
+    # layout = "LOCAL,BASE,REMOTE / MERGED"
 [push]
     # Push only if current branch if its named upstream is identical
     default = simple
