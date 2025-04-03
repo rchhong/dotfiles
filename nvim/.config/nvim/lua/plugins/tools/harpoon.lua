@@ -8,7 +8,7 @@ return {
 		{
 			"<leader>ha",
 			function()
-				require("harpoon"):list():append()
+				require("harpoon"):list():add()
 			end,
 			mode = { "n" },
 			desc = "Harpoon: Add to list",
@@ -101,11 +101,26 @@ return {
 			mode = { "n" },
 			desc = "Harpoon: Jump to previous buffer",
 		},
+		{
+			"<leader>hl",
+			function()
+				require("harpoon.ui"):toggle_quick_menu(require("harpoon"):list())
+			end,
+			mode = { "n" },
+			desc = "Harpoon: Show all harpoon marks",
+		},
 	},
-	opts = {},
 	config = function(_, opts)
 		local harpoon = require("harpoon")
-		harpoon:setup(opts)
+		harpoon:setup({
+			settings = {
+				save_on_toggle = false,
+				sync_on_ui_close = false,
+				key = function()
+					return vim.loop.cwd()
+				end,
+			},
+		})
 
 		harpoon:extend({
 			UI_CREATE = function(cx)
@@ -118,5 +133,8 @@ return {
 				end, { buffer = cx.bufnr })
 			end,
 		})
+
+		local harpoon_extensions = require("harpoon.extensions")
+		harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
 	end,
 }
