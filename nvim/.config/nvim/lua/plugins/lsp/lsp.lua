@@ -175,27 +175,27 @@ return {
 					},
 				},
 			},
-			basedpyright = {
-				settings = {
-					basedpyright = {
-						typeCheckingMode = "standard",
+		},
+		basedpyright = {
+			settings = {
+				basedpyright = {
+					typeCheckingMode = "standard",
+				},
+			},
+		},
+		terraformls = {
+			settings = {
+				terraform = {
+					experimentalFeatures = {
+						validateOnSave = true,
 					},
 				},
 			},
-			terraformls = {
-				settings = {
-					terraform = {
-						experimentalFeatures = {
-							validateOnSave = true,
-						},
-					},
-				},
-			},
-			ts_ls = {
-				settings = {
-					completions = {
-						completeFunctionCalls = true,
-					},
+		},
+		ts_ls = {
+			settings = {
+				completions = {
+					completeFunctionCalls = true,
 				},
 			},
 		},
@@ -215,7 +215,7 @@ return {
 
 		local language_servers = vim.lsp.get_clients() -- or list servers manually like {'gopls', 'clangd'}
 		for _, ls in ipairs(language_servers) do
-			require("lspconfig")[ls].setup({
+			lspconfig[ls.name].setup({
 				capabilities = capabilities,
 				-- you can add other fields for setting up lsp server in this table
 			})

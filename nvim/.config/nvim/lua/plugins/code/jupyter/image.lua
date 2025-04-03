@@ -1,6 +1,9 @@
 return {
 	"3rd/image.nvim",
 	lazy = true,
+	rocks = {
+		hererocks = true,
+	},
 	opts = {
 		backend = "kitty", -- whatever backend you would like to use
 		max_width = 100,

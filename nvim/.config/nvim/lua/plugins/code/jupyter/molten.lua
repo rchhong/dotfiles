@@ -2,6 +2,8 @@ return {
 	-- Requires external dependencies
 	-- pip install pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat
 	"benlubas/molten-nvim",
+	name = "molten-nvim",
+	dev = true,
 	build = {
 		'micromamba run -a "" -n base pip install pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat pillow requests websocket-client',
 		":UpdateRemotePlugins",
