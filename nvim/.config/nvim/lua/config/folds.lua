@@ -3,14 +3,14 @@ vim.opt.foldenable = true
 
 --  Fold by syntax by default
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
---  Set max folds
-vim.opt.foldnestmax = 10
+--  Set default fold level high -> no folds by default
+vim.opt.foldlevel = 99
+vim.opt.foldcolumn = "0"
 
---  Close some folds
-vim.opt.foldlevelstart = 10
-
+vim.o.foldtext = ""
+vim.opt.fillchars:append({ fold = " " })
 --  Use space to open folds
 local m = require("helpers/mapping")
 m.nmap("<space>", "za")
