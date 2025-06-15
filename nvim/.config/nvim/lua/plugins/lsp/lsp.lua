@@ -175,27 +175,27 @@ return {
 					},
 				},
 			},
-		},
-		basedpyright = {
-			settings = {
-				basedpyright = {
-					typeCheckingMode = "standard",
-				},
-			},
-		},
-		terraformls = {
-			settings = {
-				terraform = {
-					experimentalFeatures = {
-						validateOnSave = true,
+			basedpyright = {
+				settings = {
+					basedpyright = {
+						typeCheckingMode = "standard",
 					},
 				},
 			},
-		},
-		ts_ls = {
-			settings = {
-				completions = {
-					completeFunctionCalls = true,
+			terraformls = {
+				settings = {
+					terraform = {
+						experimentalFeatures = {
+							validateOnSave = true,
+						},
+					},
+				},
+			},
+			ts_ls = {
+				settings = {
+					completions = {
+						completeFunctionCalls = true,
+					},
 				},
 			},
 		},
@@ -206,26 +206,13 @@ return {
 		require("mason").setup({})
 		require("mason-lspconfig").setup({})
 
-		-- Needed for nvim-ufo
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly = true,
-		}
-
-		local language_servers = vim.lsp.get_clients() -- or list servers manually like {'gopls', 'clangd'}
-		for _, ls in ipairs(language_servers) do
-			lspconfig[ls.name].setup({
-				capabilities = capabilities,
-				-- you can add other fields for setting up lsp server in this table
-			})
-		end
-
 		for server, config in pairs(opts.servers) do
-			-- passing config.capabilities to blink.cmp merges with the capabilities in your
-			-- `opts[server].capabilities, if you've defined it
-			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-			lspconfig[server].setup(config)
+            local config = vim.tbl_deep_extend("force", {
+                capabilities = require("blink.cmp").get_lsp_capabilities(),
+            }, config)
+
+            vim.lsp.config(server, config)
 		end
-	end,
+
+	end
 }
