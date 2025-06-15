@@ -13,7 +13,7 @@ return {
 		},
 	},
 	opts = {
-		snippet_engine = "luasnip",
+		snippet_engine = "mini",
 		languages = {
 			python = {
 				template = {
