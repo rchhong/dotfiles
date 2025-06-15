@@ -19,8 +19,8 @@ return {
 
 			-- Interact with default `expand.insert` session.
 			-- Created for the duration of active session(s)
-			jump_next = "<C-l>",
-			jump_prev = "<C-h>",
+			jump_next = "<Tab>",
+			jump_prev = "<S-Tab>",
 			stop = "<C-c>",
 		},
 
