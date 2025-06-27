@@ -108,6 +108,7 @@
 [rebase]
     # Autosquash - see https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt---autosquash
     autosquash = true
+	updateRefs = true
 # Force ssh
 [url "git@github.com:"]
     insteadOf = "https://github.com/"
