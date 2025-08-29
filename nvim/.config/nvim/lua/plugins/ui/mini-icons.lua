@@ -1,5 +1,5 @@
 return {
-	"echasnovski/mini.icons",
+	"nvim-mini/mini.icons",
 	opts = {},
 	lazy = true,
 	priority = 1000,

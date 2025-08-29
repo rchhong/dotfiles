@@ -1,5 +1,5 @@
 return {
-	"echasnovski/mini.operators",
+	"nvim-mini/mini.operators",
 	version = false,
 	keys = {
 		{ "g=", mode = { "n" }, desc = "mini.operators: evaluate text and replace with output" },

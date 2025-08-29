@@ -1,5 +1,5 @@
 return {
-	"echasnovski/mini-git",
+	"nvim-mini/mini-git",
 	version = false,
 	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 	main = "mini.git",

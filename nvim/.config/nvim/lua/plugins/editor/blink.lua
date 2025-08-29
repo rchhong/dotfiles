@@ -3,7 +3,7 @@ return {
 	event = "InsertEnter",
 	dependencies = {
 		-- Snippets
-		{ "echasnovski/mini.snippets" },
+		{ "nvim-mini/mini.snippets" },
 		{ "rafamadriz/friendly-snippets" },
 
 		-- For jupyter notebook
