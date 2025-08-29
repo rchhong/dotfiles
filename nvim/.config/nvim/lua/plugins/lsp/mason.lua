@@ -37,8 +37,7 @@ return {
 			"clang-format",
 			-- SQL
 			"sqlfmt",
-			"sqlfluff",
-			"sqls",
+			"sqlfluff"
 		},
 	},
 	config = function(_, opts)

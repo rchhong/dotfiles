@@ -30,6 +30,14 @@ return {
 			"--force-exclude",
 		}
 
+		local sqlfluff = require("lint").linters.sqlfluff
+		sqlfluff.args = {
+          "lint",
+          "--format=json",
+          -- note: users will have to replace the --dialect argument accordingly
+          "--dialect=postgres",
+		}
+
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 			callback = function()
 				require("lint").try_lint()
