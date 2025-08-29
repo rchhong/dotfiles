@@ -35,6 +35,7 @@ return {
 			svelte = { "prettierd" },
 			terraform = { "terraform_fmt" },
 			sql = { "sqlfmt" },
+			go = { "goimports", "gofmt" },
 			["*"] = { "codespell" },
 		},
 		format_on_save = function(bufnr)
