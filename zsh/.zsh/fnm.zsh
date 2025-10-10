@@ -1,5 +1,5 @@
-eval "$(fnm env --use-on-cd)"
-
 # fnm
-export PATH="$HOME/.local/share/fnm:$PATH"
-eval "`fnm env`"
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "`fnm env`"
+fi

@@ -37,7 +37,9 @@ return {
 			"clang-format",
 			-- SQL
 			"sqlfmt",
-			"sqlfluff"
+			"sqlfluff",
+			-- Copilot
+			"copilot-language-server"
 		},
 	},
 	config = function(_, opts)

@@ -1,5 +1,6 @@
 tap "homebrew/cask-font"
 
+brew "aider"
 brew "atuin"
 brew "bat"
 brew "btop"
@@ -35,3 +36,4 @@ brew "kind"
 brew "kubectl"
 brew "kubectx"
 brew "ast-grep"
+brew "pass"

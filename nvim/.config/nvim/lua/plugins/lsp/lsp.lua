@@ -214,5 +214,11 @@ return {
             vim.lsp.config(server, config)
 		end
 
+		vim.diagnostic.config({
+			virtual_lines = {
+				current_line = true
+			}
+		})
+
 	end
 }
