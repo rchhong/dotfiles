@@ -238,7 +238,9 @@ return {
 				local bufferPath = vim.fn.expand("%:p")
 				if vim.fn.isdirectory(bufferPath) ~= 0 then
 					vim.api.nvim_buf_delete(0, { force = true })
-					Snacks.picker.files()
+					Snacks.picker.files({
+						hidden = true
+					})
 				end
 			end,
 		})
