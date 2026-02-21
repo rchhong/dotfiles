@@ -7,6 +7,7 @@ source $DOTFILES/scripts/helpers.sh
 print_stage "Installing Development"
 
 brew bundle --file brewfile_development
+brew bundle --file caskfile_development
 
 # Pnpm completions
 pnpm install-completion zsh
