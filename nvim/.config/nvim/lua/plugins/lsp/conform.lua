@@ -36,6 +36,7 @@ return {
 			terraform = { "terraform_fmt" },
 			sql = { "sqlfmt" },
 			go = { "goimports", "gofmt" },
+			rust = { "rustfmt" },
 			["*"] = { "codespell" },
 		},
 		format_on_save = function(bufnr)

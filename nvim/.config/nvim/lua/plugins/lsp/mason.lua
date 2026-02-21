@@ -18,12 +18,12 @@ return {
 			-- TS/JS
 			"firefox-debug-adapter",
 			"js-debug-adapter",
-			-- "prettier",
 			"prettierd",
 			"typescript-language-server",
 			"emmet-ls",
 			"tailwindcss-language-server",
 			"eslint-lsp",
+			"svelte-language-server",
 			-- Terraform
 			"terraform-ls",
 			-- Docker
@@ -39,7 +39,14 @@ return {
 			"sqlfmt",
 			"sqlfluff",
 			-- Copilot
-			"copilot-language-server"
+			"copilot-language-server",
+			-- Golang
+			"gopls",
+			"goimports",
+			"go-debug-adapter",
+			"delve",
+			-- Rust
+			-- "rust-analyzer"
 		},
 	},
 	config = function(_, opts)
