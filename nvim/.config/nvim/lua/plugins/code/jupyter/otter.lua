@@ -14,6 +14,6 @@ return {
 	},
 	config = function(_, opts)
 		require("otter").setup(opts)
-		-- require("otter").activate()
+		require("otter").activate()
 	end,
 }

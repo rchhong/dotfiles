@@ -5,7 +5,7 @@ return {
 	-- name = "molten-nvim",
 	-- dev = true,
 	build = {
-		'micromamba run -a "" -n base pip install pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat pillow requests websocket-client',
+		'micromamba run -a "" -n base pip install pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat pillow requests websocket-client jupytext',
 		":UpdateRemotePlugins",
 	},
 	dependencies = {
