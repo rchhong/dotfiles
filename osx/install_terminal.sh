@@ -19,4 +19,7 @@ print_info "Installing tmux plugin manager"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # fzf file completion
-$(brew --prefix)/opt/fzf/install
+$(brew --prefix)/opt/fzf/install -all
+
+# sk completions
+sk --shell zsh > ~/.zfunc/_sk
