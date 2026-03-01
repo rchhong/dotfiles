@@ -1,6 +1,5 @@
 tap "homebrew/cask-font"
 
-brew "aider"
 brew "atuin"
 brew "bat"
 brew "btop"
