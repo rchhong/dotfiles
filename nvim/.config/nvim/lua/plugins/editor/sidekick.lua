@@ -67,9 +67,9 @@ return {
     },
     -- Example of a keybinding to open Claude directly
     {
-      "<leader>ai",
-      function() require("sidekick.cli").toggle({ name = "aider", focus = true }) end,
-      desc = "Sidekick Toggle Aider",
+      "<leader>ao",
+      function() require("sidekick.cli").toggle({ name = "opencode", focus = true }) end,
+      desc = "Sidekick Toggle OpenCode",
     },
   },
 }
