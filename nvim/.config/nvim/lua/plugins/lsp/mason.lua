@@ -11,9 +11,7 @@ return {
 			"gitleaks",
 			-- Python
 			"ruff",
-			-- :PylspInstall pylsp-rope
-			"python-lsp-server",
-			"basedpyright",
+			"ty",
 			"debugpy",
 			-- TS/JS
 			"firefox-debug-adapter",
@@ -44,7 +42,7 @@ return {
 			"gopls",
 			"goimports",
 			"go-debug-adapter",
-			"delve",
+			"delve"
 			-- Rust
 			-- "rust-analyzer"
 		},

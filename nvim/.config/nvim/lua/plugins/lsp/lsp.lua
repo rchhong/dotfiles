@@ -175,13 +175,6 @@ return {
 					},
 				},
 			},
-			basedpyright = {
-				settings = {
-					basedpyright = {
-						typeCheckingMode = "standard",
-					},
-				},
-			},
 			terraformls = {
 				settings = {
 					terraform = {
