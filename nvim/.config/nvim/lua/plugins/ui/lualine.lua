@@ -33,7 +33,7 @@ return {
 
 		return {
 			options = {
-				theme = "catppuccin",
+				theme = "catppuccin-nvim",
 				disabled_filetypes = { "Lazy", "NvimTree", "Trouble" },
 				section_separators = "",
 				component_separators = "",
