@@ -21,7 +21,6 @@ alias nvimbackup='cd ~/.config/nvim/tmp'
 
 # Access common config files
 alias zshrc="vim ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
 alias zshconfig="cd ~/.zsh"
 alias dotfiles="cd ~/.dotfiles"
 
@@ -35,8 +34,6 @@ alias r="R"
 alias x="exit"
 alias c="clear"
 alias h='history|grep'
-# alias mamba='micromamba'
-alias s='kitty +kitten ssh'
 alias k='kubectl'
 
 # Very annoying, disabled
@@ -44,10 +41,6 @@ alias sl="ls"
 
 # ls shows colors by default
 alias ls="ls --color=always"
-
-# QMK
-alias lily58='cd ~/qmk_firmware/keyboards/lily58/keymaps/rchhong'
-alias kbd67lite='cd ~/qmk_firmware/keyboards/kbdfans/kbd67/hotswap/keymaps/rchhong'
 
 # Lazygit
 alias lazygit='LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/theme.yml" lazygit'
