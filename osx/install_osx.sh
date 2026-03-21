@@ -27,6 +27,7 @@ sudo -v
 
 if [ "$fish" == true ]; then
 	$DOTFILES/osx/install_fish.sh
+	$DOTFILES/scripts/link.sh fish
 fi
 $DOTFILES/osx/install_zsh.sh
 $DOTFILES/osx/install_terminal.sh

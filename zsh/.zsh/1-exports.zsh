@@ -1,3 +1,4 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export SHELL=$(which zsh)
 
 export DEFAULTS_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
