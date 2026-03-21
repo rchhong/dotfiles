@@ -1,25 +1,20 @@
 # CD Shortcuts
-alias cd..='cd ../'
-alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 
 # Reload Terminal
 alias reload='source ~/.config/fish/config.fish'
 
-# When nothing works
-alias fkit='rm -rf node_modules/ && yarn install'
-
 # Change vim to nvim
 alias oldvim="\\vim"
 alias vim='nvim'
 alias vi='nvim'
 
-# vim directories
-alias vimdir='cd ~/.vim'
-alias vimswap='cd ~/.vim/swp'
-alias vimundo='cd ~/.vim/undo'
-alias vimbackup='cd ~/.vim/tmp'
+# nvim directories
+alias nvimdir='cd ~/.config/nvim/'
+alias nvimswap='cd ~/.config/nvim/swp'
+alias nvimundo='cd ~/.config/nvim/undo'
+alias nvimbackup='cd ~/.config/nvim/tmp'
 
 # Access common config files
 alias vimrc="vim ~/.vimrc"
@@ -33,11 +28,25 @@ alias dlvideo="yt-dlp --sub-lang en --add-metadata --write-sub -o '~/Videos/%(ar
 # Aliases for lazy people like me
 # R only works when its capitalized
 alias r="R"
-alias y="yarn"
 alias x="exit"
 alias c="clear"
-alias n='npm'
+alias h='history|grep'
+# alias mamba='micromamba'
+alias s='kitty +kitten ssh'
+alias k='kubectl'
+
+# Very annoying, disabled
+alias sl="ls"
+
+# ls shows colors by default
+alias ls="ls --color=always"
 
 # QMK
 alias lily58='cd ~/qmk_firmware/keyboards/lily58/keymaps/rchhong'
 alias kbd67lite='cd ~/qmk_firmware/keyboards/kbdfans/kbd67/hotswap/keymaps/rchhong'
+
+# Lazygit
+alias lazygit='LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/theme.yml" lazygit'
+
+# tree
+alias tree='eza --tree'

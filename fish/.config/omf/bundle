@@ -1,8 +1,0 @@
-package autojump
-package bang-bang
-package bass
-package fish-space
-package foreign-env
-package fzf
-theme default
-theme pure
