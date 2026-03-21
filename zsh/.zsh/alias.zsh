@@ -20,7 +20,6 @@ alias nvimundo='cd ~/.config/nvim/undo'
 alias nvimbackup='cd ~/.config/nvim/tmp'
 
 # Access common config files
-alias ohmyzsh="~/.oh-my-zsh"
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias zshconfig="cd ~/.zsh"
@@ -42,6 +41,9 @@ alias k='kubectl'
 
 # Very annoying, disabled
 alias sl="ls"
+
+# ls shows colors by default
+alias ls="ls --color=always"
 
 # QMK
 alias lily58='cd ~/qmk_firmware/keyboards/lily58/keymaps/rchhong'

@@ -59,7 +59,7 @@ function tmux-sessionizer() {
 function create-empty-notebook() {
     temp_file="$1.py"
     notebook="$1.ipynb"
-    
+
     touch $temp_file
 	micromamba run -a "" -n base jupytext $temp_file -o $notebook --to notebook --set-kernel $2
     rm $temp_file
