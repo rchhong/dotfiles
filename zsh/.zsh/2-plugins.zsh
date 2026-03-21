@@ -1,5 +1,10 @@
 # Completion system
 FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$FPATH
+
+# Plugins (via Homebrew)
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
 autoload -Uz compinit
 # Only regenerate .zcompdump once per day
 if [[ -z "$ZSH_COMPDUMP" ]]; then
@@ -32,6 +37,3 @@ sudo-command-line() {
 zle -N sudo-command-line
 bindkey '\e\e' sudo-command-line
 
-# Plugins (via Homebrew)
-source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
