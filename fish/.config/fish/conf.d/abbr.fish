@@ -1,5 +1,4 @@
 # Change vim to nvim
-abbr -a -- oldvim '\\vim'
 abbr -a -- vim 'nvim'
 abbr -a -- vi 'nvim'
 
