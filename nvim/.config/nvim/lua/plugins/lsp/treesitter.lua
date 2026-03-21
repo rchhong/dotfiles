@@ -153,5 +153,12 @@ return {
 				enable = true,
 			},
 		})
+
+	-- Re-attach treesitter to already-open buffers.
+	-- When a file is opened via snacks picker, BufReadPost fires to trigger lazy-loading
+	-- treesitter, but by the time treesitter finishes loading and registers its autocmds,
+	-- that BufReadPost event has already passed. Re-firing it here ensures the first
+	-- buffer gets highlighted without needing a manual :e.
+	vim.api.nvim_exec_autocmds("BufReadPost", { buffer = vim.api.nvim_get_current_buf() })
 	end,
 }
