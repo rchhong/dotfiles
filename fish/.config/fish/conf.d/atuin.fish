@@ -1,1 +1,3 @@
-atuin init fish --disable-up-arrow | source
+if status is-interactive
+    atuin init fish --disable-up-arrow | source
+end
