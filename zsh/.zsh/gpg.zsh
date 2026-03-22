@@ -1,1 +1,3 @@
-export GPG_TTY=$(tty)
+if [[ -o interactive ]]; then
+    export GPG_TTY=$(tty)
+fi
