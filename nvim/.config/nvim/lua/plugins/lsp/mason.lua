@@ -6,9 +6,6 @@ return {
 	build = ":MasonUpdate",
 	opts = {
 		ensure_installed = {
-			-- Misc
-			"codespell",
-			"gitleaks",
 			-- Python
 			"ruff",
 			"ty",
@@ -34,8 +31,7 @@ return {
 			"clangd",
 			"clang-format",
 			-- SQL
-			"sqlfmt",
-			"sqlfluff",
+			"sqruff",
 			-- Copilot
 			"copilot-language-server",
 			-- Golang

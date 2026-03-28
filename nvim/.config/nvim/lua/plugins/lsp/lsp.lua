@@ -131,50 +131,6 @@ return {
 					},
 				},
 			},
-			pylsp = {
-				settings = {
-					pylsp = {
-						configurationSources = { "pycodestyle" },
-						plugins = {
-							autopep8 = {
-								enabled = false,
-							},
-							flake8 = {
-								enabled = false,
-							},
-							jedi_completion = {
-								enabled = true,
-								include_params = true,
-							},
-							mccabe = {
-								enabled = false,
-							},
-							pycodestyle = {
-								ignore = { "E501", "E121", "E123", "E126", "E226", "E24", "E704", "W503", "W504" },
-							},
-							pydocstyle = {
-								enabled = false,
-								convention = "numpy",
-							},
-							pylint = {
-								enabled = false,
-							},
-							rope_autoimport = {
-								enabled = true,
-								completions = {
-									enabled = false,
-								},
-								code_actions = {
-									enabled = true,
-								},
-							},
-							yapf = {
-								enabled = false,
-							},
-						},
-					},
-				},
-			},
 			terraformls = {
 				settings = {
 					terraform = {

@@ -34,10 +34,10 @@ return {
 			handlebars = { "prettierd" },
 			svelte = { "prettierd" },
 			terraform = { "terraform_fmt" },
-			sql = { "sqlfmt" },
+			sql = { "sqruff" },
 			go = { "goimports", "gofmt" },
 			rust = { "rustfmt" },
-			["*"] = { "codespell" },
+			["*"] = { "injected" },
 		},
 		format_on_save = function(bufnr)
 			if vim.b[bufnr].disable_autoformat or vim.g.disable_autoformat then
