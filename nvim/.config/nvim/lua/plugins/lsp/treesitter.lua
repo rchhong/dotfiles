@@ -36,47 +36,71 @@ return {
 		ts.install(parsers_to_install)
 
 		-- Auto-install and start parsers for unknown filetypes
-		vim.api.nvim_create_autocmd({ "FileType" }, {
-			desc = "Enable Treesitter",
+		vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 			callback = function(event)
 				local bufnr = event.buf
-				local filetype = vim.bo[bufnr].filetype
+				local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
+
 				-- Skip if no filetype
 				if filetype == "" then
 					return
 				end
-				-- Set values to ignore ft
-				---@diagnostic disable-next-line: unused-local
-				local ignore_fts = {}
 
 				-- Get parser name based on filetype
-				local parser_name = vim.treesitter.language.get_lang(filetype)
+				local parser_name = vim.treesitter.language.get_lang(filetype) -- WARNING: might return filetype (not helpful)
 				if not parser_name then
-					utils.notify(vim.inspect("No treesitter parser found for filetype: " .. filetype), "WARN", "Treesitter")
+					-- vim.notify(
+					--   "Filetype " .. vim.inspect(filetype) .. " has no parser registered",
+					--   vim.log.levels.WARN,
+					--   { title = "core/treesitter" }
+					-- )
 					return
 				end
 
-				-- Try to get existing parser
+				-- vim.notify(
+				--   vim.inspect("Successfully got parser " .. parser_name .. " for filetype " .. filetype),
+				--   vim.log.levels.DEBUG,
+				--   { title = "core/treesitter" }
+				-- )
+
+				-- Check if parser_name is available in parser configs
 				local parser_configs = require("nvim-treesitter.parsers")
-				if not parser_configs[parser_name] then
-					return -- Parser not available, skip silently
+				local parser_can_be_used = parser_configs[parser_name]
+				if not parser_can_be_used then
+					-- vim.notify(
+					--   "Parser config does not have parser " .. vim.inspect(parser_name) .. ", skipping",
+					--   vim.log.levels.WARN,
+					--   { title = "core/treesitter" }
+					-- )
+					return -- Parser not ailable, skip silently
 				end
 
-				local parser_exists = pcall(vim.treesitter.get_parser, bufnr, parser_name)
+				local parser_installed = vim.treesitter.get_parser(bufnr, parser_name) ~= nil
 
-				if not parser_exists then
-					-- check if parser is already installed
-					if vim.tbl_contains(already_installed, parser_name) then
-						vim.notify("Parser for " .. parser_name .. " already installed.", vim.log.levels.INFO)
-					else
-						vim.notify("Installing parser for " .. parser_name, vim.log.levels.INFO)
-						ts.install({ parser_name })
+				-- If not installed, install parser synchronously
+				if not parser_installed then
+					require("nvim-treesitter").install({ parser_name }):wait(30000)
+					if vim.fn.has("mac") == 1 then
+						local parser_path = vim.fn.stdpath("data") .. "/site/parser/" .. parser_name .. ".so"
+						if vim.fn.filereadable(parser_path) == 1 then
+							vim.fn.system({ "codesign", "--force", "--sign", "-", parser_path })
+						end
 					end
 				end
 
+				-- Check so tree-sitter can see the newly installed parser
+				parser_installed = vim.treesitter.get_parser(bufnr, parser_name) ~= nil
+				if not parser_installed then
+					vim.notify(
+					"Failed to get parser for " .. parser_name .. " after installation",
+					vim.log.levels.WARN,
+					{ title = "core/treesitter" }
+					)
+					return
+				end
+
+				-- Start treesitter for this buffer
 				vim.treesitter.start(bufnr, parser_name)
-				-- vim.wo.foldtext = "v:lua.vim.treesitter.foldtext()"
-				-- vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 			end,
 		})
 	end,
