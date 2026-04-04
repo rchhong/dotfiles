@@ -1,6 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-    branch = "main",
+	branch = "main",
 	lazy = false,
 	build = ":TSUpdate",
 	opts = {
@@ -27,8 +27,7 @@ return {
 		local ts = require("nvim-treesitter")
 		local ensure_installed = opts["ensure_installed"]
 		local already_installed = ts.get_installed("parsers")
-		local parsers_to_install = vim
-			.iter(ensure_installed)
+		local parsers_to_install = vim.iter(ensure_installed)
 			:filter(function(parser)
 				return not vim.tbl_contains(already_installed, parser)
 			end)
@@ -92,9 +91,9 @@ return {
 				parser_installed = vim.treesitter.get_parser(bufnr, parser_name) ~= nil
 				if not parser_installed then
 					vim.notify(
-					"Failed to get parser for " .. parser_name .. " after installation",
-					vim.log.levels.WARN,
-					{ title = "core/treesitter" }
+						"Failed to get parser for " .. parser_name .. " after installation",
+						vim.log.levels.WARN,
+						{ title = "core/treesitter" }
 					)
 					return
 				end

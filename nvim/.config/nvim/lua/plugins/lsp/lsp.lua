@@ -149,14 +149,13 @@ return {
 	config = function(_, opts)
 		local lspconfig = require("lspconfig")
 		for server, config in pairs(opts.servers) do
-            vim.lsp.config(server, config)
+			vim.lsp.config(server, config)
 		end
 
 		vim.diagnostic.config({
 			virtual_lines = {
-				current_line = true
-			}
+				current_line = true,
+			},
 		})
-
-	end
+	end,
 }

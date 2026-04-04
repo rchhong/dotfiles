@@ -6,13 +6,13 @@ return {
 	},
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
-        -- Refer to https://github.com/mason-org/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/filetype_mappings.lua
+		-- Refer to https://github.com/mason-org/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/filetype_mappings.lua
 		ensure_installed = {
 			-- Python
 			"ruff",
 			"ty",
 			-- Lua
-            "lua_ls",
+			"lua_ls",
 			"stylua",
 			-- C
 			"clangd",
@@ -20,19 +20,18 @@ return {
 			"sqruff",
 			-- Golang
 			"gopls",
-            -- Docker
+			-- Docker
 			"docker_language_server",
 			"docker_compose_language_service",
-            -- Terraform
+			-- Terraform
 			"terraformls",
 			-- TS/JS
 			"ts_ls",
 			"tailwindcss",
 			"eslint",
-            "emmet_ls"
+			"emmet_ls",
 			-- Rust
 			-- "rust_analyzer"
 		},
 	},
 }
-

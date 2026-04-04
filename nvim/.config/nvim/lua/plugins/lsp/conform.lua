@@ -48,7 +48,7 @@ return {
 		formatters = {
 			ruff_fix = {
 				append_args = { "--extend-select", "E", "--extend-select", "I", "--extend-select", "D" },
-			}
+			},
 		},
 	},
 	init = function()

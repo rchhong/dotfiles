@@ -12,5 +12,5 @@ return {
 				{ path = "lazy.nvim", words = { "LazyVim" } },
 			},
 		},
-	}
+	},
 }

@@ -42,7 +42,7 @@ return {
 			end,
 			desc = "Flash: toggle flash search",
 		},
-	-- Simulate nvim-treesitter incremental selection
+		-- Simulate nvim-treesitter incremental selection
 		{
 			"<c-space>",
 			mode = { "n", "o", "x" },
@@ -50,11 +50,11 @@ return {
 				require("flash").treesitter({
 					actions = {
 						["<c-space>"] = "next",
-						["<BS>"] = "prev"
-					}
+						["<BS>"] = "prev",
+					},
 				})
 			end,
-			desc = "Treesitter Incremental Selection"
+			desc = "Treesitter Incremental Selection",
 		},
 	},
 	opts = {},
