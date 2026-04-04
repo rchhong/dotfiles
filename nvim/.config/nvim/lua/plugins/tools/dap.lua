@@ -12,119 +12,119 @@ return {
 	},
 	keys = {
 		{
-			"<leader>dbB",
+			"<leader>dB",
 			function()
 				require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
 			end,
 			desc = "DAP: Breakpoint Condition",
 		},
 		{
-			"<leader>dbb",
+			"<leader>db",
 			function()
 				require("dap").toggle_breakpoint()
 			end,
 			desc = "DAP: Toggle Breakpoint",
 		},
 		{
-			"<leader>dbc",
+			"<leader>dc",
 			function()
 				require("dap").continue()
 			end,
 			desc = "DAP: Continue",
 		},
 		{
-			"<leader>dba",
+			"<leader>da",
 			function()
 				require("dap").continue({ before = get_args })
 			end,
 			desc = "DAP: Run with Args",
 		},
 		{
-			"<leader>dbC",
+			"<leader>dC",
 			function()
 				require("dap").run_to_cursor()
 			end,
 			desc = "DAP: Run to Cursor",
 		},
 		{
-			"<leader>dbg",
+			"<leader>dg",
 			function()
 				require("dap").goto_()
 			end,
 			desc = "DAP: Go to line (no execute)",
 		},
 		{
-			"<leader>dbi",
+			"<leader>di",
 			function()
 				require("dap").step_into()
 			end,
 			desc = "DAP: Step Into",
 		},
 		{
-			"<leader>dbj",
+			"<leader>dj",
 			function()
 				require("dap").down()
 			end,
 			desc = "DAP: Down",
 		},
 		{
-			"<leader>dbk",
+			"<leader>dk",
 			function()
 				require("dap").up()
 			end,
 			desc = "DAP: Up",
 		},
 		{
-			"<leader>dbl",
+			"<leader>dl",
 			function()
 				require("dap").run_last()
 			end,
 			desc = "DAP: Run Last",
 		},
 		{
-			"<leader>dbo",
+			"<leader>do",
 			function()
 				require("dap").step_out()
 			end,
 			desc = "DAP: Step Out",
 		},
 		{
-			"<leader>dbO",
+			"<leader>dO",
 			function()
 				require("dap").step_over()
 			end,
 			desc = "DAP: Step Over",
 		},
 		{
-			"<leader>dbp",
+			"<leader>dp",
 			function()
 				require("dap").pause()
 			end,
 			desc = "DAP: Pause",
 		},
 		{
-			"<leader>dbr",
+			"<leader>dr",
 			function()
 				require("dap").repl.toggle()
 			end,
 			desc = "DAP: Toggle REPL",
 		},
 		{
-			"<leader>dbs",
+			"<leader>ds",
 			function()
 				require("dap").session()
 			end,
 			desc = "DAP: Session",
 		},
 		{
-			"<leader>dbt",
+			"<leader>dt",
 			function()
 				require("dap").terminate()
 			end,
 			desc = "DAP: Terminate",
 		},
 		{
-			"<leader>dbw",
+			"<leader>dw",
 			function()
 				require("dap.ui.widgets").hover()
 			end,

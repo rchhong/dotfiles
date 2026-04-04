@@ -5,14 +5,14 @@ return {
 	},
 	keys = {
 		{
-			"<leader>dbu",
+			"<leader>du",
 			function()
 				require("dapui").toggle()
 			end,
 			desc = "DAP UI: Toggle UI",
 		},
 		{
-			"<leader>dbe",
+			"<leader>de",
 			function()
 				require("dapui").eval()
 			end,
