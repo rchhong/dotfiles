@@ -96,7 +96,4 @@ return {
 			default_method = "molten",
 		},
 	},
-	config = function(_, opts)
-		require("quarto").setup(opts)
-	end,
 }

@@ -11,8 +11,5 @@ return {
 			set_filetype = true,
 			write_to_disk = true,
 		},
-	},
-	config = function(_, opts)
-		require("otter").setup(opts)
-	end,
+	}
 }

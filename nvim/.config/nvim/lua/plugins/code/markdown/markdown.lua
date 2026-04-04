@@ -1,5 +1,5 @@
 return {
-	"MeanderingProgrammer/markdown.nvim",
+	"MeanderingProgrammer/render-markdown.nvim",
 	build = {
 		'micromamba run -a "" -n base pip install pylatexenc',
 	},
@@ -11,8 +11,6 @@ return {
 		enabled = false,
 		file_type = { "markdown", "quarto" },
 	},
-	main = "render-markdown",
-	name = "render-markdown",
 	cmd = { "RenderMarkdown" },
 	keys = {
 		{

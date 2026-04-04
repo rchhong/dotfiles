@@ -19,5 +19,4 @@ return {
 			split = "auto",
 		},
 	},
-	config = true,
 }

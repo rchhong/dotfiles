@@ -6,7 +6,7 @@ return {
 	},
 	keys = {
 		{
-			"<leader>ha",
+			"<leader>H",
 			function()
 				require("harpoon"):list():add()
 			end,
@@ -86,41 +86,27 @@ return {
 			desc = "Harpoon: Jump to file 9",
 		},
 		{
-			"<leader>hn",
+			"<leader>h",
 			function()
-				require("harpoon"):list():next()
-			end,
-			mode = { "n" },
-			desc = "Harpoon: Jump to next buffer",
-		},
-		{
-			"<leader>hp",
-			function()
-				require("harpoon"):list():prev()
-			end,
-			mode = { "n" },
-			desc = "Harpoon: Jump to previous buffer",
-		},
-		{
-			"<leader>hl",
-			function()
-				require("harpoon.ui"):toggle_quick_menu(require("harpoon"):list())
+				local harpoon = require('harpoon')
+				harpoon.ui:toggle_quick_menu(harpoon:list())
 			end,
 			mode = { "n" },
 			desc = "Harpoon: Show all harpoon marks",
 		},
 	},
+	opts = {
+		settings = {
+			save_on_toggle = true,
+			sync_on_ui_close = false,
+			key = function()
+				return vim.loop.cwd()
+			end,
+		},
+	},
 	config = function(_, opts)
 		local harpoon = require("harpoon")
-		harpoon:setup({
-			settings = {
-				save_on_toggle = false,
-				sync_on_ui_close = false,
-				key = function()
-					return vim.loop.cwd()
-				end,
-			},
-		})
+		harpoon:setup(opts)
 
 		harpoon:extend({
 			UI_CREATE = function(cx)

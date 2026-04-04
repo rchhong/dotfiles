@@ -13,9 +13,6 @@ return {
 	-- If you use nix, you can build from source using latest nightly rust with:
 	-- build = 'nix run .#build-plugin',
 
-	config = function(_, opts)
-		require("blink.cmp").setup(opts)
-	end,
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
@@ -77,5 +74,4 @@ return {
 			},
 		},
 	},
-	opts_extend = { "sources.default" },
 }

@@ -24,5 +24,4 @@ return {
 			},
 		},
 	},
-	config = true,
 }

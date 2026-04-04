@@ -148,15 +148,7 @@ return {
 	},
 	config = function(_, opts)
 		local lspconfig = require("lspconfig")
-
-		require("mason").setup({})
-		require("mason-lspconfig").setup({})
-
 		for server, config in pairs(opts.servers) do
-            local config = vim.tbl_deep_extend("force", {
-                capabilities = require("blink.cmp").get_lsp_capabilities(),
-            }, config)
-
             vim.lsp.config(server, config)
 		end
 

@@ -17,8 +17,14 @@ return {
 			end,
 			desc = "Todo/Fix/Fixme",
 		},
-
-		{ "<leader>xt", "<cmd>Trouble todo<cr>", desc = "TodoTrouble Toggle", mode = { "n" } },
+		{
+			"<leader>xt",
+			function()
+				require("trouble").toggle("todo")
+			end,
+			mode = { "n" },
+			desc = "TodoTrouble Toggle",
+		},
 	},
 	opts = {
 		signs = false,
