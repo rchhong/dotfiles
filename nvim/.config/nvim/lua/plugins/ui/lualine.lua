@@ -1,9 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
-	dependencies = {
-		"nvim-mini/mini.icons",
-	},
 	opts = function()
 		--- @param always_truncate boolean always truncate
 		--- @param trunc_width number truncates component when screen width is less then trunc_width

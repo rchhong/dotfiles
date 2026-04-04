@@ -1,9 +1,6 @@
 return {
 	"akinsho/bufferline.nvim",
 	event = "VeryLazy",
-	dependencies = {
-		{ "catppuccin/nvim", name = "catppuccin" },
-	},
 	keys = {
 		{ "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Bufferline: Toggle pin" },
 		{ "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Bufferline: Delete non-pinned buffers" },

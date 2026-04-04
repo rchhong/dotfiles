@@ -1,8 +1,5 @@
 return {
 	"folke/snacks.nvim",
-	dependencies = {
-		"folke/trouble.nvim",
-	},
 	lazy = false,
 	opts = function(_, opts)
 		return {

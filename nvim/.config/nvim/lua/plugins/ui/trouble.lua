@@ -3,9 +3,6 @@ return {
 	cmd = {
 		"TroubleToggle",
 	},
-	dependencies = {
-		"nvim-mini/mini.icons",
-	},
 	keys = {
 		{
 			"<leader>xx",

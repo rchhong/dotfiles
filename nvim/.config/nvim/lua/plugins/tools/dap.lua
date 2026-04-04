@@ -1,8 +1,14 @@
 return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter",
+		-- TODO: use mason-nvim-dap to automatically define everything in here
 		"mfussenegger/nvim-dap-python",
+		"rcarriga/nvim-dap-ui",
+		-- virtual text for the debugger
+		{
+			"theHamsta/nvim-dap-virtual-text",
+			opts = {},
+		},
 	},
 	keys = {
 		{

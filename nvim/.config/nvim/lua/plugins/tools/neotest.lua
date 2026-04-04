@@ -1,11 +1,14 @@
 return {
 	"nvim-neotest/neotest",
 	dependencies = {
-		{ "nvim-neotest/nvim-nio", version = "1.9.0" },
-		"nvim-treesitter/nvim-treesitter",
+		"nvim-neotest/nvim-nio",
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
+		"nvim-treesitter/nvim-treesitter",
+
+		-- Language specific implementations
 		"nvim-neotest/neotest-python",
+		"fredrikaverpil/neotest-golang",
 	},
 	keys = {
 		{

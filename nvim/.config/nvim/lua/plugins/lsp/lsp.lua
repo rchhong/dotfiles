@@ -7,10 +7,7 @@ return {
 		{ "williamboman/mason-lspconfig.nvim" },
 
 		-- Helpers for nvim config
-		{ "folke/lazydev.nvim", opts = {} },
-
-		-- Autocompletion
-		{ "saghen/blink.cmp" },
+		{ "folke/neoconf.nvim" },
 	},
 	keys = {
 		{

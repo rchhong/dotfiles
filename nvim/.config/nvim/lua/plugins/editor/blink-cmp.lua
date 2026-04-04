@@ -3,15 +3,7 @@ return {
 	event = "InsertEnter",
 	dependencies = {
 		-- Snippets
-		{ "nvim-mini/mini.snippets" },
 		{ "rafamadriz/friendly-snippets" },
-
-		-- For jupyter notebook
-		{ "jmbuhr/otter.nvim" },
-
-		-- Helpers for nvim config
-		{ "folke/lazydev.nvim", ft = "lua" },
-		{ "folke/sidekick.nvim" }
 	},
 
 	-- use a release tag to download pre-built binaries

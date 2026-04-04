@@ -1,9 +1,6 @@
 return {
 	"quarto-dev/quarto-nvim",
 	dependencies = {
-		"saghen/blink.cmp",
-		"neovim/nvim-lspconfig",
-		"nvim-treesitter/nvim-treesitter",
 		"jmbuhr/otter.nvim",
 	},
 	keys = {
