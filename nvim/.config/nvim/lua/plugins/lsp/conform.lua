@@ -45,14 +45,14 @@ return {
 			end
 			return { timeout_ms = 1000, lsp_fallback = true }
 		end,
-		formatters = {},
+		formatters = {
+			ruff_fix = {
+				append_args = { "--extend-select", "E", "--extend-select", "I", "--extend-select", "D" },
+			}
+		},
 	},
 	init = function()
 		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-
-		require("conform").formatters.ruff_fix = {
-			append_args = { "--extend-select", "E", "--extend-select", "I", "--extend-select", "D" },
-		}
 
 		vim.api.nvim_create_user_command("Format", function(args)
 			local range = nil
