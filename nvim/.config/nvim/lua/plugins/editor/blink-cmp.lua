@@ -25,13 +25,6 @@ return {
 		-- See the full "keymap" documentation for information on defining your own keymap.
 		keymap = {
 			preset = "enter",
-			['<Tab>'] = {
-				'snippet_forward',
-				function() -- sidekick next edit suggestion
-					return require("sidekick").nes_jump_or_apply()
-				end,
-				'fallback'
-			},
 		},
 		appearance = {
 			-- Sets the fallback highlight groups to nvim-cmp's highlight groups
