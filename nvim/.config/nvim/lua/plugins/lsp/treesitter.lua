@@ -1,164 +1,94 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-	keys = {
-		{ "<c-space>", desc = "Treesitter: Increment selection" },
-		{ "<bs>", desc = "Treesitter: Decrement selection", mode = "x" },
-	},
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"windwp/nvim-ts-autotag",
 		"nvim-treesitter/nvim-treesitter-context",
 	},
-	build = function()
-		require("nvim-treesitter.install").update({ with_sync = true })
-	end,
-	config = function()
-		require("nvim-treesitter.configs").setup({
-			-- A list of parser names, or "all" (the five listed parsers should always be installed)
-			ensure_installed = {
-				"c",
-				"lua",
-				"vim",
-				"vimdoc",
-				"query",
-				"markdown",
-				"markdown_inline",
-				"python",
-				"terraform",
-				"hcl",
-				"typescript",
-				"tsx",
-				"javascript",
-				"json",
-				"yaml",
-				"toml",
-			},
+    branch = "main",
+	lazy = false,
+	build = ":TSUpdate",
+	opts = {
+		ensure_installed = {
+			"c",
+			"lua",
+			"vim",
+			"vimdoc",
+			"query",
+			"markdown",
+			"markdown_inline",
+			"python",
+			"typescript",
+			"tsx",
+			"javascript",
+			"json",
+			"yaml",
+			"toml",
+			"go",
+		},
+	},
+	config = function(_, opts)
+		-- Install things in ensure_installed
+		local ts = require("nvim-treesitter")
+		local ensure_installed = opts["ensure_installed"]
+		local already_installed = ts.get_installed("parsers")
+		local parsers_to_install = vim
+			.iter(ensure_installed)
+			:filter(function(parser)
+				return not vim.tbl_contains(already_installed, parser)
+			end)
+			:totable()
+		ts.install(parsers_to_install)
 
-			-- Install parsers synchronously (only applied to `ensure_installed`)
-			sync_install = false,
+		-- Auto-install and start parsers for unknown filetypes
+		vim.api.nvim_create_autocmd({ "FileType" }, {
+			desc = "Enable Treesitter",
+			callback = function(event)
+				local bufnr = event.buf
+				local filetype = vim.bo[bufnr].filetype
+				-- Skip if no filetype
+				if filetype == "" then
+					return
+				end
+				-- Set values to ignore ft
+				---@diagnostic disable-next-line: unused-local
+				local ignore_fts = {}
 
-			-- Automatically install missing parsers when entering buffer
-			-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-			auto_install = true,
+				-- Get parser name based on filetype
+				local parser_name = vim.treesitter.language.get_lang(filetype)
+				if not parser_name then
+					utils.notify(vim.inspect("No treesitter parser found for filetype: " .. filetype), "WARN", "Treesitter")
+					return
+				end
 
-			-- List of parsers to ignore installing (for "all")
-			ignore_install = {},
+				-- Try to get existing parser
+				local parser_configs = require("nvim-treesitter.parsers")
+				if not parser_configs[parser_name] then
+					return -- Parser not available, skip silently
+				end
 
-			---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-			-- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+				local parser_exists = pcall(vim.treesitter.get_parser, bufnr, parser_name)
 
-			highlight = {
-				enable = true,
-
-				-- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-				-- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-				-- the name of the parser)
-				-- list of language that will be disabled
-				-- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-				disable = function(lang, buf)
-					local max_filesize = 100 * 1024 -- 100 KB
-					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-					if ok and stats and stats.size > max_filesize then
-						return true
+				if not parser_exists then
+					-- check if parser is already installed
+					if vim.tbl_contains(already_installed, parser_name) then
+						vim.notify("Parser for " .. parser_name .. " already installed.", vim.log.levels.INFO)
+					else
+						vim.notify("Installing parser for " .. parser_name, vim.log.levels.INFO)
+						ts.install({ parser_name })
 					end
+				end
 
-					local to_disable = {}
-					for _, value in pairs(to_disable) do
-						if lang == value then
-							return true
-						end
-					end
-
-					return false
-				end,
-
-				-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-				-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-				-- Using this option may slow down your editor, and you may see some duplicate highlights.
-				-- Instead of true it can also be a list of languages
-				additional_vim_regex_highlighting = false,
-			},
-			indent = {
-				enable = true,
-			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<C-space>",
-					node_incremental = "<C-space>",
-					scope_incremental = false,
-					node_decremental = "<bs>",
-				},
-			},
-			textobjects = {
-				lsp_interop = {
-					enable = true,
-					border = "none",
-					floating_preview_opts = {},
-					peek_definition_code = {
-						["<leader>df"] = { query = "@function.outer", desc = "Peek definition of outer function" },
-						["<leader>dc"] = { query = "@class.outer", desc = "Peek definition of outer class" },
-					},
-				},
-				move = {
-					enable = true,
-					set_jumps = true, -- whether to set jumps in the jumplist
-					goto_next_start = {
-						["]f"] = { query = "@function.outer", desc = "Go to start of next function" },
-						["]c"] = { query = "@class.outer", desc = "Go to start of next class" },
-						["]p"] = { query = "@parameter.outer", desc = "Go to start of next parameter" },
-						["]b"] = { query = "@code_cell.inner", desc = "Go to start of next code block" },
-					},
-					goto_next_end = {
-						["]F"] = { query = "@function.outer", desc = "Go to end of next function" },
-						["]C"] = { query = "@class.outer", desc = "Go to end of next class" },
-						["]P"] = { query = "@parameter.outer", desc = "Go to end of next parameter" },
-						["]B"] = { query = "@code_cell.inner", desc = "Go to end of next code block" },
-					},
-					goto_previous_start = {
-						["[f"] = { query = "@function.outer", desc = "Go to start of previous function" },
-						["[c"] = { query = "@class.outer", desc = "Go to start of previous class" },
-						["[p"] = { query = "@parameter.outer", desc = "Go to start of previous parameter" },
-						["[b"] = { query = "@code_cell.inner", desc = "Go to start of previous code block" },
-					},
-					goto_previous_end = {
-						["[F"] = { query = "@function.outer", desc = "Go to end of previous function" },
-						["[C"] = { query = "@class.outer", desc = "Go to end of previous class" },
-						["[P"] = { query = "@parameter.outer", desc = "Go to end of previous parameter" },
-						["[B"] = { query = "@code_cell.inner", desc = "Go to end of previous code block" },
-					},
-				},
-				select = {
-					enable = true,
-					lookahead = true, -- you can change this if you want
-					keymaps = {
-						["ib"] = { query = "@code_cell.inner", desc = "Select in block" },
-						["ab"] = { query = "@code_cell.outer", desc = "Select around block" },
-					},
-				},
-				swap = { -- Swap only works with code blocks that are under the same
-					-- markdown header
-					enable = true,
-					swap_next = {
-						["<leader>sbl"] = "@code_cell.outer",
-					},
-					swap_previous = {
-						["<leader>sbh"] = "@code_cell.outer",
-					},
-				},
-			},
-			autotag = {
-				enable = true,
-			},
+				vim.treesitter.start(bufnr, parser_name)
+				-- vim.wo.foldtext = "v:lua.vim.treesitter.foldtext()"
+				-- vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
 		})
-
-	-- Re-attach treesitter to already-open buffers.
-	-- When a file is opened via snacks picker, BufReadPost fires to trigger lazy-loading
-	-- treesitter, but by the time treesitter finishes loading and registers its autocmds,
-	-- that BufReadPost event has already passed. Re-firing it here ensures the first
-	-- buffer gets highlighted without needing a manual :e.
-	vim.api.nvim_exec_autocmds("BufReadPost", { buffer = vim.api.nvim_get_current_buf() })
+		-- Re-attach treesitter to already-open buffers.
+		-- When a file is opened via snacks picker, BufReadPost fires to trigger lazy-loading
+		-- treesitter, but by the time treesitter finishes loading and registers its autocmds,
+		-- that BufReadPost event has already passed. Re-firing it here ensures the first
+		-- buffer gets highlighted without needing a manual :e.
+		vim.api.nvim_exec_autocmds("BufReadPost", { buffer = vim.api.nvim_get_current_buf() })
 	end,
 }
