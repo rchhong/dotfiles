@@ -1,8 +1,6 @@
 return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
-		-- TODO: use mason-nvim-dap to automatically define everything in here
-		"mfussenegger/nvim-dap-python",
 		"rcarriga/nvim-dap-ui",
 		-- virtual text for the debugger
 		{
@@ -132,111 +130,12 @@ return {
 		},
 	},
 	config = function()
-		-- python
-		require("dap-python").setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
+		-- setup dap config by VsCode launch.json file
+		local vscode = require("dap.ext.vscode")
+		local json = require("plenary.json")
+		vscode.json_decode = function(str)
+		return vim.json.decode(json.json_strip_comments(str))
+		end
 
-		-- firefox debugger
-		local dap = require("dap")
-
-		dap.adapters.firefox = {
-			type = "executable",
-			command = "bash",
-			args = { vim.fn.stdpath("data") .. "/mason/bin/firefox-debug-adapter" },
-		}
-
-		-- Node
-		dap.adapters["pwa-node"] = {
-			type = "server",
-			host = "localhost",
-			port = "${port}",
-			executable = {
-				command = "bash",
-				-- 💀 Make sure to update this path to point to your installation
-				args = { vim.fn.stdpath("data") .. "/mason/bin/js-debug-adapter", "${port}" },
-			},
-		}
-
-		dap.configurations.typescript = {
-			{
-				type = "pwa-node",
-				request = "launch",
-				name = "Launch file",
-				program = "${file}",
-				cwd = "${workspaceFolder}",
-			},
-			{
-				name = "Debug with Firefox",
-				type = "firefox",
-				request = "launch",
-				reAttach = true,
-				url = "http://localhost:3000",
-				webRoot = "${workspaceFolder}",
-				-- TODO: Change this
-				firefoxExecutable = "/usr/bin/firefox",
-			},
-		}
-
-		dap.configurations.javascript = {
-			{
-				type = "pwa-node",
-				request = "launch",
-				name = "Launch file",
-				program = "${file}",
-				cwd = "${workspaceFolder}",
-			},
-			{
-				name = "Debug with Firefox",
-				type = "firefox",
-				request = "launch",
-				reAttach = true,
-				url = "http://localhost:3000",
-				webRoot = "${workspaceFolder}",
-				-- TODO: Change this
-				firefoxExecutable = "/usr/bin/firefox",
-			},
-		}
-
-		-- For web browsers, need to assign browser to ts/js
-		require("dap.ext.vscode").load_launchjs(nil, {
-			firefox = { "typescript", "javascript" },
-			chrome = { "typescript", "javascript" },
-		})
-
-		-- Go
-		dap.adapters.delve = {
-			type = "server",
-			port = "${port}",
-			executable = {
-				command = "dlv",
-				args = { "dap", "-l", "127.0.0.1:${port}" },
-				-- add this if on windows, otherwise server won't open successfully
-				-- detached = false
-			},
-		}
-
-		-- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
-		dap.configurations.go = {
-			{
-				type = "delve",
-				name = "Debug",
-				request = "launch",
-				program = "${file}",
-			},
-			{
-				type = "delve",
-				name = "Debug test", -- configuration for debugging test files
-				request = "launch",
-				mode = "test",
-				program = "${file}",
-			},
-			-- works with go.mod packages and sub packages
-			{
-				type = "delve",
-				name = "Debug test (go.mod)",
-				request = "launch",
-				mode = "test",
-				program = "./${relativeFileDirname}",
-			},
-		}
 	end,
 }

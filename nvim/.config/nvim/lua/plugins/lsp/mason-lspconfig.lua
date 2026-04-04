@@ -5,42 +5,32 @@ return {
 		"neovim/nvim-lspconfig",
 	},
 	opts = {
+        -- Refer to https://github.com/mason-org/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/filetype_mappings.lua
 		ensure_installed = {
 			-- Python
 			"ruff",
 			"ty",
-			"debugpy",
-			-- TS/JS
-			"firefox-debug-adapter",
-			"js-debug-adapter",
-			"prettierd",
-			"typescript-language-server",
-			"emmet-ls",
-			"tailwindcss-language-server",
-			"eslint-lsp",
-			"svelte-language-server",
-			-- Terraform
-			"terraform-ls",
-			-- Docker
-			"docker-compose-language-service",
-			"dockerfile-language-server",
 			-- Lua
+            "lua_ls",
 			"stylua",
-			"lua-language-server",
 			-- C
 			"clangd",
-			"clang-format",
 			-- SQL
 			"sqruff",
-			-- Copilot
-			"copilot-language-server",
 			-- Golang
 			"gopls",
-			"goimports",
-			"go-debug-adapter",
-			"delve",
+            -- Docker
+			"docker_language_server",
+			"docker_compose_language_service",
+            -- Terraform
+			"terraformls",
+			-- TS/JS
+			"ts_ls",
+			"tailwindcss",
+			"eslint",
+            "emmet_ls"
 			-- Rust
-			-- "rust-analyzer"
+			-- "rust_analyzer"
 		},
 	},
 }
