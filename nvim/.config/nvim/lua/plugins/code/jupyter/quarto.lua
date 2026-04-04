@@ -101,6 +101,5 @@ return {
 	},
 	config = function(_, opts)
 		require("quarto").setup(opts)
-		require("quarto").activate()
 	end,
 }
