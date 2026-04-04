@@ -9,3 +9,6 @@ brew install fish
 
 # Add fish to known shells
 command -v fish | sudo tee -a /etc/shells
+
+# Change default shell to fish
+chsh -s $(which fish)
