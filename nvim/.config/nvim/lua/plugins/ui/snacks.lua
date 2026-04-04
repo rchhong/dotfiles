@@ -207,24 +207,8 @@ return {
 					.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
 					:map("<leader>uc")
 				Snacks.toggle.inlay_hints():map("<leader>uh")
-				Snacks.toggle({
-					name = "Git Signs",
-					get = function()
-						return require("gitsigns.config").config.signcolumn
-					end,
-					set = function(state)
-						require("gitsigns").toggle_signs(state)
-					end,
-				}):map("<leader>uG")
 				Snacks.toggle.treesitter():map("<leader>uT")
 				Snacks.toggle.indent():map("<leader>ug")
-				-- Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-				-- Snacks.toggle.line_number():map("<leader>ul")
-				-- Snacks.toggle
-				-- 	.option("background", { off = "light", on = "dark", name = "Dark Background" })
-				-- 	:map("<leader>ub")
-				--
-				-- Snacks.toggle.dim():map("<leader>uD")
 			end,
 		})
 

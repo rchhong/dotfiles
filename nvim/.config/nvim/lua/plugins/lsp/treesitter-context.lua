@@ -19,4 +19,21 @@ return {
         zindex = 20, -- The Z-index of the context window
         on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
     },
+    config = function(_, opts)
+        local tsc = require('treesitter-context')
+
+        tsc.setup(opts)
+
+        Snacks.toggle({
+            name = "Treesitter Context",
+            get = tsc.enabled,
+            set = function(state)
+                if state then
+                    tsc.enable()
+                else
+                    tsc.disable()
+                end
+            end,
+        }):map("<leader>ut")
+    end
 }

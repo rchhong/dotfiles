@@ -1,6 +1,9 @@
 return {
 	"lewis6991/gitsigns.nvim",
 	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+  dependencies = {
+    "folke/snacks.nvim"
+  },
 	opts = {
 		signs = {
 			add = { text = "▎" },
@@ -54,4 +57,17 @@ return {
       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
 		end,
 	},
+  config = function(_, opts)
+    require('gitsigns').setup(opts)
+
+    Snacks.toggle({
+      name = "Git Signs",
+      get = function()
+        return require("gitsigns.config").config.signcolumn
+      end,
+      set = function(state)
+        require("gitsigns").toggle_signs(state)
+      end,
+    }):map("<leader>uG")
+  end
 }
