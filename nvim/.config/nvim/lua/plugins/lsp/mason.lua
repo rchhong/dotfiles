@@ -2,7 +2,7 @@
 return {
 	"williamboman/mason.nvim",
 	cmd = "Mason",
-	-- keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+	keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
 	build = ":MasonUpdate",
 	opts = {
 		ensure_installed = {
@@ -43,7 +43,4 @@ return {
 			-- "rust-analyzer"
 		},
 	},
-	config = function(_, opts)
-		require("mason").setup(opts)
-	end,
 }
