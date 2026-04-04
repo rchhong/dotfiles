@@ -1,5 +1,9 @@
 return {
     "nvim-treesitter/nvim-treesitter-context",
+	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    dependencies = {
+        "folke/snacks.nvim"
+    },
     opts = {
         enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
         multiwindow = false, -- Enable multiwindow support.

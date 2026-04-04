@@ -4,6 +4,7 @@ return {
 		"mason-org/mason.nvim",
 		"neovim/nvim-lspconfig",
 	},
+	event = { "BufReadPre", "BufNewFile" },
 	opts = {
         -- Refer to https://github.com/mason-org/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/filetype_mappings.lua
 		ensure_installed = {

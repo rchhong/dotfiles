@@ -1,5 +1,6 @@
 return {
     "windwp/nvim-ts-autotag",
+	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     opts = {
         -- I have to do this to get rid of an annoying warning
         opts = {
