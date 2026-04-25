@@ -1,4 +1,4 @@
 cask "ghostty"
 cask "gpg-suite"
-cask "yaak"
 cask "visual-studio-code"
+cask "yaak"

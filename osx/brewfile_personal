@@ -1,6 +1,5 @@
 tap "homebrew/cask-drivers"
 
-brew "altserver"
 brew "doctl"
 brew "mas"
 brew "qmk/qmk/qmk"
