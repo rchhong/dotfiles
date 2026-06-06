@@ -14,6 +14,8 @@ return {
 			-- TS/JS
 			"firefox-debug-adapter",
 			"js",
+			-- Rust
+			"codelldb"
 		},
 		-- https://codeberg.org/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 		handlers = {

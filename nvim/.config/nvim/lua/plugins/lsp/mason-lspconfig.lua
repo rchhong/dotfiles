@@ -31,7 +31,7 @@ return {
 			"eslint",
 			"emmet_ls",
 			-- Rust
-			-- "rust_analyzer"
+			"rust_analyzer"
 		},
 	},
 }
