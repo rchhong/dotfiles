@@ -74,6 +74,8 @@ return {
 			quickfile = { enabled = true },
 			-- Auto show LSP references + navigate between them
 			words = { enabled = true },
+			-- Image support
+			image = {}
 		}
 	end,
   -- stylua: ignore

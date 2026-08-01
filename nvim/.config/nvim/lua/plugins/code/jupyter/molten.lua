@@ -67,7 +67,7 @@ return {
 		vim.g.molten_auto_open_output = false
 
 		-- Don't forget to setup and install the plugin if you want to view image outputs
-		vim.g.molten_image_provider = "image.nvim"
+		vim.g.molten_image_provider = "snacks.nvim"
 		vim.g.molten_use_border_highlights = true
 
 		-- optional, I like wrapping. works for virt text and the output window
