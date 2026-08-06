@@ -32,6 +32,7 @@
     editor = nvim
     # Use delta
     pager = delta
+	autocrlf = input
 [commit]
     # Sign commits
     gpgsign = true
